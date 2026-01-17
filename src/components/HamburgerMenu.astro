@@ -11,10 +11,19 @@
 
     <nav class="nav-overlay">
         <ul class="nav-links">
-            <li style="--i:1;"><a href="/">Inicio</a></li>
-            <li style="--i:2;"><a href="/products">Productos y Ofertas</a></li>
-            <li style="--i:3;"><a href="/blog">Blog</a></li>
-            <li style="--i:4;"><a href="/#contact">Contacto</a></li>
+            <li style="--i:1;">
+                <a href={import.meta.env.BASE_URL}>Inicio</a>
+            </li>
+            <li style="--i:2;">
+                <a href={`${import.meta.env.BASE_URL}/products`}
+                    >Productos y Ofertas</a>
+            </li>
+            <li style="--i:3;">
+                <a href={`${import.meta.env.BASE_URL}/blog`}>Blog</a>
+            </li>
+            <li style="--i:4;">
+                <a href={`${import.meta.env.BASE_URL}/#contact`}>Contacto</a>
+            </li>
         </ul>
         <div class="nav-decoration"></div>
     </nav>
