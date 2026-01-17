@@ -1,0 +1,98 @@
+---
+interface Props {
+    title: string;
+    price: number;
+    discountPrice?: number;
+    description: string;
+}
+
+const { title, price, discountPrice, description } = Astro.props;
+---
+
+<div class="product-card fade-in">
+    <div class="card-content">
+        <h3 class="product-title">{title}</h3>
+        <p class="product-desc">{description}</p>
+        <div class="price-container">
+            {
+                discountPrice ? (
+                    <>
+                        <span class="original-price">{price.toFixed(2)}€</span>
+                        <span class="discount-price">
+                            {discountPrice.toFixed(2)}€
+                        </span>
+                    </>
+                ) : (
+                    <span class="price">{price.toFixed(2)}€</span>
+                )
+            }
+        </div>
+        <button class="btn btn-primary card-btn">Ver Oferta</button>
+    </div>
+</div>
+
+<style>
+    .product-card {
+        background: #fff;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+        transition:
+            transform var(--transition-fast),
+            box-shadow var(--transition-fast);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .card-content {
+        padding: var(--spacing-lg);
+    }
+
+    .product-title {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-text);
+    }
+
+    .product-desc {
+        color: #666;
+        margin-bottom: var(--spacing-md);
+        font-size: 0.95rem;
+    }
+
+    .price-container {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .original-price {
+        text-decoration: line-through;
+        color: #999;
+        font-size: 1rem;
+    }
+
+    .discount-price {
+        color: #e74c3c; /* Red for discount */
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .price {
+        color: var(--color-text);
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .card-btn {
+        width: 100%;
+    }
+</style>

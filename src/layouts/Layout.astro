@@ -1,0 +1,77 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const {
+    title,
+    description = "Farmacia Albiñana - Tu farmacia de confianza en Bétera.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/jpeg" href="/favicon.jpeg" />
+        <meta name="generator" content={Astro.generator} />
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>{title}</title>
+        <ClientRouter />
+    </head>
+    <body>
+        <slot />
+        <script>
+            // Function to setup Intersection Observer
+            function setupObserver() {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: "0px",
+                    threshold: 0.1,
+                };
+
+                const observer = new IntersectionObserver(
+                    (entries, observer) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("visible");
+                                observer.unobserve(entry.target); // Only animate once
+                            }
+                        });
+                    },
+                    observerOptions,
+                );
+
+                const elements = document.querySelectorAll(".fade-in");
+                elements.forEach((el) => observer.observe(el));
+            }
+
+            // Setup on initial load
+            setupObserver();
+
+            // Setup on View Transition navigation
+            document.addEventListener("astro:page-load", setupObserver);
+        </script>
+    </body>
+</html>
+
+<style>
+    /* Ensure smooth scrolling for local anchors */
+    html {
+        scroll-behavior: smooth;
+    }
+</style>

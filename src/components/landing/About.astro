@@ -1,0 +1,61 @@
+---
+
+---
+
+<section id="about" class="section about-section">
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <p class="about-text">
+                En <strong>Farmacia Albiñana</strong>, combinamos la tradición
+                farmacéutica con la innovación para ofrecerte el mejor servicio.
+                Situados en el corazón de Bétera, llevamos años cuidando de la
+                salud de nuestros vecinos con un trato cercano y profesional.
+            </p>
+            <p class="about-text">
+                Nuestro equipo de expertos está siempre dispuesto a asesorarte,
+                ya sea en medicamentos, dermocosmética o nutrición. Tu bienestar
+                es nuestra razón de ser.
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .about-section {
+        background-color: #fff;
+    }
+
+    .content-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        color: var(--color-text);
+        margin-bottom: var(--spacing-lg);
+        position: relative;
+        display: inline-block;
+    }
+
+    .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background-color: var(--color-primary);
+        border-radius: 2px;
+    }
+
+    .about-text {
+        font-size: 1.15rem;
+        color: #555;
+        margin-bottom: var(--spacing-md);
+        line-height: 1.8;
+    }
+</style>

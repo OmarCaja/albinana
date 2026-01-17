@@ -1,0 +1,140 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Layout title="Blog | Farmacia Albiñana">
+    <Header />
+    <main class="blog-page">
+        <section class="section">
+            <div class="container">
+                <h1 class="page-title title-gradient">Blog de Salud</h1>
+                <p class="page-subtitle">
+                    Consejos, noticias y novedades para tu bienestar.
+                </p>
+
+                <div class="blog-grid">
+                    {
+                        posts.map((post) => (
+                            <article class="blog-card fade-in">
+                                <a href={`/blog/${post.id}`}>
+                                    <div class="card-content">
+                                        <div class="card-meta">
+                                            <time
+                                                datetime={post.data.pubDate.toISOString()}
+                                            >
+                                                {post.data.pubDate.toLocaleDateString(
+                                                    "es-ES",
+                                                    {
+                                                        year: "numeric",
+                                                        month: "long",
+                                                        day: "numeric",
+                                                    },
+                                                )}
+                                            </time>
+                                        </div>
+                                        <h2 class="card-title">
+                                            {post.data.title}
+                                        </h2>
+                                        <p class="card-desc">
+                                            {post.data.description}
+                                        </p>
+                                        <span class="read-more">
+                                            Leer más &rarr;
+                                        </span>
+                                    </div>
+                                </a>
+                            </article>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .blog-page {
+        padding-top: var(--header-height);
+        min-height: 80vh;
+    }
+
+    .page-title {
+        font-size: 3rem;
+        margin-bottom: var(--spacing-sm);
+        text-align: center;
+    }
+
+    .page-subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: var(--spacing-xl);
+        font-size: 1.2rem;
+    }
+
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: var(--spacing-lg);
+    }
+
+    .blog-card {
+        background: #fff;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+        transition:
+            transform var(--transition-fast),
+            box-shadow var(--transition-fast);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .blog-card a {
+        display: block;
+        height: 100%;
+        color: inherit;
+    }
+
+    .card-content {
+        padding: var(--spacing-lg);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .card-meta {
+        font-size: 0.85rem;
+        color: #999;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-text);
+    }
+
+    .card-desc {
+        color: #666;
+        margin-bottom: var(--spacing-md);
+        flex-grow: 1;
+    }
+
+    .read-more {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+        margin-top: auto;
+    }
+</style>

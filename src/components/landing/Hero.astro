@@ -1,0 +1,182 @@
+---
+
+---
+
+<section class="hero section">
+    <div class="container hero-container">
+        <div class="hero-content fade-in">
+            <span class="badge">Bienvenidos a Farmacia Albiñana</span>
+            <h1 class="hero-title">
+                Cuidamos de tu salud con <span class="highlight">cercanía</span> y
+                confianza.
+            </h1>
+            <p class="hero-subtitle">
+                Tu farmacia de referencia en Bétera. Atención personalizada y
+                los mejores productos para tu bienestar.
+            </p>
+            <div class="hero-actions">
+                <a href="/products" class="btn btn-primary">Ver Ofertas</a>
+                <a href="#contact" class="btn btn-outline">Contáctanos</a>
+            </div>
+        </div>
+        <div class="hero-visual fade-in">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <!-- Placeholder for a hero image or illustration if needed, simpler with abstract shapes -->
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        background: radial-gradient(
+            circle at top right,
+            rgba(188, 233, 248, 0.4) 0%,
+            rgba(255, 255, 255, 0) 70%
+        );
+        padding-top: calc(var(--header-height) + var(--spacing-xl));
+    }
+
+    .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+        align-items: center;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: rgba(188, 233, 248, 0.3);
+        color: #004d61;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: var(--spacing-md);
+        border: 1px solid var(--color-primary);
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .highlight {
+        color: #2980b9; /* A nice blue matching the palette */
+        position: relative;
+        z-index: 1;
+    }
+
+    .highlight::after {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: var(--color-primary);
+        z-index: -1;
+        opacity: 0.6;
+        border-radius: 4px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        color: #555;
+        margin-bottom: var(--spacing-lg);
+        max-width: 500px;
+    }
+
+    .hero-actions {
+        display: flex;
+        gap: var(--spacing-md);
+    }
+
+    .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        border: 2px solid var(--color-text);
+        background: transparent;
+        font-family: var(--font-heading);
+    }
+
+    .btn-outline:hover {
+        background: var(--color-text);
+        color: #fff;
+    }
+
+    .hero-visual {
+        position: relative;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.6;
+        z-index: -1;
+    }
+
+    .blob-1 {
+        width: 300px;
+        height: 300px;
+        background: var(--color-primary);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .blob-2 {
+        width: 200px;
+        height: 200px;
+        background: #a9dfed;
+        top: 30%;
+        right: 20%;
+        animation: float 8s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translate(-50%, -50%) translateY(0px);
+        }
+        50% {
+            transform: translate(-50%, -50%) translateY(-20px);
+        }
+        100% {
+            transform: translate(-50%, -50%) translateY(0px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-actions {
+            justify-content: center;
+        }
+    }
+</style>

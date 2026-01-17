@@ -1,0 +1,153 @@
+---
+
+---
+
+<section id="contact" class="section contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2 class="section-title">Contáctanos</h2>
+                <p class="contact-desc">
+                    Estamos aquí para ayudarte. Visítanos o ponte en contacto
+                    con nosotros.
+                </p>
+
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <span class="icon">📍</span>
+                        <div class="details">
+                            <strong>Dirección</strong>
+                            <a
+                                href="https://www.google.com/maps/search/?api=1&query=Avinguda+del+País+Valencià,+40,+46117+Bétera,+Valencia"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Avinguda del País Valencià, 40, 46117 Bétera,
+                                Valencia
+                            </a>
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon">📞</span>
+                        <div class="details">
+                            <strong>Teléfono</strong>
+                            <a href="tel:+34961600000">961 60 00 00</a>
+                            <!-- Placeholder number, user didn't provide specific phone, only said "with phone number" -->
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <span class="icon">✉️</span>
+                        <div class="details">
+                            <strong>Email</strong>
+                            <a href="mailto:info@farmaciaalbinana.com"
+                                >info@farmaciaalbinana.com</a
+                            >
+                            <!-- Placeholder email -->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="map-container">
+                <!-- Embedded Google Map -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3076.669865487664!2d-0.4608339233488889!3d39.58705540845118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd60416cb2100001%3A0x0!2zQXZpbmd1ZGEgZGVsIFBhw6lzIFZhbGVuY2nDoCwgNDAsIDQ2MTE3IELDqXRlcmEsIFZhbGVuY2lh!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                >
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact-section {
+        background-color: var(--color-surface);
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        background: #fff;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .contact-info {
+        padding: var(--spacing-xl);
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .contact-desc {
+        color: #666;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+
+    .icon {
+        font-size: 1.5rem;
+        background: var(--color-surface);
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: var(--color-primary-dark);
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .details strong {
+        font-family: var(--font-heading);
+        color: var(--color-text);
+    }
+
+    .details a {
+        color: #555;
+        transition: color 0.2s;
+    }
+
+    .details a:hover {
+        color: var(--color-primary-dark);
+    }
+
+    .map-container {
+        min-height: 400px;
+    }
+
+    @media (max-width: 768px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-info {
+            padding: var(--spacing-lg);
+        }
+    }
+</style>
