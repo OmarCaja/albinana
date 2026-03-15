@@ -40,6 +40,7 @@ body {
     min-height: 100%;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    text-align: left;
 }
 
 h1,
@@ -75,7 +76,7 @@ ul {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    padding: 0 var(--spacing-lg);
 }
 
 .section {

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "bienvenidos",
+    "title": "Bienvenidos a nuestra nueva web",
+    "description": "Estrenamos página web para estar más cerca de ti.",
+    "pubDate": "2024-01-15",
+    "tags": ["noticias", "farmacia"],
+    "content": "<h2>Bienvenidos a Farmacia Albiñana</h2><p>Estamos encantados de presentar nuestra nueva página web. Aquí podrás encontrar información sobre nuestros servicios, ofertas y consejos de salud.</p><p>Queremos estar más cerca de nuestros pacientes y ofrecer un servicio más accesible.</p><p>¡Gracias por confiar en nosotros!</p>"
+  },
+  {
+    "id": "consejos-invierno",
+    "title": "Consejos para cuidar tu piel en invierno",
+    "description": "El frío puede dañar tu piel. Aquí te dejamos algunos consejos para mantenerla hidratada.",
+    "pubDate": "2024-01-20",
+    "tags": ["salud", "piel", "consejos"],
+    "content": "<h2>Cuida tu piel del frío</h2><p>El invierno puede ser duro para nuestra piel. El frío y el viento pueden resecarla y provocar irritaciones.</p><h3>Hidratación</h3><p>Es fundamental mantener la piel bien hidratada. Usa cremas ricas en nutrientes y bebe mucha agua.</p><h3>Protección solar</h3><p>Aunque sea invierno, el sol sigue incidiendo en nuestra piel. No olvides usar protector solar, especialmente en la cara.</p>"
+  }
+]

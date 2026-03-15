@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import ProductCard from "../components/ProductCard.astro";
 import { getCollection } from "astro:content";
 
-const products = await getCollection("products");
+const products = await getCollection("ofertas");
 ---
 
 <Layout title="Ofertas | Farmacia Albiñana">
@@ -22,10 +22,13 @@ const products = await getCollection("products");
                     {
                         products.map((product) => (
                             <ProductCard
+                                id={product.id}
                                 title={product.data.title}
                                 price={product.data.price}
                                 discountPrice={product.data.discountPrice}
                                 description={product.data.description}
+                                imagenes={product.data.imagenes}
+                                offerEnds={product.data.offerEnds}
                             />
                         ))
                     }
@@ -45,11 +48,9 @@ const products = await getCollection("products");
     .page-title {
         font-size: 3rem;
         margin-bottom: var(--spacing-sm);
-        text-align: center;
     }
 
     .page-subtitle {
-        text-align: center;
         color: #666;
         margin-bottom: var(--spacing-xl);
         font-size: 1.2rem;

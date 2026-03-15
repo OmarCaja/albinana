@@ -14,35 +14,32 @@
 
                 <ul class="contact-list">
                     <li class="contact-item">
-                        <span class="icon">📍</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </span>
                         <div class="details">
                             <strong>Dirección</strong>
-                            <a
-                                href="https://www.google.com/maps/search/?api=1&query=Avinguda+del+País+Valencià,+40,+46117+Bétera,+Valencia"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Avinguda del País Valencià, 40, 46117 Bétera,
-                                Valencia
+                            <a href="https://www.google.com/maps/search/?api=1&query=Avinguda+del+País+Valencià,+40,+46117+Bétera,+Valencia" target="_blank" rel="noopener noreferrer">
+                                Avinguda del País Valencià, 40, 46117 Bétera, Valencia
                             </a>
                         </div>
                     </li>
                     <li class="contact-item">
-                        <span class="icon">📞</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </span>
                         <div class="details">
                             <strong>Teléfono</strong>
                             <a href="tel:+34961600000">961 60 00 00</a>
-                            <!-- Placeholder number, user didn't provide specific phone, only said "with phone number" -->
                         </div>
                     </li>
                     <li class="contact-item">
-                        <span class="icon">✉️</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </span>
                         <div class="details">
                             <strong>Email</strong>
-                            <a href="mailto:info@farmaciaalbinana.com"
-                                >info@farmaciaalbinana.com</a
-                            >
-                            <!-- Placeholder email -->
+                            <a href="mailto:info@farmaciaalbinana.com">info@farmaciaalbinana.com</a>
                         </div>
                     </li>
                 </ul>
@@ -107,15 +104,15 @@
     }
 
     .icon {
-        font-size: 1.5rem;
-        background: var(--color-surface);
-        width: 50px;
-        height: 50px;
+        color: var(--color-primary-dark);
         display: flex;
         align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        color: var(--color-primary-dark);
+        margin-top: 2px;
+    }
+
+    .icon svg {
+        width: 26px;
+        height: 26px;
     }
 
     .details {

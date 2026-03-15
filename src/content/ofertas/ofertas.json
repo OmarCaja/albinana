@@ -1,0 +1,16 @@
+{
+  "productos": [
+    {
+      "id": "100",
+      "title": "Pack Vitamina C + E",
+      "price": 25.50,
+      "discountPrice": 19.99,
+      "description": "Pack antioxidante para reforzar tus defensas y cuidar tu piel. Oferta especial de lanzamiento.",
+      "offerEnds": "2024-02-28",
+      "imagenes": [
+        "/products/100/1.jpg"
+      ],
+      "content": "<p>Aprovecha este <strong>pack exclusivo</strong> diseñado para protegerte de los radicales libres y mejorar la luminosidad de tu piel.</p><ul><li><strong>Vitamina C:</strong> Potente antioxidante que refuerza el sistema inmune y mejora el tono de la piel.</li><li><strong>Vitamina E:</strong> Protege las células del daño oxidativo y nutre la piel en profundidad.</li></ul><p>Combinados, forman un <em>equipo imbatible</em> para tu bienestar diario.</p>"
+    }
+  ]
+}
