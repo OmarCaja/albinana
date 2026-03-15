@@ -6,26 +6,28 @@ const offers = data.productos.slice(0, 4);
 ---
 
 <section class="highlights-section">
-    <div class="container header-container">
-        <h2 class="section-title fade-in">Nuestras Ofertas Destacadas</h2>
-    </div>
-    
-    <div class="carousel-container fade-in">
-        <div class="carousel-track" id="carouselTrack">
-            {offers.map((offer, index) => (
-                <div class="carousel-item" data-index={index}>
-                    <ProductCard
-                        id={offer.id}
-                        title={offer.title}
-                        price={offer.price}
-                        discountPrice={offer.discountPrice}
-                        description={offer.description}
-                        imagenes={offer.imagenes}
-                        offerEnds={offer.offerEnds}
-                    />
-                </div>
-            ))}
-            <div class="carousel-spacer"></div>
+    <div class="container highlights-container">
+        <div class="header-container">
+            <h2 class="section-title fade-in">Nuestras Ofertas Destacadas</h2>
+        </div>
+        
+        <div class="carousel-container fade-in">
+            <div class="carousel-track" id="carouselTrack">
+                {offers.map((offer, index) => (
+                    <div class="carousel-item" data-index={index}>
+                        <ProductCard
+                            id={offer.id}
+                            title={offer.title}
+                            price={offer.price}
+                            discountPrice={offer.discountPrice}
+                            description={offer.description}
+                            imagenes={offer.imagenes}
+                            offerEnds={offer.offerEnds}
+                            animate={false}
+                        />
+                    </div>
+                ))}
+            </div>
         </div>
     </div>
 
@@ -74,7 +76,7 @@ const offers = data.productos.slice(0, 4);
             observer.observe(item);
         });
 
-        function updateDots(activeIndex) {
+        function updateDots(activeIndex: number) {
             dots.forEach((dot, index) => {
                 if (index === activeIndex) {
                     dot.classList.add('active');
@@ -106,6 +108,18 @@ const offers = data.productos.slice(0, 4);
         padding: var(--spacing-xl) 0;
         background-color: var(--color-bg);
         overflow: hidden;
+        margin-bottom: var(--spacing-xl);
+    }
+
+    @media (max-width: 768px) {
+        .highlights-section {
+            padding: var(--spacing-sm) 0;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .header-container {
+            margin-bottom: var(--spacing-sm);
+        }
     }
 
     .header-container {
@@ -120,21 +134,14 @@ const offers = data.productos.slice(0, 4);
 
     .carousel-track {
         display: flex;
+        align-items: stretch;
         gap: var(--spacing-lg);
         overflow-x: auto;
-        padding: 0 calc((100vw - var(--container-max-width)) / 2 + var(--spacing-lg));
+        padding: 20px 0;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
         -ms-overflow-style: none;
         scroll-behavior: smooth;
-        justify-content: flex-start;
-    }
-
-    @media (min-width: 1200px) {
-        .carousel-track {
-            justify-content: center;
-            padding: 0;
-        }
     }
 
     .carousel-track::-webkit-scrollbar {
@@ -142,26 +149,32 @@ const offers = data.productos.slice(0, 4);
     }
 
     .carousel-item {
-        flex: 0 0 300px;
-        scroll-snap-align: center;
+        flex: 0 0 350px;
+        scroll-snap-align: start;
         display: flex;
         align-self: stretch;
+        width: 100%;
+    }
+
+    .carousel-item > :global(*) {
+        flex: 1;
+    }
+
+    @media (max-width: 1024px) {
+        .carousel-item {
+            flex: 0 0 300px;
+        }
     }
 
     @media (max-width: 768px) {
         .carousel-item {
-            flex: 0 0 280px;
+            flex: 0 0 160px;
         }
         
         .carousel-track {
-            padding: 0 var(--spacing-lg);
-            gap: var(--spacing-md);
+            padding: 0 var(--spacing-md);
+            gap: var(--spacing-sm);
         }
-    }
-
-    .carousel-spacer {
-        flex: 0 0 var(--spacing-lg);
-        visibility: hidden;
     }
 
     .carousel-controls {
@@ -184,6 +197,12 @@ const offers = data.productos.slice(0, 4);
         display: flex;
         gap: 12px;
         align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+        .carousel-controls {
+            justify-content: center;
+        }
     }
 
     .pagination-dot {

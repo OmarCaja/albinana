@@ -84,6 +84,7 @@ const formattedOfferEnds = offerEndsDate
         flex-direction: column;
         color: inherit;
         height: 100%;
+        width: 100%;
     }
 
     .product-card:hover {
@@ -96,6 +97,8 @@ const formattedOfferEnds = offerEndsDate
         aspect-ratio: 1 / 1;
         overflow: hidden;
         background: transparent;
+        flex-shrink: 0;
+        width: 100%;
     }
 
     .card-image {
@@ -137,11 +140,17 @@ const formattedOfferEnds = offerEndsDate
         display: flex;
         flex-direction: column;
         flex: 1;
+        gap: var(--spacing-md);
+    }
+
+    @media (max-width: 768px) {
+        .card-content {
+            padding: var(--spacing-md);
+        }
     }
 
     .product-title {
         font-size: 1.2rem;
-        margin-bottom: var(--spacing-sm);
         color: var(--color-text);
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -150,9 +159,16 @@ const formattedOfferEnds = offerEndsDate
         min-height: 2.8em;
     }
 
+    @media (max-width: 768px) {
+        .product-title {
+            font-size: 0.95rem;
+            min-height: 2.2em;
+            margin-bottom: 2px;
+        }
+    }
+
     .product-desc {
         color: #666;
-        margin-bottom: var(--spacing-md);
         font-size: 0.9rem;
         flex-grow: 1;
         line-height: 1.5;
@@ -162,11 +178,16 @@ const formattedOfferEnds = offerEndsDate
         overflow: hidden;
     }
 
+    @media (max-width: 768px) {
+        .product-desc {
+            display: none;
+        }
+    }
+
     .price-container {
         display: flex;
         align-items: center;
         gap: var(--spacing-sm);
-        margin-bottom: var(--spacing-sm);
     }
 
     .original-price {
@@ -201,7 +222,6 @@ const formattedOfferEnds = offerEndsDate
     .offer-ends {
         font-size: 0.85rem;
         color: #666;
-        margin-bottom: var(--spacing-sm);
     }
 
     .offer-icon {
