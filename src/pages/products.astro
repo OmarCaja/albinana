@@ -29,6 +29,7 @@ const products = await getCollection("ofertas");
                                 description={product.data.description}
                                 imagenes={product.data.imagenes}
                                 offerEnds={product.data.offerEnds}
+                                animate={true}
                             />
                         ))
                     }
@@ -46,8 +47,10 @@ const products = await getCollection("ofertas");
     }
 
     .page-title {
-        font-size: 3rem;
+        font-size: clamp(2rem, 6vw, 3.5rem);
         margin-bottom: var(--spacing-sm);
+        letter-spacing: -0.04em;
+        line-height: 1.1;
     }
 
     .page-subtitle {
@@ -58,7 +61,7 @@ const products = await getCollection("ofertas");
 
     .products-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
         gap: var(--spacing-lg);
     }
 </style>

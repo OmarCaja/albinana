@@ -271,7 +271,7 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
     .discount-price {
         color: #e74c3c;
         font-weight: 700;
-        font-size: 1.4rem;
+        font-size: clamp(1.1rem, 4vw, 1.4rem);
     }
 
     .price {
@@ -288,6 +288,7 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
         font-size: 0.75rem;
         font-weight: 600;
         margin-left: var(--spacing-sm);
+        white-space: nowrap;
     }
 
     .offer-ends {

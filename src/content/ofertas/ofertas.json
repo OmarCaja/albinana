@@ -11,6 +11,42 @@
         "/products/100/1.jpg"
       ],
       "content": "<p>Aprovecha este <strong>pack exclusivo</strong> diseñado para protegerte de los radicales libres y mejorar la luminosidad de tu piel.</p><ul><li><strong>Vitamina C:</strong> Potente antioxidante que refuerza el sistema inmune y mejora el tono de la piel.</li><li><strong>Vitamina E:</strong> Protege las células del daño oxidativo y nutre la piel en profundidad.</li></ul><p>Combinados, forman un <em>equipo imbatible</em> para tu bienestar diario.</p>"
+    },
+    {
+      "id": "200",
+      "title": "Serum Facial Ácido Hialurónico",
+      "price": 35.00,
+      "discountPrice": 24.95,
+      "description": "Hidratación profunda y efecto antiedad para todo tipo de pieles. Tratamiento intensivo reparador.",
+      "offerEnds": "2024-05-31",
+      "imagenes": [
+        "/products/200/1.jpg"
+      ],
+      "content": "<p>Devuélvele la vitalidad a tu rostro con este <strong>serum concentrado de ácido hialurónico</strong>.</p><ul><li><strong>Hidratación 24h:</strong> Penetra en las capas más profundas de la piel para una hidratación prolongada.</li><li><strong>Efecto Plumping:</strong> Rellena las líneas de expresión y mejora la elasticidad.</li></ul><p>Inclúyelo en tu rutina de noche y despierta con una piel <em>visiblemente más joven</em>.</p>"
+    },
+    {
+      "id": "300",
+      "title": "Crema Solar Facial Spf 50+",
+      "price": 22.00,
+      "discountPrice": 16.50,
+      "description": "Protección solar diaria con acabado invisible. Resistente al agua y al sudor.",
+      "offerEnds": "2024-08-31",
+      "imagenes": [
+        "/products/300/1.jpg"
+      ],
+      "content": "<p>Protege tu piel del sol con esta <strong>crema solar de alta protección</strong>.</p><ul><li><strong>SPF 50+:</strong> Máxima protección contra los rayos UVA y UVB.</li><li><strong>Textura Ligera:</strong> Absorción rápida sin dejar residuos grasos.</li></ul>"
+    },
+    {
+      "id": "400",
+      "title": "Pack Colágeno + Magnesio",
+      "price": 45.00,
+      "discountPrice": 32.99,
+      "description": "Suplemento para el cuidado de articulaciones y huesos. Formato ahorro para 2 meses.",
+      "offerEnds": "2024-12-31",
+      "imagenes": [
+        "/products/400/1.jpg"
+      ],
+      "content": "<p>Mejora tu movilidad con este <strong>pack de colágeno y magnesio</strong>.</p><ul><li><strong>Articulaciones:</strong> Ayuda a mantener la flexibilidad y reducir el dolor.</li><li><strong>Huesos:</strong> Contribuye al mantenimiento de los huesos en condiciones normales.</li></ul>"
     }
   ]
 }

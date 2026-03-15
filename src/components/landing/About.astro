@@ -23,7 +23,8 @@
 
 <style>
     .about-section {
-        background-color: #fff;
+        background-color: var(--color-surface);
+        padding: var(--spacing-xl) 0;
     }
 
     .content-wrapper {
@@ -31,28 +32,23 @@
     }
 
     .section-title {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 6vw, 3.5rem);
         color: var(--color-text);
-        margin-bottom: var(--spacing-lg);
-        position: relative;
-        display: inline-block;
-    }
-
-    .section-title::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 60px;
-        height: 4px;
-        background-color: var(--color-primary);
-        border-radius: 2px;
+        margin-bottom: var(--spacing-md);
+        letter-spacing: -0.04em;
+        line-height: 1.1;
     }
 
     .about-text {
-        font-size: 1.15rem;
-        color: #555;
+        font-size: 1.25rem;
+        color: var(--color-text-light);
         margin-bottom: var(--spacing-md);
-        line-height: 1.8;
+        line-height: 1.6;
+        letter-spacing: -0.01em;
+    }
+    
+    .about-text strong {
+        color: var(--color-text);
+        font-weight: 600;
     }
 </style>

@@ -1,0 +1,204 @@
+---
+import data from "../../content/ofertas/ofertas.json";
+import ProductCard from "../ProductCard.astro";
+
+const offers = data.productos.slice(0, 4);
+---
+
+<section class="highlights-section">
+    <div class="container header-container">
+        <h2 class="section-title fade-in">Nuestras Ofertas Destacadas</h2>
+    </div>
+    
+    <div class="carousel-container fade-in">
+        <div class="carousel-track" id="carouselTrack">
+            {offers.map((offer, index) => (
+                <div class="carousel-item" data-index={index}>
+                    <ProductCard
+                        id={offer.id}
+                        title={offer.title}
+                        price={offer.price}
+                        discountPrice={offer.discountPrice}
+                        description={offer.description}
+                        imagenes={offer.imagenes}
+                        offerEnds={offer.offerEnds}
+                    />
+                </div>
+            ))}
+            <div class="carousel-spacer"></div>
+        </div>
+    </div>
+
+    <div class="container carousel-controls">
+        <div class="carousel-pagination" id="carouselPagination">
+            {offers.map((_, index) => (
+                <button 
+                    class={`pagination-dot ${index === 0 ? 'active' : ''}`} 
+                    data-index={index}
+                    aria-label={`Ir a la oferta ${index + 1}`}
+                ></button>
+            ))}
+        </div>
+        <div class="carousel-footer-btn">
+            <a href={`${import.meta.env.BASE_URL}/products`} class="btn btn-primary">
+                Ver todas las ofertas
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+    function setupCarousel() {
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.pagination-dot');
+        
+        if (!track || dots.length === 0) return;
+
+        const observerOptions = {
+            root: track,
+            threshold: 0.6
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = entry.target.getAttribute('data-index');
+                    if (index !== null) {
+                        updateDots(parseInt(index));
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.carousel-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        function updateDots(activeIndex) {
+            dots.forEach((dot, index) => {
+                if (index === activeIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Add click events to dots
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = dot.getAttribute('data-index');
+                const targetItem = document.querySelector(`.carousel-item[data-index="${index}"]`);
+                if (targetItem) {
+                    targetItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                }
+            });
+        });
+    }
+
+    // Run on load and after view transitions
+    setupCarousel();
+    document.addEventListener('astro:page-load', setupCarousel);
+</script>
+
+<style>
+    .highlights-section {
+        padding: var(--spacing-xl) 0;
+        background-color: var(--color-bg);
+        overflow: hidden;
+    }
+
+    .header-container {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .carousel-track {
+        display: flex;
+        gap: var(--spacing-lg);
+        overflow-x: auto;
+        padding: 0 calc((100vw - var(--container-max-width)) / 2 + var(--spacing-lg));
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        scroll-behavior: smooth;
+        justify-content: flex-start;
+    }
+
+    @media (min-width: 1200px) {
+        .carousel-track {
+            justify-content: center;
+            padding: 0;
+        }
+    }
+
+    .carousel-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .carousel-item {
+        flex: 0 0 300px;
+        scroll-snap-align: center;
+        display: flex;
+        align-self: stretch;
+    }
+
+    @media (max-width: 768px) {
+        .carousel-item {
+            flex: 0 0 280px;
+        }
+        
+        .carousel-track {
+            padding: 0 var(--spacing-lg);
+            gap: var(--spacing-md);
+        }
+    }
+
+    .carousel-spacer {
+        flex: 0 0 var(--spacing-lg);
+        visibility: hidden;
+    }
+
+    .carousel-controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-md);
+    }
+
+    @media (min-width: 768px) {
+        .carousel-controls {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    .carousel-pagination {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .pagination-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #d2d2d7;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .pagination-dot.active {
+        background-color: var(--color-text);
+        transform: scale(1.2);
+    }
+</style>
