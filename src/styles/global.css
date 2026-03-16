@@ -44,7 +44,7 @@
     --transition-fast: 0.15s cubic-bezier(0.2, 0, 0, 1);
     --transition-smooth: 0.8s cubic-bezier(0.2, 0, 0, 1);
     
-    --container-max-width: 1400px;
+    --container-max-width: 1600px;
 }
 
 /* Modern Reset */
