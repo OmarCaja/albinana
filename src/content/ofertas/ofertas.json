@@ -2,7 +2,7 @@
   "productos": [
     {
       "id": "100",
-      "title": "Pack Vitamina C + E",
+      "title": "Pack vitamina C + E",
       "price": 25.50,
       "discountPrice": 19.99,
       "description": "Pack antioxidante para reforzar tus defensas y cuidar tu piel. Oferta especial de lanzamiento.",
@@ -14,7 +14,7 @@
     },
     {
       "id": "200",
-      "title": "Serum Facial Ácido Hialurónico",
+      "title": "Serum facial ácido hialurónico",
       "price": 35.00,
       "discountPrice": 24.95,
       "description": "Hidratación profunda y efecto antiedad para todo tipo de pieles. Tratamiento intensivo reparador.",
@@ -26,7 +26,7 @@
     },
     {
       "id": "300",
-      "title": "Crema Solar Facial Spf 50+",
+      "title": "Crema solar facial SPF 50+",
       "price": 22.00,
       "discountPrice": 16.50,
       "description": "Protección solar diaria con acabado invisible. Resistente al agua y al sudor.",
@@ -38,7 +38,7 @@
     },
     {
       "id": "400",
-      "title": "Pack Colágeno + Magnesio",
+      "title": "Pack colágeno + magnesio",
       "price": 45.00,
       "discountPrice": 32.99,
       "description": "Suplemento para el cuidado de articulaciones y huesos. Formato ahorro para 2 meses.",

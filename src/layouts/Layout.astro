@@ -60,7 +60,10 @@ const {
                     observerOptions,
                 );
 
-                document.querySelectorAll(".fade-in-up:not(.visible)").forEach((el) => observer.observe(el));
+                // Observe elements that are not yet visible
+                document.querySelectorAll(".fade-in-up:not(.visible)").forEach((el) => {
+                    observer.observe(el);
+                });
             }
 
             // Function to handle reading progress bar

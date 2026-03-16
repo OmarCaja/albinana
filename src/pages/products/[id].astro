@@ -230,8 +230,8 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
     }
 
     .product-description {
-        font-size: clamp(1.1rem, 3vw, 1.4rem);
-        color: #666;
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        color: var(--color-text-light);
         line-height: 1.6;
         margin-bottom: var(--spacing-md);
     }
@@ -246,19 +246,19 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
     .original-price {
         text-decoration: line-through;
         color: #999;
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .discount-price {
         color: var(--color-danger);
         font-weight: 700;
-        font-size: clamp(1.1rem, 4vw, 1.4rem);
+        font-size: 1.5rem;
     }
 
     .price {
         color: var(--color-text);
         font-weight: 700;
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
 
     .savings-tag {
