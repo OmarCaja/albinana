@@ -11,26 +11,28 @@ const products = await getCollection("ofertas");
 <Layout title="Ofertas | Farmacia Albiñana">
     <Header />
     <main class="products-page">
-        <section class="section">
+        <section class="section-full">
             <div class="container">
-                <h1 class="page-title title-gradient">Nuestras Ofertas</h1>
-                <p class="page-subtitle">
+                <h1 class="page-title fade-in-up">Nuestras Ofertas</h1>
+                <p class="page-subtitle fade-in-up">
                     Descubre los mejores productos al mejor precio.
                 </p>
 
-                <div class="products-grid">
+                <div class="grid-standard">
                     {
-                        products.map((product) => (
-                            <ProductCard
-                                id={product.id}
-                                title={product.data.title}
-                                price={product.data.price}
-                                discountPrice={product.data.discountPrice}
-                                description={product.data.description}
-                                imagenes={product.data.imagenes}
-                                offerEnds={product.data.offerEnds}
-                                animate={true}
-                            />
+                        products.map((product, index) => (
+                            <div class="fade-in-up" style={`transition-delay: ${index * 100}ms`}>
+                                <ProductCard
+                                    id={product.id}
+                                    title={product.data.title}
+                                    price={product.data.price}
+                                    discountPrice={product.data.discountPrice}
+                                    description={product.data.description}
+                                    imagenes={product.data.imagenes}
+                                    offerEnds={product.data.offerEnds}
+                                    animate={false}
+                                />
+                            </div>
                         ))
                     }
                 </div>
@@ -42,26 +44,6 @@ const products = await getCollection("ofertas");
 
 <style>
     .products-page {
-        padding-top: var(--header-height);
         min-height: 80vh;
-    }
-
-    .page-title {
-        font-size: clamp(2rem, 6vw, 3.5rem);
-        margin-bottom: var(--spacing-sm);
-        letter-spacing: -0.04em;
-        line-height: 1.1;
-    }
-
-    .page-subtitle {
-        color: #666;
-        margin-bottom: var(--spacing-xl);
-        font-size: 1.2rem;
-    }
-
-    .products-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-        gap: var(--spacing-lg);
     }
 </style>

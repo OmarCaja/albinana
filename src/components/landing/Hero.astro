@@ -4,7 +4,7 @@
 
 <section class="hero section">
     <div class="container hero-container">
-        <div class="hero-content fade-in">
+        <div class="hero-content fade-in-up">
             <h1 class="hero-title">
                 Salud, estética y bienestar.<br />Tu farmacia en Bétera.
             </h1>
@@ -17,35 +17,37 @@
 
 <style>
     .hero {
-        min-height: 50vh;
+        min-height: 70vh;
         display: flex;
         align-items: center;
-        background: var(--color-bg);
-        padding-top: calc(var(--header-height) + var(--spacing-xl));
-        padding-bottom: var(--spacing-lg);
+        background-color: var(--color-surface);
+        padding-top: calc(var(--header-height) + 3rem);
+        padding-bottom: var(--section-padding);
     }
 
     .hero-container {
         display: block;
-        max-width: 900px;
+        max-width: 1000px;
     }
 
     .hero-title {
-        font-size: clamp(2.5rem, 8vw, 5rem);
-        line-height: 1.05;
-        letter-spacing: -0.04em;
-        margin-bottom: var(--spacing-md);
-        color: var(--color-text);
+        font-size: clamp(3rem, 10vw, 5.5rem);
+        line-height: 1.0;
+        letter-spacing: -0.06em;
+        margin-bottom: var(--spacing-lg);
+        color: var(--color-primary);
         font-weight: 700;
+        max-width: 14ch;
     }
 
     .hero-subtitle {
-        font-size: 1.5rem;
+        font-size: clamp(1.2rem, 3vw, 1.8rem);
         color: var(--color-text-light);
-        margin-bottom: var(--spacing-xl);
-        max-width: 600px;
-        letter-spacing: -0.01em;
-        line-height: 1.4;
+        margin-bottom: var(--spacing-md);
+        max-width: 35ch;
+        letter-spacing: -0.02em;
+        line-height: 1.35;
+        font-weight: 400;
     }
 
 </style>

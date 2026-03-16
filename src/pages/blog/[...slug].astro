@@ -20,9 +20,9 @@ const post = Astro.props;
     <main class="post-page">
         <div class="container">
             <nav class="breadcrumb">
-                <a href={`${import.meta.env.BASE_URL}/blog`}>← Volver al blog</a>
+                <a href={`${import.meta.env.BASE_URL}/blog`} class="btn">← Volver al blog</a>
             </nav>
-            <article class="post-container fade-in">
+            <article class="post-container fade-in-up">
             <header class="post-header">
                 <div class="meta">
                     <time datetime={post.data.pubDate.toISOString()}>
@@ -34,18 +34,9 @@ const post = Astro.props;
                             })
                         }
                     </time>
-                    {
-                        post.data.tags && (
-                            <div class="tags">
-                                {post.data.tags.map((tag) => (
-                                    <span class="tag">#{tag}</span>
-                                ))}
-                            </div>
-                        )
-                    }
                 </div>
-                <h1 class="post-title">{post.data.title}</h1>
-                <p class="post-description">{post.data.description}</p>
+                <h1 class="page-title">{post.data.title}</h1>
+                <p class="page-subtitle">{post.data.description}</p>
             </header>
 
             <div class="post-content" set:html={post.data.content} />
@@ -57,25 +48,18 @@ const post = Astro.props;
 
 <style>
     .post-page {
-        padding-top: calc(var(--header-height) + var(--spacing-xl));
+        padding-top: calc(var(--header-height) + 3rem);
         min-height: 80vh;
         background-color: var(--color-bg);
-        padding-bottom: var(--spacing-xl);
+        padding-bottom: var(--section-padding);
     }
 
     .breadcrumb {
-        margin-bottom: var(--spacing-lg);
-    }
-
-    .breadcrumb a {
-        color: var(--color-primary-dark);
-        font-weight: 600;
-        font-size: 0.95rem;
-        transition: opacity var(--transition-fast);
+        margin-bottom: var(--spacing-sm);
     }
 
     .breadcrumb a:hover {
-        opacity: 0.7;
+        opacity: 0.8;
     }
 
     .post-container {
@@ -85,37 +69,22 @@ const post = Astro.props;
     }
 
     .post-header {
-        margin-bottom: var(--spacing-xl);
-        padding-bottom: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
+        padding-bottom: var(--spacing-sm);
     }
-
+    
     .meta {
         display: flex;
         gap: var(--spacing-md);
         color: var(--color-text-light);
-        font-size: 0.95rem;
-        margin-bottom: var(--spacing-md);
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
         font-weight: 500;
     }
 
-    .tag {
-        color: var(--color-primary-dark);
-    }
-
-    .post-title {
-        font-size: clamp(2.5rem, 6vw, 4rem);
-        color: var(--color-text);
-        margin-bottom: var(--spacing-sm);
-        letter-spacing: -0.04em;
-        line-height: 1.05;
-        font-weight: 700;
-    }
-
-    .post-description {
-        font-size: clamp(1.1rem, 3vw, 1.5rem);
-        color: var(--color-text-light);
-        letter-spacing: -0.01em;
-        line-height: 1.4;
+    .tags {
+        display: flex;
+        gap: var(--spacing-sm);
     }
 
     .post-content {
@@ -129,10 +98,11 @@ const post = Astro.props;
     .post-content :global(h1),
     .post-content :global(h2),
     .post-content :global(h3) {
-        color: var(--color-text);
-        margin-top: var(--spacing-xl);
+        color: var(--color-primary);
+        margin-top: var(--spacing-lg);
         margin-bottom: var(--spacing-md);
-        letter-spacing: -0.04em;
+        letter-spacing: -0.05em;
+        font-weight: 700;
     }
     
     .post-content :global(h2) {

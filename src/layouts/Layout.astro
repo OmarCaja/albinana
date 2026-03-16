@@ -53,22 +53,38 @@ const {
                         entries.forEach((entry) => {
                             if (entry.isIntersecting) {
                                 entry.target.classList.add("visible");
-                                observer.unobserve(entry.target); // Only animate once
+                                observer.unobserve(entry.target);
                             }
                         });
                     },
                     observerOptions,
                 );
 
-                const elements = document.querySelectorAll(".fade-in");
-                elements.forEach((el) => observer.observe(el));
+                document.querySelectorAll(".fade-in-up").forEach((el) => observer.observe(el));
             }
 
-            // Setup on initial load
-            setupObserver();
+            // Function to handle reading progress bar
+            function setupReadingProgress() {
+                const progressBar = document.getElementById("readingProgress");
+                if (!progressBar) return;
 
-            // Setup on View Transition navigation
-            document.addEventListener("astro:page-load", setupObserver);
+                const onScroll = () => {
+                    const pixelsScrolled = window.scrollY;
+                    const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrollPercentage = Math.min(100, (pixelsScrolled / pageHeight) * 100);
+                    
+                    progressBar.style.width = scrollPercentage + "%";
+                };
+
+                window.addEventListener("scroll", onScroll, { passive: true });
+                onScroll(); // Initial call
+            }
+
+            // Setup on load and transitions
+            document.addEventListener("astro:page-load", () => {
+                setupObserver();
+                setupReadingProgress();
+            });
         </script>
     </body>
 </html>

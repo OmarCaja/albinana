@@ -8,10 +8,10 @@ const offers = data.productos.slice(0, 4);
 <section class="highlights-section">
     <div class="container highlights-container">
         <div class="header-container">
-            <h2 class="section-title fade-in">Nuestras Ofertas Destacadas</h2>
+            <h2 class="page-title fade-in-up">Ofertas Destacadas</h2>
         </div>
         
-        <div class="carousel-container fade-in">
+        <div class="carousel-container fade-in-up">
             <div class="carousel-track" id="carouselTrack">
                 {offers.map((offer, index) => (
                     <div class="carousel-item" data-index={index}>
@@ -42,8 +42,8 @@ const offers = data.productos.slice(0, 4);
             ))}
         </div>
         <div class="carousel-footer-btn">
-            <a href={`${import.meta.env.BASE_URL}/products`} class="btn btn-primary">
-                Ver todas las ofertas
+            <a href={`${import.meta.env.BASE_URL}/products`} class="btn">
+                Ver todas las ofertas →
             </a>
         </div>
     </div>
@@ -105,16 +105,14 @@ const offers = data.productos.slice(0, 4);
 
 <style>
     .highlights-section {
-        padding: var(--spacing-xl) 0;
+        padding: var(--section-padding) 0;
         background-color: var(--color-bg);
         overflow: hidden;
-        margin-bottom: var(--spacing-xl);
     }
 
     @media (max-width: 768px) {
         .highlights-section {
-            padding: var(--spacing-sm) 0;
-            margin-bottom: var(--spacing-lg);
+            /* Inheriting standard --section-padding from above */
         }
 
         .header-container {
@@ -123,7 +121,7 @@ const offers = data.productos.slice(0, 4);
     }
 
     .header-container {
-        margin-bottom: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
     }
 
     .carousel-container {
@@ -137,11 +135,13 @@ const offers = data.productos.slice(0, 4);
         align-items: stretch;
         gap: var(--spacing-lg);
         overflow-x: auto;
+        overflow-y: hidden;
         padding: 20px 0;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
         -ms-overflow-style: none;
         scroll-behavior: smooth;
+        touch-action: pan-y;
     }
 
     .carousel-track::-webkit-scrollbar {
@@ -206,18 +206,18 @@ const offers = data.productos.slice(0, 4);
     }
 
     .pagination-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background-color: #d2d2d7;
+        width: 12px;
+        height: 4px;
+        border-radius: 20px;
+        background-color: var(--color-surface-muted);
         border: none;
         padding: 0;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .pagination-dot.active {
-        background-color: var(--color-text);
-        transform: scale(1.2);
+        background-color: var(--color-accent);
+        width: 32px;
     }
 </style>

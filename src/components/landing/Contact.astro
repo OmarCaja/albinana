@@ -4,18 +4,18 @@
 
 <section id="contact" class="section contact-section">
     <div class="container">
-        <div class="contact-header">
-            <h2 class="section-title">Contacto.</h2>
-            <p class="contact-subtitle">Estamos aquí para cuidar de ti.</p>
+        <div class="contact-header fade-in-up">
+            <h2 class="page-title">Contacto.</h2>
+            <p class="page-subtitle">Estamos aquí para cuidar de ti.</p>
         </div>
         
-        <div class="contact-grid">
+        <div class="contact-grid fade-in-up">
             <div class="contact-block">
                 <span class="block-label">Visítanos</span>
                 <address class="block-value link-massive">
-                    Avinguda del País Valencià, 40, 46117 Bétera, Valencia
+                    Avda. País Valencià, 40, Bétera
                 </address>
-                <a href="https://www.google.com/maps/search/?api=1&query=Avinguda+del+País+Valencià,+40,+46117+Bétera,+Valencia" target="_blank" rel="noopener noreferrer" class="block-link">Abrir en Mapas ↗</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Avinguda+del+País+Valencià,+40,+46117+Bétera,+Valencia" target="_blank" rel="noopener noreferrer" class="btn block-link">Abrir en Mapas ↗</a>
             </div>
         </div>
     </div>
@@ -23,26 +23,12 @@
 
 <style>
     .contact-section {
-        background-color: var(--color-surface);
-        padding: var(--spacing-xl) 0 calc(var(--spacing-xl) * 2) 0;
+        background-color: var(--color-bg);
+        padding: var(--section-padding) 0;
     }
 
     .contact-header {
         margin-bottom: var(--spacing-xl);
-    }
-
-    .section-title {
-        font-size: clamp(2rem, 6vw, 3.5rem);
-        color: var(--color-text);
-        margin-bottom: var(--spacing-md);
-        letter-spacing: -0.04em;
-        line-height: 1.1;
-    }
-
-    .contact-subtitle {
-        font-size: clamp(1.2rem, 3vw, 1.8rem);
-        color: var(--color-text-light);
-        letter-spacing: -0.02em;
     }
 
     .contact-grid {
@@ -91,14 +77,6 @@
     }
 
     .block-link {
-        font-size: 1rem;
-        color: var(--color-primary-dark);
-        font-weight: 500;
         margin-top: var(--spacing-sm);
-        transition: opacity var(--transition-fast);
-    }
-    
-    .block-link:hover {
-        opacity: 0.6;
     }
 </style>

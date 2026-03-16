@@ -31,10 +31,10 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
     <main class="product-detail-page">
         <div class="container">
             <nav class="breadcrumb">
-                <a href={`${import.meta.env.BASE_URL}/products`}>← Volver a ofertas</a>
+                <a href={`${import.meta.env.BASE_URL}/products`} class="btn">← Volver a ofertas</a>
             </nav>
 
-            <div class="product-layout fade-in">
+            <div class="product-layout fade-in-up">
                 <!-- Galería de imágenes -->
                 <div class="product-gallery">
                     {mainImage ? (
@@ -72,7 +72,7 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
 
                 <!-- Info del producto -->
                 <div class="product-info">
-                    <h1 class="product-title">{title}</h1>
+                    <h1 class="product-title page-title">{title}</h1>
                     <p class="product-description">{description}</p>
 
                     <div class="price-container">
@@ -92,8 +92,6 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
                             <span class="offer-icon">⏳</span> Válida hasta {formattedOfferEnds}
                         </p>
                     )}
-
-
                 </div>
             </div>
 
@@ -125,37 +123,26 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
 
 <style>
     .product-detail-page {
-        padding-top: calc(var(--header-height) + var(--spacing-xl));
+        padding-top: calc(var(--header-height) + 3rem);
         min-height: 80vh;
         background-color: var(--color-surface);
-        padding-bottom: var(--spacing-xl);
+        padding-bottom: var(--section-padding);
     }
 
     .breadcrumb {
-        margin-bottom: var(--spacing-lg);
-    }
-
-    .breadcrumb a {
-        color: var(--color-primary-dark);
-        font-weight: 600;
-        font-size: 0.95rem;
-        transition: opacity var(--transition-fast);
+        margin-bottom: var(--spacing-sm);
     }
 
     .breadcrumb a:hover {
-        opacity: 0.7;
+        opacity: 0.8;
     }
 
     /* Layout principal */
     .product-layout {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: var(--spacing-xl);
-        background: #fff;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow-sm);
-        padding: var(--spacing-xl);
-        margin-bottom: var(--spacing-xl);
+        gap: var(--spacing-lg);
+        margin-bottom: 0;
     }
 
     /* Galería */
@@ -167,10 +154,6 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
 
     .main-image-wrap {
         position: relative;
-        border-radius: var(--border-radius);
-        overflow: hidden;
-        background: #f5f5f5;
-        aspect-ratio: 1 / 1;
     }
 
     .main-image {
@@ -186,9 +169,9 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
 
     .badge-discount {
         position: absolute;
-        top: var(--spacing-sm);
-        left: var(--spacing-sm);
-        background: #e74c3c;
+        top: var(--spacing-md);
+        left: var(--spacing-md);
+        background: var(--color-danger);
         color: #fff;
         font-weight: 700;
         font-size: 0.9rem;
@@ -244,15 +227,17 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
     }
 
     .product-title {
-        font-size: 2rem;
-        color: var(--color-text);
-        line-height: 1.2;
+        color: var(--color-primary);
+        line-height: 1.1;
+        letter-spacing: -0.05em;
+        font-weight: 700;
     }
 
     .product-description {
-        font-size: 1.1rem;
+        font-size: clamp(1.1rem, 3vw, 1.4rem);
         color: #666;
-        line-height: 1.7;
+        line-height: 1.6;
+        margin-bottom: var(--spacing-md);
     }
 
     .price-container {
@@ -269,7 +254,7 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
     }
 
     .discount-price {
-        color: #e74c3c;
+        color: var(--color-danger);
         font-weight: 700;
         font-size: clamp(1.1rem, 4vw, 1.4rem);
     }
@@ -281,12 +266,12 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
     }
 
     .savings-tag {
-        background: rgba(231, 76, 60, 0.1);
-        color: #e74c3c;
+        background: var(--color-accent-soft);
+        color: var(--color-accent);
         padding: 0.2rem 0.6rem;
-        border-radius: 20px;
+        border-radius: 8px;
         font-size: 0.75rem;
-        font-weight: 600;
+        font-weight: 700;
         margin-left: var(--spacing-sm);
         white-space: nowrap;
     }
@@ -301,27 +286,24 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
         margin-right: 0.2rem;
     }
 
-
     /* Descripción detallada */
     .product-body-section {
-        background: #fff;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow-sm);
-        padding: var(--spacing-xl);
+        margin-top: var(--spacing-md);
+        padding-top: var(--spacing-md);
+        border-top: 1px solid var(--glass-border);
     }
 
     .section-heading {
         font-size: 1.5rem;
-        color: var(--color-text);
+        color: var(--color-primary);
         margin-bottom: var(--spacing-lg);
-        padding-bottom: var(--spacing-sm);
-        border-bottom: 2px solid var(--color-primary);
-        display: inline-block;
+        font-weight: 700;
+        letter-spacing: -0.04em;
     }
 
     .product-body {
-        font-size: 1rem;
-        color: #444;
+        font-size: 1.1rem;
+        color: var(--color-text);
         line-height: 1.8;
     }
 
@@ -340,14 +322,14 @@ const savingsPercent = discountPrice ? Math.round(((price - discountPrice) / pri
     }
 
     .product-body :global(strong) {
-        color: var(--color-text);
+        color: var(--color-primary);
+        font-weight: 600;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
         .product-layout {
             grid-template-columns: 1fr;
-            padding: var(--spacing-md);
         }
 
         .product-title {
