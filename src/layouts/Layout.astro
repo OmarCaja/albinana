@@ -60,7 +60,7 @@ const {
                     observerOptions,
                 );
 
-                document.querySelectorAll(".fade-in-up").forEach((el) => observer.observe(el));
+                document.querySelectorAll(".fade-in-up:not(.visible)").forEach((el) => observer.observe(el));
             }
 
             // Function to handle reading progress bar
@@ -71,11 +71,14 @@ const {
                 const onScroll = () => {
                     const pixelsScrolled = window.scrollY;
                     const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
-                    const scrollPercentage = Math.min(100, (pixelsScrolled / pageHeight) * 100);
+                    const scrollPercentage = Math.min(100, (pixelsScrolled / (pageHeight || 1)) * 100);
                     
                     progressBar.style.width = scrollPercentage + "%";
                 };
 
+                // Use a standard event listener but ensure we don't stack them
+                window.removeEventListener("scroll", (window as any)._lastOnScroll);
+                (window as any)._lastOnScroll = onScroll;
                 window.addEventListener("scroll", onScroll, { passive: true });
                 onScroll(); // Initial call
             }

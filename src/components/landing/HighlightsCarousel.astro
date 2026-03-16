@@ -138,10 +138,10 @@ const offers = data.productos.slice(0, 4);
         overflow-y: hidden;
         padding: 20px 0;
         scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; /* Safari fix */
         scrollbar-width: none;
         -ms-overflow-style: none;
         scroll-behavior: smooth;
-        touch-action: pan-y;
     }
 
     .carousel-track::-webkit-scrollbar {
