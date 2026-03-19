@@ -75,13 +75,9 @@ const formattedOfferEnds = offerEndsDate
 
 <style>
     .product-card {
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
+        padding: 0;
+        text-decoration: none;
         color: inherit;
-        height: 100%;
-        width: 100%;
-        box-shadow: var(--shadow-subtle);
     }
 
     /* Imagen */
@@ -90,7 +86,6 @@ const formattedOfferEnds = offerEndsDate
         aspect-ratio: 1 / 1;
         overflow: hidden;
         background: transparent;
-        flex-shrink: 0;
         width: 100%;
     }
 
@@ -110,115 +105,110 @@ const formattedOfferEnds = offerEndsDate
         font-size: 0.9rem;
     }
 
-    .badge-discount {
-        position: absolute;
-        top: var(--spacing-md);
-        left: var(--spacing-md);
-        background: var(--color-danger);
-        color: #fff;
-        font-weight: 700;
-        font-size: 0.75rem;
-        padding: 0.15rem 0.5rem;
-        border-radius: 20px;
-        backdrop-filter: blur(4px);
-    }
-
-    /* Contenido */
-    .card-content {
-        padding: var(--spacing-lg);
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: var(--spacing-md);
-    }
-
-    @media (max-width: 768px) {
-        .card-content {
-            padding: var(--spacing-md);
-        }
-    }
-
     .product-title {
-        font-size: 1.05rem;
+        font-size: 1.15rem;
         color: var(--color-primary);
         font-weight: 700;
         letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin-bottom: var(--spacing-xs);
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        min-height: 2.3em;
-        margin-bottom: var(--spacing-xs);
-    }
-
-    @media (max-width: 768px) {
-        .product-title {
-            font-size: 0.9rem;
-            min-height: 2.2em;
-            margin-bottom: 2px;
-        }
+        min-height: 2.4em;
     }
 
     .product-desc {
         color: var(--color-text-light);
-        font-size: 0.9rem;
-        flex-grow: 1;
+        font-size: 0.95rem;
         line-height: 1.5;
-        letter-spacing: -0.01em;
+        margin-bottom: var(--spacing-sm);
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
 
-    @media (max-width: 768px) {
-        .product-desc {
-            display: none;
-        }
-    }
-
     .price-container {
         display: flex;
-        align-items: center;
-        gap: var(--spacing-sm);
+        align-items: baseline;
+        gap: var(--spacing-xs);
+        margin-top: var(--spacing-sm);
+        padding-top: 0;
+        flex-wrap: wrap;
     }
+
 
     .original-price {
         text-decoration: line-through;
         color: #999;
-        font-size: 0.95rem;
+        font-size: 0.8rem;
     }
 
     .discount-price {
         color: var(--color-danger);
-        font-weight: 700;
-        font-size: 1.25rem;
+        font-weight: 800;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
     }
 
     .price {
         color: var(--color-text);
-        font-weight: 700;
-        font-size: 1.25rem;
+        font-weight: 800;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
     }
 
     .savings-tag {
         background: var(--color-accent-soft);
         color: var(--color-accent);
-        padding: 0.2rem 0.6rem;
-        border-radius: 8px;
-        font-size: 0.75rem;
+        padding: 0.15rem 0.4rem;
+        border-radius: var(--border-radius-sm);
+        font-size: 0.65rem;
         font-weight: 700;
-        margin-left: var(--spacing-sm);
-        white-space: nowrap;
+        margin-left: auto;
+        border: 1px solid rgba(96, 165, 250, 0.2);
     }
+
+    @media (max-width: 480px) {
+        .discount-price, .price {
+            font-size: 1.1rem;
+        }
+        
+        .savings-tag {
+            margin-left: 0;
+            width: 100%;
+            text-align: center;
+            margin-top: 2px;
+        }
+    }
+
 
     .offer-ends {
-        font-size: 0.85rem;
-        color: #666;
+        font-size: 0.75rem;
+        color: var(--color-text-muted);
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        margin-top: var(--spacing-xs);
     }
 
-    .offer-icon {
-        margin-right: 0.2rem;
+    .btn {
+        margin-top: var(--spacing-md);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0.6rem 1rem;
+        border-radius: var(--border-radius-sm);
+        font-weight: 600;
+        font-size: 0.9rem;
+        background: var(--color-primary);
+        color: white !important;
     }
-
 </style>
+
+
+
+

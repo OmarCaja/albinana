@@ -1,0 +1,55 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	icon: string;
+}
+
+const { title, description, icon } = Astro.props;
+---
+
+<div class="glass-card service-card fade-in-up">
+	<div class="card-content">
+		<div class="service-icon">
+			{icon}
+		</div>
+		<h3 class="service-title">{title}</h3>
+		<p class="service-description">{description}</p>
+	</div>
+</div>
+
+<style>
+	.service-card {
+		overflow: hidden;
+	}
+
+	.service-icon {
+		margin-bottom: var(--spacing-md);
+		width: auto;
+		height: auto;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		background: none;
+		border: none;
+		font-size: 2.5rem;
+
+		box-shadow: none;
+	}
+
+	.service-title {
+		font-size: 1.5rem;
+		color: var(--color-primary);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		margin: 0;
+		text-transform: none;
+	}
+
+	.service-description {
+		color: var(--color-text-light);
+		font-size: 1rem;
+		line-height: 1.6;
+		margin: 0;
+	}
+</style>

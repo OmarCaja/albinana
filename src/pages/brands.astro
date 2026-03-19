@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BrandCard from "../components/BrandCard.astro";
+import { getCollection } from "astro:content";
+
+const marcas = await getCollection("brands");
+---
+
+<Layout title="Nuestras Marcas | Farmacia ortopedia Albiñana">
+	<Header />
+	<main>
+		<section class="section-full">
+			<div class="container">
+				<h1 class="page-title">Nuestras Marcas</h1>
+				<p class="page-subtitle">
+					Conoce las marcas de productos que ofrecemos en Farmacia
+					Albiñana
+				</p>
+
+				<div class="grid-standard">
+					{
+						marcas.map((marca) => (
+							<BrandCard
+								id={marca.id}
+								imagen={marca.data.imagen}
+							/>
+						))
+					}
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>

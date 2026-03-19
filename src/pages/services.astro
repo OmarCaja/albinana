@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import { getCollection } from "astro:content";
+
+const services = await getCollection("services");
+---
+
+<style>
+	.grid-services {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--spacing-lg);
+		margin-top: var(--spacing-xl);
+	}
+
+
+
+
+	@media (min-width: 1024px) {
+		.grid-services {
+			grid-template-columns: repeat(2, 1fr);
+			gap: var(--spacing-xl);
+		}
+	}
+</style>
+
+<Layout
+	title="Servicios Farmacia ortopedia Albiñana | Servicios especializados"
+>
+	<Header />
+	<main>
+		<section class="section-full">
+			<div class="container">
+				<h1 class="page-title">Nuestros Servicios</h1>
+				<p class="page-subtitle">
+					Ofrecemos una amplia gama de servicios farmacéuticos
+					especializados para cuidar de tu salud y bienestar
+				</p>
+
+				<div class="grid-services">
+					{
+						services.map((service) => (
+							<ServiceCard
+								title={service.data.title}
+								description={service.data.description}
+								icon={service.data.icon}
+							/>
+
+						))
+					}
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>

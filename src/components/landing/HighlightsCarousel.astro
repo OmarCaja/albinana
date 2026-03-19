@@ -1,45 +1,52 @@
 ---
-import data from "../../content/ofertas/ofertas.json";
+import { getCollection } from "astro:content";
 import ProductCard from "../ProductCard.astro";
 
-const offers = data.productos.slice(0, 4);
+const allOffers = await getCollection("offers");
+const offers = allOffers.slice(0, 4);
 ---
+
 
 <section class="highlights-section">
     <div class="container highlights-container">
         <div class="header-container">
             <h2 class="page-title fade-in-up">Ofertas destacadas</h2>
         </div>
-        
+
         <div class="carousel-container fade-in-up">
             <div class="carousel-track" id="carouselTrack">
-                {offers.map((offer, index) => (
-                    <div class="carousel-item" data-index={index}>
-                        <ProductCard
-                            id={offer.id}
-                            title={offer.title}
-                            price={offer.price}
-                            discountPrice={offer.discountPrice}
-                            description={offer.description}
-                            imagenes={offer.imagenes}
-                            offerEnds={offer.offerEnds}
-                            animate={false}
-                        />
-                    </div>
-                ))}
+                {
+                    offers.map((offer, index) => (
+                        <div class="carousel-item" data-index={index}>
+                            <ProductCard
+                                id={offer.id}
+                                title={offer.data.title}
+                                price={offer.data.price}
+                                discountPrice={offer.data.discountPrice}
+                                description={offer.data.description}
+                                imagenes={offer.data.imagenes}
+                                offerEnds={offer.data.offerEnds}
+                                animate={false}
+                            />
+
+                        </div>
+                    ))
+                }
             </div>
         </div>
     </div>
 
     <div class="container carousel-controls">
         <div class="carousel-pagination" id="carouselPagination">
-            {offers.map((_, index) => (
-                <button 
-                    class={`pagination-dot ${index === 0 ? 'active' : ''}`} 
-                    data-index={index}
-                    aria-label={`Ir a la oferta ${index + 1}`}
-                ></button>
-            ))}
+            {
+                offers.map((_, index) => (
+                    <button
+                        class={`pagination-dot ${index === 0 ? "active" : ""}`}
+                        data-index={index}
+                        aria-label={`Ir a la oferta ${index + 1}`}
+                    />
+                ))
+            }
         </div>
         <div class="carousel-footer-btn">
             <a href={`${import.meta.env.BASE_URL}/products`} class="btn">
@@ -51,20 +58,20 @@ const offers = data.productos.slice(0, 4);
 
 <script>
     function setupCarousel() {
-        const track = document.getElementById('carouselTrack');
-        const dots = document.querySelectorAll('.pagination-dot');
-        
+        const track = document.getElementById("carouselTrack");
+        const dots = document.querySelectorAll(".pagination-dot");
+
         if (!track || dots.length === 0) return;
 
         const observerOptions = {
             root: track,
-            threshold: 0.6
+            threshold: 0.6,
         };
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    const index = entry.target.getAttribute('data-index');
+                    const index = entry.target.getAttribute("data-index");
                     if (index !== null) {
                         updateDots(parseInt(index));
                     }
@@ -72,35 +79,49 @@ const offers = data.productos.slice(0, 4);
             });
         }, observerOptions);
 
-        document.querySelectorAll('.carousel-item').forEach(item => {
+        document.querySelectorAll(".carousel-item").forEach((item) => {
             observer.observe(item);
         });
 
         function updateDots(activeIndex: number) {
             dots.forEach((dot, index) => {
                 if (index === activeIndex) {
-                    dot.classList.add('active');
+                    dot.classList.add("active");
                 } else {
-                    dot.classList.remove('active');
+                    dot.classList.remove("active");
                 }
             });
         }
 
         // Add click events to dots
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const index = dot.getAttribute('data-index');
-                const targetItem = document.querySelector(`.carousel-item[data-index="${index}"]`);
+        dots.forEach((dot) => {
+            dot.addEventListener("click", () => {
+                const index = dot.getAttribute("data-index");
+                const targetItem = document.querySelector(
+                    `.carousel-item[data-index="${index}"]`,
+                );
                 if (targetItem) {
-                    targetItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                    targetItem.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                        inline: "start",
+                    });
                 }
             });
         });
     }
 
-    // Run on load and after view transitions
-    setupCarousel();
-    document.addEventListener('astro:page-load', setupCarousel);
+    // Run on load and after view transitions, but prevent duplicate initialization
+    let carouselInitialized = false;
+
+    function setupCarouselOnce() {
+        if (carouselInitialized) return;
+        setupCarousel();
+        carouselInitialized = true;
+    }
+
+    setupCarouselOnce();
+    document.addEventListener("astro:page-load", setupCarouselOnce);
 </script>
 
 <style>
@@ -169,9 +190,10 @@ const offers = data.productos.slice(0, 4);
 
     @media (max-width: 768px) {
         .carousel-item {
-            flex: 0 0 160px;
+            flex: 0 0 280px;
         }
-        
+
+
         .carousel-track {
             padding: 0 var(--spacing-md);
             gap: var(--spacing-sm);

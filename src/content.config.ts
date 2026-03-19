@@ -1,9 +1,10 @@
 import { defineCollection, z } from 'astro:content';
 import { file } from 'astro/loaders';
 
-const blog = defineCollection({
-    loader: file('./src/content/blog/blog.json'),
+const blogs = defineCollection({
+    loader: file('./src/content/blogs/blogs.json'),
     schema: z.object({
+        id: z.string(),
         title: z.string(),
         description: z.string(),
         pubDate: z.coerce.date(),
@@ -13,11 +14,12 @@ const blog = defineCollection({
     }),
 });
 
-const ofertas = defineCollection({
-    loader: file('./src/content/ofertas/ofertas.json', {
+const offers = defineCollection({
+    loader: file('./src/content/offers/offers.json', {
         parser: (text) => JSON.parse(text).productos,
     }),
     schema: z.object({
+        id: z.string(),
         title: z.string(),
         price: z.number(),
         discountPrice: z.number().optional(),
@@ -28,4 +30,27 @@ const ofertas = defineCollection({
     }),
 });
 
-export const collections = { blog, ofertas };
+const brands = defineCollection({
+    loader: file('./src/content/brands/brands.json', {
+        parser: (text) => JSON.parse(text).marcas,
+    }),
+    schema: z.object({
+        id: z.string(),
+        imagen: z.string(),
+    }),
+});
+
+const services = defineCollection({
+    loader: file('./src/content/services/services.json', {
+        parser: (text) => JSON.parse(text).servicios,
+    }),
+    schema: z.object({
+        id: z.string(),
+        title: z.string(),
+        description: z.string(),
+        icon: z.string(),
+    }),
+});
+
+
+export const collections = { blogs, offers, brands, services };

@@ -35,9 +35,11 @@
     
     --border-radius: 20px;
     --border-radius-sm: 10px;
+    --border-radius-lg: 32px;
     
     /* Shadows - Ultra minimal */
     --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.02);
+    --shadow-lg: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
     --shadow-premium: 0 30px 60px -12px rgba(0, 0, 0, 0.12), 0 18px 36px -18px rgba(0, 0, 0, 0.15);
     
     --header-height: 60px;
@@ -129,7 +131,7 @@ ul {
 .page-subtitle {
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     color: var(--color-text-light);
-    margin-bottom: var(--spacing-md); /* Reduced from var(--spacing-xl) */
+    margin-bottom: var(--spacing-lg);
     max-width: 45ch;
     letter-spacing: -0.02em;
     line-height: 1.4;
@@ -139,7 +141,10 @@ ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
 }
+
+
 
 .text-editorial {
     font-size: clamp(1.1rem, 2.5vw, 1.25rem);
@@ -167,12 +172,42 @@ ul {
 
 /* Glass Card Pattern */
 .glass-card {
-    background: var(--color-surface);
+    background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    border-radius: var(--border-radius);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+    border-radius: var(--border-radius-lg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--shadow-subtle);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-content {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: var(--spacing-sm);
+}
+
+.badge-discount {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    background: var(--color-danger);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--border-radius-sm);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 
@@ -235,3 +270,5 @@ body.menu-open footer {
 main, footer {
     transition: filter 0.4s ease;
 }
+
+/* Brand Card Styles */

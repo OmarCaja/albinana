@@ -5,10 +5,10 @@ import Footer from "../components/Footer.astro";
 import ProductCard from "../components/ProductCard.astro";
 import { getCollection } from "astro:content";
 
-const products = await getCollection("ofertas");
+const products = await getCollection("offers");
 ---
 
-<Layout title="Ofertas | Farmacia Albiñana">
+<Layout title="Ofertas | Farmacia ortopedia Albiñana">
     <Header />
     <main class="products-page">
         <section class="section-full">
@@ -21,7 +21,10 @@ const products = await getCollection("ofertas");
                 <div class="grid-standard">
                     {
                         products.map((product, index) => (
-                            <div class="fade-in-up" style={`transition-delay: ${index * 100}ms`}>
+                            <div
+                                class="fade-in-up"
+                                style={`transition-delay: ${index * 100}ms`}
+                            >
                                 <ProductCard
                                     id={product.id}
                                     title={product.data.title}
