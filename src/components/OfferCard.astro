@@ -1,0 +1,124 @@
+---
+interface Props {
+    brand: string;
+    title: string;
+    description: string;
+    startDate: string;
+    endDate: string;
+    isActive: boolean;
+    isAllYear: boolean;
+}
+
+const { brand, title, description, startDate, endDate, isActive, isAllYear } = Astro.props;
+
+function formatDate(dateStr: string) {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
+}
+---
+
+<div class={`offer-card glass-card fade-in-up ${isActive ? 'is-active' : ''}`}>
+    <div class="offer-date-tag">
+        {isAllYear ? 'Todo el año 2026' : `${formatDate(startDate)} - ${formatDate(endDate)}`}
+    </div>
+    <div class="card-content">
+        <div class="offer-brand-label">{brand}</div>
+        <h3 class="offer-title">{title}:</h3>
+        <p class="offer-description">{description}</p>
+        
+        {isActive && (
+            <div class="active-badge">
+                <span class="dot"></span> Activa ahora
+            </div>
+        )}
+    </div>
+</div>
+
+<style>
+    .offer-card {
+        /* No transform or hover effects on click/hover as requested */
+        border: 1px solid var(--glass-border);
+        transition: border-color var(--transition-fast), background-color var(--transition-fast);
+    }
+
+    .offer-card.is-active {
+        border-color: var(--color-accent-soft);
+        background: linear-gradient(to bottom right, var(--glass-bg), rgba(0, 149, 200, 0.03));
+    }
+
+    .offer-date-tag {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--color-text-light);
+        padding: 0.5rem 1.5rem;
+        background: var(--color-accent-soft);
+        border-bottom: 1px solid var(--glass-border);
+        letter-spacing: 0.05em;
+    }
+
+    .offer-brand-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--color-accent);
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+    }
+
+    .offer-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.2;
+    }
+
+    .offer-description {
+        font-size: 1.1rem;
+        color: var(--color-text);
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    .active-badge {
+        margin-top: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--color-accent);
+        padding-top: var(--spacing-md);
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--color-accent);
+        border-radius: 50%;
+        display: inline-block;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(0, 149, 200, 0.7);
+        }
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 6px rgba(0, 149, 200, 0);
+        }
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(0, 149, 200, 0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .offer-title {
+            font-size: 1.2rem;
+        }
+        .offer-description {
+            font-size: 1rem;
+        }
+    }
+</style>

@@ -1,0 +1,161 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import OfferCard from "../components/OfferCard.astro";
+import { getCollection } from "astro:content";
+
+const offers = await getCollection("offers");
+
+// Sort offers by brand and then start date
+const sortedOffers = offers.sort((a, b) => {
+    if (a.data.brand < b.data.brand) return -1;
+    if (a.data.brand > b.data.brand) return 1;
+    return a.data.startDate.localeCompare(b.data.startDate);
+});
+
+// Group offers only if they are identical AND contiguous
+const groupedOffers = sortedOffers.reduce((acc: any[], current) => {
+    const existing = acc.find(o => 
+        o.data.brand === current.data.brand && 
+        o.data.products === current.data.products && 
+        o.data.discount === current.data.discount &&
+        // Check if current starts right after existing ends (or same day)
+        (new Date(current.data.startDate).getTime() - new Date(o.data.endDate).getTime() <= 24 * 60 * 60 * 1000 + 1000)
+    );
+
+    if (existing) {
+        existing.data.endDate = current.data.endDate;
+    } else {
+        // Deep clone to avoid mutating the original collection
+        acc.push(JSON.parse(JSON.stringify(current)));
+    }
+    return acc;
+}, []);
+
+function isOfferActive(startDate: string, endDate: string, todayStr: string) {
+    return todayStr >= startDate && todayStr <= endDate;
+}
+
+function getFullOfferText(offer: any) {
+    const { brand, products, discount, startDate, endDate } = offer.data;
+    const brandName = brand.split(' ').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    const productLower = products.toLowerCase();
+    const discountUpper = discount.toUpperCase();
+    
+    // Period string logic
+    const startMonth = new Date(startDate).toLocaleString('es-ES', { month: 'long' });
+    const endMonth = new Date(endDate).toLocaleString('es-ES', { month: 'long' });
+    let periodStr = "";
+    
+    if (startMonth === endMonth) {
+        periodStr = ` (${startMonth})`;
+    } else {
+        periodStr = ` (${startMonth}-${endMonth})`;
+    }
+
+    if (brand.toUpperCase() === "REIG JOFRE") {
+        periodStr = "";
+    }
+    
+    // Pattern heuristic matching user desire
+    if (brand.toUpperCase() === "ISDIN") {
+        // keep period
+    } else if (!["HELIOCARE", "SOLARES E ISDINCEUTICS"].some(kw => products.toUpperCase().includes(kw) || brand.toUpperCase().includes(kw))) {
+         if (!brand.includes("CANTABRIA LABS") && !brand.includes("ISDIN")) {
+             periodStr = "";
+         }
+    }
+
+    let titleText = `${brandName}${productLower === 'todo' ? ' (todo)' : ' ' + products.charAt(0).toUpperCase() + products.slice(1).toLowerCase()}${periodStr}`;
+    
+    let descriptionText = "";
+    if (discountUpper === "3X2") {
+        if (productLower === "todo") {
+            descriptionText = "Llévate 3 productos y paga solo 2.";
+        } else if (productLower.includes("water wipes") || productLower.includes("toallitas")) {
+             descriptionText = "Llévate 3 productos y paga solo 2 en toallitas.";
+        } else {
+            descriptionText = `Llévate 3 productos y paga solo 2 en ${productLower}.`;
+        }
+    } else if (discountUpper.includes("2ªUD")) {
+        const pct = discountUpper.match(/(\d+)%/)?.[1] || discountUpper;
+        descriptionText = `${pct}% en la segunda unidad.`;
+        if (brand.toUpperCase() === "REIG JOFRE") {
+             descriptionText += " Todo el año";
+        }
+    } else if (discountUpper.includes("%")) {
+        descriptionText = `${discount} de descuento directo.`;
+        if (!descriptionText.includes("directo")) descriptionText += " directo.";
+    } else if (discountUpper.includes("10€ EN 2UD")) {
+        if (brand.toUpperCase() === "ISDIN") {
+            descriptionText = "10€ de descuento en la compra de 2 unidades.";
+            if (new Date(startDate).getMonth() === 3) { // April
+                descriptionText = "10€ de descuento en 2 unidades.";
+            }
+        } else {
+            descriptionText = "10€ de descuento al llevar 2 unidades.";
+        }
+    } else if (discountUpper.includes("1UD 3€ 2UD 8€")) {
+        descriptionText = "3€ en 1 unidad o 8€ en 2 unidades.";
+    } else if (discountUpper.includes("4 €") || discountUpper.includes("4€")) {
+        descriptionText = "4€ de descuento directo.";
+    } else {
+        descriptionText = discount;
+    }
+
+    return { title: titleText, description: descriptionText };
+}
+
+const today = new Date();
+const todayISOMasking = today.toISOString().split('T')[0];
+---
+
+<Layout 
+	title="Ofertas y Promociones | Farmacia ortopedia Albiñana"
+	description="Descubre nuestras ofertas y promociones exclusivas en parafarmacia, cosmética y salud. Ahorra en tus marcas favoritas."
+>
+	<Header />
+	<main>
+		<section class="section-full">
+			<div class="container">
+				<h1 class="page-title">Ofertas y Promociones</h1>
+				<p class="page-subtitle">
+					Aprovecha nuestros descuentos exclusivos por tiempo limitado en una amplia selección de productos.
+				</p>
+
+				<div class="offers-grid">
+					{
+						groupedOffers.map((offer: any) => {
+                            const isActiveState = isOfferActive(offer.data.startDate, offer.data.endDate, todayISOMasking);
+                            const { title, description } = getFullOfferText(offer);
+                            const isAllYearFull = offer.data.startDate.startsWith('2026-01') && offer.data.endDate.startsWith('2026-12');
+                            
+                            return (
+                                <OfferCard
+                                    brand={offer.data.brand}
+                                    title={title}
+                                    description={description}
+                                    startDate={offer.data.startDate}
+                                    endDate={offer.data.endDate}
+                                    isActive={isActiveState}
+                                    isAllYear={isAllYearFull}
+                                />
+                            )
+                        })
+					}
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+    .offers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-xl);
+    }
+</style>

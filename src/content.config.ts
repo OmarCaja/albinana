@@ -14,21 +14,7 @@ const blogs = defineCollection({
     }),
 });
 
-const offers = defineCollection({
-    loader: file('./src/content/offers/offers.json', {
-        parser: (text) => JSON.parse(text).productos,
-    }),
-    schema: z.object({
-        id: z.string(),
-        title: z.string(),
-        price: z.number(),
-        discountPrice: z.number().optional(),
-        description: z.string(),
-        offerEnds: z.coerce.date().optional(),
-        imagenes: z.array(z.string()).optional(),
-        content: z.string().optional(),
-    }),
-});
+
 
 const brands = defineCollection({
     loader: file('./src/content/brands/brands.json', {
@@ -53,5 +39,16 @@ const services = defineCollection({
     }),
 });
 
+const offers = defineCollection({
+    loader: file('./src/content/offers/offers.json'),
+    schema: z.object({
+        id: z.string(),
+        startDate: z.string(),
+        endDate: z.string(),
+        brand: z.string(),
+        products: z.string(),
+        discount: z.string(),
+    }),
+});
 
-export const collections = { blogs, offers, brands, services };
+export const collections = { blogs, brands, services, offers };

@@ -49,21 +49,18 @@
     --container-max-width: 1600px;
 }
 
-/* Modern Reset */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
     font-family: var(--font-body);
-    /* Improved gradient for Safari: avoid background-attachment: fixed which causes issues on mobile */
-    background: radial-gradient(circle at top right, #e9fcff, #bce9f8);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: var(--color-bg);
     color: var(--color-text);
     /* Use svh/lvh or -webkit-fill-available for better Safari height handling if needed, but min-height is safer for root */
     min-height: 100%;

@@ -1,52 +1,178 @@
-{
-  "productos": [
-    {
-      "id": "100",
-      "title": "Pack vitamina C + E",
-      "price": 25.50,
-      "discountPrice": 19.99,
-      "description": "Pack antioxidante para reforzar tus defensas y cuidar tu piel. Oferta especial de lanzamiento.",
-      "offerEnds": "2024-02-28",
-      "imagenes": [
-        "/products/100/1.jpg"
-      ],
-      "content": "<p>Aprovecha este <strong>pack exclusivo</strong> diseñado para protegerte de los radicales libres y mejorar la luminosidad de tu piel.</p><ul><li><strong>Vitamina C:</strong> Potente antioxidante que refuerza el sistema inmune y mejora el tono de la piel.</li><li><strong>Vitamina E:</strong> Protege las células del daño oxidativo y nutre la piel en profundidad.</li></ul><p>Combinados, forman un <em>equipo imbatible</em> para tu bienestar diario.</p>"
-    },
-    {
-      "id": "200",
-      "title": "Serum facial ácido hialurónico",
-      "price": 35.00,
-      "discountPrice": 24.95,
-      "description": "Hidratación profunda y efecto antiedad para todo tipo de pieles. Tratamiento intensivo reparador.",
-      "offerEnds": "2024-05-31",
-      "imagenes": [
-        "/products/200/1.jpg"
-      ],
-      "content": "<p>Devuélvele la vitalidad a tu rostro con este <strong>serum concentrado de ácido hialurónico</strong>.</p><ul><li><strong>Hidratación 24h:</strong> Penetra en las capas más profundas de la piel para una hidratación prolongada.</li><li><strong>Efecto Plumping:</strong> Rellena las líneas de expresión y mejora la elasticidad.</li></ul><p>Inclúyelo en tu rutina de noche y despierta con una piel <em>visiblemente más joven</em>.</p>"
-    },
-    {
-      "id": "300",
-      "title": "Crema solar facial SPF 50+",
-      "price": 22.00,
-      "discountPrice": 16.50,
-      "description": "Protección solar diaria con acabado invisible. Resistente al agua y al sudor.",
-      "offerEnds": "2024-08-31",
-      "imagenes": [
-        "/products/300/1.jpg"
-      ],
-      "content": "<p>Protege tu piel del sol con esta <strong>crema solar de alta protección</strong>.</p><ul><li><strong>SPF 50+:</strong> Máxima protección contra los rayos UVA y UVB.</li><li><strong>Textura Ligera:</strong> Absorción rápida sin dejar residuos grasos.</li></ul>"
-    },
-    {
-      "id": "400",
-      "title": "Pack colágeno + magnesio",
-      "price": 45.00,
-      "discountPrice": 32.99,
-      "description": "Suplemento para el cuidado de articulaciones y huesos. Formato ahorro para 2 meses.",
-      "offerEnds": "2024-12-31",
-      "imagenes": [
-        "/products/400/1.jpg"
-      ],
-      "content": "<p>Mejora tu movilidad con este <strong>pack de colágeno y magnesio</strong>.</p><ul><li><strong>Articulaciones:</strong> Ayuda a mantener la flexibilidad y reducir el dolor.</li><li><strong>Huesos:</strong> Contribuye al mantenimiento de los huesos en condiciones normales.</li></ul>"
-    }
-  ]
-}
+[
+  {
+    "id": "1",
+    "startDate": "2026-02-01",
+    "endDate": "2026-03-31",
+    "brand": "BEBE INNOVA",
+    "products": "todo",
+    "discount": "3X2"
+  },
+  {
+    "id": "2",
+    "startDate": "2026-02-20",
+    "endDate": "2026-04-20",
+    "brand": "BEBE INNOVA",
+    "products": "WATER WIPES",
+    "discount": "3X2"
+  },
+  {
+    "id": "3",
+    "startDate": "2026-02-01",
+    "endDate": "2026-03-31",
+    "brand": "EUCERIN",
+    "products": "CORPORAL",
+    "discount": "25%"
+  },
+  {
+    "id": "4",
+    "startDate": "2026-02-01",
+    "endDate": "2026-02-28",
+    "brand": "CANTABRIA LABS",
+    "products": "RENEWAL",
+    "discount": "2ªUD 40%"
+  },
+  {
+    "id": "5",
+    "startDate": "2026-03-01",
+    "endDate": "2026-03-31",
+    "brand": "CANTABRIA LABS",
+    "products": "BIRETIX",
+    "discount": "2ªUD 40%"
+  },
+  {
+    "id": "6",
+    "startDate": "2026-04-01",
+    "endDate": "2026-04-30",
+    "brand": "CANTABRIA LABS",
+    "products": "IRALTONE ORAL",
+    "discount": "2ªUD 30%"
+  },
+  {
+    "id": "7",
+    "startDate": "2026-06-01",
+    "endDate": "2026-07-15",
+    "brand": "CANTABRIA LABS",
+    "products": "HELIOCARE",
+    "discount": "2ªUD 30%"
+  },
+  {
+    "id": "8",
+    "startDate": "2026-06-01",
+    "endDate": "2026-06-30",
+    "brand": "CANTABRIA LABS",
+    "products": "IRALTONE TÓPICO",
+    "discount": "2ªUD 30%"
+  },
+  {
+    "id": "9",
+    "startDate": "2026-05-18",
+    "endDate": "2026-05-31",
+    "brand": "CANTABRIA LABS",
+    "products": "HELIOCARE",
+    "discount": "3X2"
+  },
+  {
+    "id": "10",
+    "startDate": "2026-03-09",
+    "endDate": "2026-05-17",
+    "brand": "CANTABRIA LABS",
+    "products": "HELIOCARE",
+    "discount": "10€ EN 2UD"
+  },
+  {
+    "id": "11",
+    "startDate": "2026-05-15",
+    "endDate": "2026-08-15",
+    "brand": "CERAVE",
+    "products": "SOLARES",
+    "discount": "20%"
+  },
+  {
+    "id": "12",
+    "startDate": "2026-06-15",
+    "endDate": "2026-07-31",
+    "brand": "CERAVE",
+    "products": "TODO",
+    "discount": "3X2"
+  },
+  {
+    "id": "13",
+    "startDate": "2026-03-01",
+    "endDate": "2026-03-31",
+    "brand": "FARMA DORSCH",
+    "products": "CORPORAL Y STICKS",
+    "discount": "10%"
+  },
+  {
+    "id": "14",
+    "startDate": "2026-04-13",
+    "endDate": "2026-04-26",
+    "brand": "ISDIN",
+    "products": "SOLARES E ISDINCEUTICS",
+    "discount": "10€ EN 2UD"
+  },
+  {
+    "id": "15",
+    "startDate": "2026-03-16",
+    "endDate": "2026-03-29",
+    "brand": "ISDIN",
+    "products": "SOLARES E ISDINCEUTICS",
+    "discount": "10€ EN 2UD"
+  },
+  {
+    "id": "16",
+    "startDate": "2026-02-15",
+    "endDate": "2026-03-31",
+    "brand": "LA ROCHE POSAY",
+    "products": "FACIALES",
+    "discount": "20%"
+  },
+  {
+    "id": "17",
+    "startDate": "2026-03-15",
+    "endDate": "2026-05-31",
+    "brand": "LA ROCHE POSAY",
+    "products": "ANTHELIOS",
+    "discount": "1ud 3€ 2ud 8€"
+  },
+  {
+    "id": "18",
+    "startDate": "2026-01-01",
+    "endDate": "2026-04-30",
+    "brand": "REIG JOFRE",
+    "products": "ARTICOLAGENO",
+    "discount": "2ªUD 50%"
+  },
+  {
+    "id": "19",
+    "startDate": "2026-05-01",
+    "endDate": "2026-08-31",
+    "brand": "REIG JOFRE",
+    "products": "ARTICOLAGENO",
+    "discount": "2ªUD 50%"
+  },
+  {
+    "id": "20",
+    "startDate": "2026-09-01",
+    "endDate": "2026-12-31",
+    "brand": "REIG JOFRE",
+    "products": "ARTICOLAGENO",
+    "discount": "2ªUD 50%"
+  },
+  {
+    "id": "21",
+    "startDate": "2026-03-01",
+    "endDate": "2026-05-31",
+    "brand": "VICHY",
+    "products": "SOLARES",
+    "discount": "4 €"
+  },
+  {
+    "id": "22",
+    "startDate": "2026-03-15",
+    "endDate": "2026-05-31",
+    "brand": "EUCERIN",
+    "products": "FACIALES",
+    "discount": "20%"
+  }
+]
