@@ -9,7 +9,7 @@ const posts = (await getCollection("blogs")).sort(
 );
 ---
 
-<Layout 
+<Layout
     title="Blog de Salud y Bienestar | Farmacia ortopedia Albiñana"
     description="Consejos expertos sobre nutrición, dermocosmética, ortopedia y salud general. Tu fuente de información en Bétera."
 >
@@ -26,9 +26,7 @@ const posts = (await getCollection("blogs")).sort(
                     {
                         posts.map((post) => (
                             <article class="blog-card glass-card fade-in-up">
-                                <a
-                                    href={`${import.meta.env.BASE_URL}/blogs/${post.id}`}
-                                >
+                                <a href={`/blogs/${post.id}`}>
                                     <div class="card-content">
                                         <div class="card-meta">
                                             <time
@@ -127,4 +125,3 @@ const posts = (await getCollection("blogs")).sort(
         color: var(--color-primary);
     }
 </style>
-

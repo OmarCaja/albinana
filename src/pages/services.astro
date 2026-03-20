@@ -6,6 +6,14 @@ import ServiceCard from "../components/ServiceCard.astro";
 import { getCollection } from "astro:content";
 
 const services = await getCollection("services");
+
+// Sort services by priority (ascending order, so 1 comes first)
+const sortedServices = [...services].sort((a, b) => {
+    // If priority is not defined, set it to a high number (4) so it appears at the end
+    const priorityA = a.data.priority ?? 4;
+    const priorityB = b.data.priority ?? 4;
+    return priorityA - priorityB;
+});
 ---
 
 <style>
@@ -15,8 +23,6 @@ const services = await getCollection("services");
 		gap: var(--spacing-lg);
 		margin-top: var(--spacing-xl);
 	}
-
-
 
 
 	@media (min-width: 1024px) {
@@ -43,7 +49,7 @@ const services = await getCollection("services");
 
 				<div class="grid-services">
 					{
-						services.map((service) => (
+						sortedServices.map((service) => (
 							<ServiceCard
 								id={service.id}
 								title={service.data.title}

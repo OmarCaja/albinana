@@ -20,7 +20,18 @@ const { id, title, description, icon } = Astro.props;
 				<span class="toggle-hint">Ver detalles</span>
 			</div>
 			<div class="chevron">
-				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2.5"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					><polyline points="6 9 12 15 18 9"></polyline></svg
+				>
 			</div>
 		</div>
 	</button>
@@ -28,7 +39,9 @@ const { id, title, description, icon } = Astro.props;
 		<div class="description-inner">
 			<p class="service-description">{description}</p>
 			<div class="link-wrap">
-				<a href={`${import.meta.env.BASE_URL}/services/${id}`} class="btn-detail">Ver servicio completo →</a>
+				<a href={`services/${id}`} class="btn-detail"
+					>Ver servicio completo →</a
+				>
 			</div>
 		</div>
 	</div>
@@ -38,27 +51,31 @@ const { id, title, description, icon } = Astro.props;
 	class ServiceCard extends HTMLElement {
 		constructor() {
 			super();
-			const trigger = this.querySelector('.service-trigger');
-			const container = this.querySelector('.description-container');
-			
-			trigger?.addEventListener('click', () => {
-				const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+			const trigger = this.querySelector(".service-trigger");
+			const container = this.querySelector(".description-container");
+
+			trigger?.addEventListener("click", () => {
+				const isExpanded =
+					trigger.getAttribute("aria-expanded") === "true";
 				const newState = !isExpanded;
-				
-				trigger.setAttribute('aria-expanded', String(newState));
-				this.classList.toggle('is-expanded', newState);
+
+				trigger.setAttribute("aria-expanded", String(newState));
+				this.classList.toggle("is-expanded", newState);
 			});
 		}
 	}
 
-	customElements.define('service-card', ServiceCard);
+	customElements.define("service-card", ServiceCard);
 </script>
 
 <style>
 	.service-card {
 		display: block;
 		overflow: hidden;
-		transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+		transition:
+			transform var(--transition-fast),
+			box-shadow var(--transition-fast),
+			background-color var(--transition-fast);
 		height: fit-content;
 	}
 
@@ -163,7 +180,9 @@ const { id, title, description, icon } = Astro.props;
 		font-size: 1rem;
 		line-height: 1.6;
 		margin: 0;
-		padding-left: calc(2.2rem + var(--spacing-md)); /* Aligned with title after icon */
+		padding-left: calc(
+			2.2rem + var(--spacing-md)
+		); /* Aligned with title after icon */
 	}
 
 	.link-wrap {

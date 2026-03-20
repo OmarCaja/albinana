@@ -18,89 +18,104 @@ const {
     <head>
         <meta charset="UTF-8" />
         <meta name="description" content={description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}/favicon-96x96.png`} sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
-        <link rel="shortcut icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
-        <link rel="apple-touch-icon" sizes="180x180" href={`${import.meta.env.BASE_URL}/apple-touch-icon.png`} />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png`}"
+        />
         <meta name="apple-mobile-web-app-title" content="Farmacia Albiñana" />
-        <link rel="manifest" href={`${import.meta.env.BASE_URL}/site.webmanifest`} />
+        <link rel="manifest" href="/site.webmanifest`}" />
         <meta name="generator" content={Astro.generator} />
         <link rel="canonical" href={Astro.url} />
-        
+
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
         <meta property="og:url" content={Astro.url} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={new URL(`${import.meta.env.BASE_URL}/logo.jpg`, Astro.url)} />
+        <meta property="og:image" content={new URL("/logo.jpg", Astro.url)} />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={Astro.url} />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={new URL(`${import.meta.env.BASE_URL}/logo.jpg`, Astro.url)} />
+        <meta
+            property="twitter:image"
+            content={new URL("/logo.jpg", Astro.url)}
+        />
 
         <!-- Structured Data -->
         <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": "Farmacia Albiñana",
-          "alternateName": ["Farmacia Ortopedia Albiñana", "Albiñana"],
-          "url": "https://omarcaja.github.io/albinana/"
-        }
-        </script>
-        
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Pharmacy",
-          "name": "Farmacia Albiñana",
-          "image": "https://omarcaja.github.io/albinana/logo.jpg",
-          "@id": "https://omarcaja.github.io/albinana/",
-          "url": "https://omarcaja.github.io/albinana/",
-          "telephone": "+34647892464",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Avda. País Valencià, 40",
-            "addressLocality": "Bétera",
-            "postalCode": "46117",
-            "addressRegion": "Valencia",
-            "addressCountry": "ES"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 39.5925,
-            "longitude": -0.4578
-          },
-          "openingHoursSpecification": [
             {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
-              ],
-              "opens": "09:00",
-              "closes": "21:00"
-            },
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": "Sunday",
-              "opens": "09:00",
-              "closes": "14:00"
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Farmacia Albiñana",
+                "alternateName": ["Farmacia Ortopedia Albiñana", "Albiñana"],
+                "url": "https://farmaciaalbinana.es"
             }
-          ],
-          "sameAs": [
-            "https://www.instagram.com/farmaciaalbinana_/",
-            "https://wa.me/34647892464"
-          ]
-        }
+        </script>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Pharmacy",
+                "name": "Farmacia Albiñana",
+                "image": "https://farmaciaalbinana.es/logo.jpg",
+                "@id": "https://farmaciaalbinana.es/",
+                "url": "https://farmaciaalbinana.es/",
+                "telephone": "+34647892464",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Avda. País Valencià, 40",
+                    "addressLocality": "Bétera",
+                    "postalCode": "46117",
+                    "addressRegion": "Valencia",
+                    "addressCountry": "ES"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 39.5925,
+                    "longitude": -0.4578
+                },
+                "openingHoursSpecification": [
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": [
+                            "Monday",
+                            "Tuesday",
+                            "Wednesday",
+                            "Thursday",
+                            "Friday",
+                            "Saturday"
+                        ],
+                        "opens": "09:00",
+                        "closes": "21:00"
+                    },
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": "Sunday",
+                        "opens": "09:00",
+                        "closes": "14:00"
+                    }
+                ],
+                "sameAs": [
+                    "https://www.instagram.com/farmaciaalbinana_/",
+                    "https://wa.me/34647892464"
+                ]
+            }
         </script>
 
         <!-- Google Fonts -->
@@ -119,7 +134,9 @@ const {
         <script>
             // Global variables to store observers and handlers to prevent duplicates
             let currentObserver: IntersectionObserver | null = null;
-            let currentScrollHandler: ((this: Window, ev: Event) => any) | null = null;
+            let currentScrollHandler:
+                | ((this: Window, ev: Event) => any)
+                | null = null;
 
             // Function to setup Intersection Observer
             function setupObserver() {
@@ -175,7 +192,9 @@ const {
                     window.removeEventListener("scroll", currentScrollHandler);
                 }
                 currentScrollHandler = onScroll;
-                window.addEventListener("scroll", currentScrollHandler, { passive: true });
+                window.addEventListener("scroll", currentScrollHandler, {
+                    passive: true,
+                });
                 onScroll(); // Initial call
             }
 

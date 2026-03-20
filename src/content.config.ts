@@ -36,6 +36,7 @@ const services = defineCollection({
         description: z.string(),
         icon: z.string(),
         content: z.string().optional(),
+        priority: z.number().optional(),
     }),
 });
 

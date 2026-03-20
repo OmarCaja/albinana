@@ -9,15 +9,16 @@ const { id, imagen } = Astro.props;
 
 <div class="brand-card glass-card fade-in-up">
     <div class="card-image-wrap">
-        <img src={`${import.meta.env.BASE_URL}${imagen}`} class="card-image" alt={`Marca ${id}`} />
+        <img src={imagen} class="card-image" alt={`Marca ${id}`} />
     </div>
 </div>
 
 <style>
     .brand-card {
-        padding: var(--spacing-lg);
+        padding: var(--spacing-xs);
         align-items: center;
         justify-content: center;
+        min-height: 100px;
     }
 
     .card-image-wrap {
@@ -26,7 +27,8 @@ const { id, imagen } = Astro.props;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: var(--spacing-sm);
+        padding: 0;
+        min-height: 80px;
     }
 
     .card-image {
@@ -35,6 +37,3 @@ const { id, imagen } = Astro.props;
         object-fit: contain;
     }
 </style>
-
-
-
