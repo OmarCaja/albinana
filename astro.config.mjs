@@ -5,7 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://omarcaja.github.io',
-  base: '/albinana',
+  site: 'https://farmaciaalbinana.es',
   integrations: [sitemap()],
 });
