@@ -8,7 +8,10 @@ import { getCollection } from "astro:content";
 const marcas = await getCollection("brands");
 ---
 
-<Layout title="Nuestras Marcas | Farmacia ortopedia Albiñana">
+<Layout 
+	title="Nuestras Marcas | Farmacia ortopedia Albiñana"
+	description="Trabajamos con las mejores marcas de parafarmacia, cosmética y ortopedia para garantizarte los mejores resultados."
+>
 	<Header />
 	<main>
 		<section class="section-full">

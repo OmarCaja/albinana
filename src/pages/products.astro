@@ -8,7 +8,10 @@ import { getCollection } from "astro:content";
 const products = await getCollection("offers");
 ---
 
-<Layout title="Ofertas | Farmacia ortopedia Albiñana">
+<Layout 
+    title="Ofertas y Descuentos | Farmacia ortopedia Albiñana" 
+    description="Aprovecha nuestras mejores ofertas en productos de farmacia y ortopedia en Bétera. Calidad al mejor precio."
+>
     <Header />
     <main class="products-page">
         <section class="section-full">

@@ -26,6 +26,7 @@ const {
         <meta name="apple-mobile-web-app-title" content="Farmacia Albiñana" />
         <link rel="manifest" href={`${import.meta.env.BASE_URL}/site.webmanifest`} />
         <meta name="generator" content={Astro.generator} />
+        <link rel="canonical" href={Astro.url} />
         
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
@@ -40,6 +41,67 @@ const {
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
         <meta property="twitter:image" content={new URL(`${import.meta.env.BASE_URL}/logo.jpg`, Astro.url)} />
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Farmacia Albiñana",
+          "alternateName": ["Farmacia Ortopedia Albiñana", "Albiñana"],
+          "url": "https://omarcaja.github.io/albinana/"
+        }
+        </script>
+        
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Pharmacy",
+          "name": "Farmacia Albiñana",
+          "image": "https://omarcaja.github.io/albinana/logo.jpg",
+          "@id": "https://omarcaja.github.io/albinana/",
+          "url": "https://omarcaja.github.io/albinana/",
+          "telephone": "+34647892464",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Avda. País Valencià, 40",
+            "addressLocality": "Bétera",
+            "postalCode": "46117",
+            "addressRegion": "Valencia",
+            "addressCountry": "ES"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.5925,
+            "longitude": -0.4578
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "09:00",
+              "closes": "21:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Sunday",
+              "opens": "09:00",
+              "closes": "14:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/farmaciaalbinana_/",
+            "https://wa.me/34647892464"
+          ]
+        }
+        </script>
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
