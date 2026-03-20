@@ -1,49 +1,161 @@
 ---
 interface Props {
+	id: string;
 	title: string;
 	description: string;
 	icon: string;
 }
 
-const { title, description, icon } = Astro.props;
+const { id, title, description, icon } = Astro.props;
 ---
 
-<div class="glass-card service-card fade-in-up">
-	<div class="card-content">
-		<div class="service-icon">
-			{icon}
+<service-card class="glass-card service-card fade-in-up">
+	<button class="service-trigger" aria-expanded="false">
+		<div class="service-header">
+			<div class="service-icon">
+				{icon}
+			</div>
+			<div class="title-wrap">
+				<h3 class="service-title">{title}</h3>
+				<span class="toggle-hint">Ver detalles</span>
+			</div>
+			<div class="chevron">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+			</div>
 		</div>
-		<h3 class="service-title">{title}</h3>
-		<p class="service-description">{description}</p>
+	</button>
+	<div class="description-container">
+		<div class="description-inner">
+			<p class="service-description">{description}</p>
+			<div class="link-wrap">
+				<a href={`${import.meta.env.BASE_URL}/services/${id}`} class="btn-detail">Ver servicio completo →</a>
+			</div>
+		</div>
 	</div>
-</div>
+</service-card>
+
+<script>
+	class ServiceCard extends HTMLElement {
+		constructor() {
+			super();
+			const trigger = this.querySelector('.service-trigger');
+			const container = this.querySelector('.description-container');
+			
+			trigger?.addEventListener('click', () => {
+				const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+				const newState = !isExpanded;
+				
+				trigger.setAttribute('aria-expanded', String(newState));
+				this.classList.toggle('is-expanded', newState);
+			});
+		}
+	}
+
+	customElements.define('service-card', ServiceCard);
+</script>
 
 <style>
 	.service-card {
+		display: block;
 		overflow: hidden;
+		transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+		height: fit-content;
+	}
+
+	.service-card:hover {
+		transform: translateY(-2px);
+		background-color: rgba(255, 255, 255, 0.9);
+	}
+
+	.service-trigger {
+		width: 100%;
+		padding: var(--spacing-lg);
+		background: none;
+		border: none;
+		text-align: left;
+		cursor: pointer;
+		display: block;
+		appearance: none;
+		outline: none;
+		color: inherit;
+	}
+
+	.service-header {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+		position: relative;
 	}
 
 	.service-icon {
-		margin-bottom: var(--spacing-md);
-		width: auto;
-		height: auto;
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-		background: none;
-		border: none;
-		font-size: 2.5rem;
+		font-size: 2.2rem;
+		flex-shrink: 0;
+		line-height: 1;
+		transition: transform 0.3s ease;
+	}
 
-		box-shadow: none;
+	.service-card:hover .service-icon {
+		transform: scale(1.1);
+	}
+
+	.title-wrap {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
 	}
 
 	.service-title {
-		font-size: 1.5rem;
+		font-size: 1.35rem;
 		color: var(--color-primary);
 		font-weight: 700;
 		letter-spacing: -0.02em;
 		margin: 0;
-		text-transform: none;
+		line-height: 1.2;
+	}
+
+	.toggle-hint {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		font-weight: 600;
+		color: var(--color-accent);
+		opacity: 0.8;
+		transition: opacity var(--transition-fast);
+	}
+
+	.service-trigger[aria-expanded="true"] .toggle-hint {
+		opacity: 0;
+	}
+
+	.chevron {
+		color: var(--color-accent);
+		transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		opacity: 0.6;
+	}
+
+	.service-trigger[aria-expanded="true"] .chevron {
+		transform: rotate(180deg);
+		opacity: 1;
+	}
+
+	.description-container {
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		padding: 0 var(--spacing-lg);
+	}
+
+	.service-trigger[aria-expanded="true"] + .description-container {
+		grid-template-rows: 1fr;
+		padding-bottom: var(--spacing-lg);
+	}
+
+	.description-inner {
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-md);
 	}
 
 	.service-description {
@@ -51,5 +163,37 @@ const { title, description, icon } = Astro.props;
 		font-size: 1rem;
 		line-height: 1.6;
 		margin: 0;
+		padding-left: calc(2.2rem + var(--spacing-md)); /* Aligned with title after icon */
+	}
+
+	.link-wrap {
+		padding-left: calc(2.2rem + var(--spacing-md));
+		margin-top: 0;
+	}
+
+	.btn-detail {
+		font-size: 0.9rem;
+		font-weight: 700;
+		color: var(--color-accent);
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		transition: color var(--transition-fast);
+	}
+
+	.btn-detail:hover {
+		color: var(--color-primary);
+	}
+
+	@media (max-width: 640px) {
+		.service-description {
+			padding-left: 0;
+			margin-top: var(--spacing-sm);
+		}
+
+		.link-wrap {
+			padding-left: 0;
+		}
 	}
 </style>

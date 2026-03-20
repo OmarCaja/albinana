@@ -111,17 +111,10 @@ const offers = allOffers.slice(0, 4);
         });
     }
 
-    // Run on load and after view transitions, but prevent duplicate initialization
-    let carouselInitialized = false;
-
-    function setupCarouselOnce() {
-        if (carouselInitialized) return;
+    // Run on load and after every view transition
+    document.addEventListener("astro:page-load", () => {
         setupCarousel();
-        carouselInitialized = true;
-    }
-
-    setupCarouselOnce();
-    document.addEventListener("astro:page-load", setupCarouselOnce);
+    });
 </script>
 
 <style>

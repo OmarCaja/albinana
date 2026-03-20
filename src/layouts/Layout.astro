@@ -18,13 +18,28 @@ const {
     <head>
         <meta charset="UTF-8" />
         <meta name="description" content={description} />
-        <meta name="viewport" content="width=device-width" />
-        <link
-            rel="icon"
-            type="image/jpeg"
-            href={`${import.meta.env.BASE_URL}/favicon.jpeg`}
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}/favicon-96x96.png`} sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+        <link rel="shortcut icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
+        <link rel="apple-touch-icon" sizes="180x180" href={`${import.meta.env.BASE_URL}/apple-touch-icon.png`} />
+        <meta name="apple-mobile-web-app-title" content="Farmacia Albiñana" />
+        <link rel="manifest" href={`${import.meta.env.BASE_URL}/site.webmanifest`} />
         <meta name="generator" content={Astro.generator} />
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(`${import.meta.env.BASE_URL}/logo.jpg`, Astro.url)} />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={new URL(`${import.meta.env.BASE_URL}/logo.jpg`, Astro.url)} />
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,31 +55,38 @@ const {
     <body>
         <slot />
         <script>
+            // Global variables to store observers and handlers to prevent duplicates
+            let currentObserver: IntersectionObserver | null = null;
+            let currentScrollHandler: ((this: Window, ev: Event) => any) | null = null;
+
             // Function to setup Intersection Observer
             function setupObserver() {
-                const observerOptions = {
-                    root: null,
-                    rootMargin: "0px",
-                    threshold: 0.1,
-                };
+                // Disconnect previous observer if it exists
+                if (currentObserver) {
+                    currentObserver.disconnect();
+                }
 
-                const observer = new IntersectionObserver(
-                    (entries, observer) => {
+                currentObserver = new IntersectionObserver(
+                    (entries) => {
                         entries.forEach((entry) => {
                             if (entry.isIntersecting) {
                                 entry.target.classList.add("visible");
-                                observer.unobserve(entry.target);
+                                currentObserver?.unobserve(entry.target);
                             }
                         });
                     },
-                    observerOptions,
+                    {
+                        root: null,
+                        rootMargin: "0px",
+                        threshold: 0.1,
+                    },
                 );
 
                 // Observe elements that are not yet visible
                 document
                     .querySelectorAll(".fade-in-up:not(.visible)")
                     .forEach((el) => {
-                        observer.observe(el);
+                        currentObserver?.observe(el);
                     });
             }
 
@@ -86,17 +108,16 @@ const {
                     progressBar.style.width = scrollPercentage + "%";
                 };
 
-                // Use a standard event listener but ensure we don't stack them
-                window.removeEventListener(
-                    "scroll",
-                    (window as any)._lastOnScroll,
-                );
-                (window as any)._lastOnScroll = onScroll;
-                window.addEventListener("scroll", onScroll, { passive: true });
+                // Use the global variable to manage the listener
+                if (currentScrollHandler) {
+                    window.removeEventListener("scroll", currentScrollHandler);
+                }
+                currentScrollHandler = onScroll;
+                window.addEventListener("scroll", currentScrollHandler, { passive: true });
                 onScroll(); // Initial call
             }
 
-            // Setup on load and transitions
+            // Run on initial load and every subsequent page load (View Transitions)
             document.addEventListener("astro:page-load", () => {
                 setupObserver();
                 setupReadingProgress();
@@ -104,10 +125,3 @@ const {
         </script>
     </body>
 </html>
-
-<style>
-    /* Ensure smooth scrolling for local anchors */
-    html {
-        scroll-behavior: smooth;
-    }
-</style>

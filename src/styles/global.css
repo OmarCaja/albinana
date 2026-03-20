@@ -2,18 +2,18 @@
     /* Color Palette - Minimalist Studio Luxe */
     --color-primary: #000000; /* Absolute Black for power and clarity */
     --color-primary-dark: #111111;
-    --color-accent: #60a5fa; /* Soft Sky Blue */
-    --color-accent-soft: rgba(96, 165, 250, 0.08);
+    --color-accent: #0095c8; /* Nuevo azul para acentos */
+    --color-accent-soft: rgba(0, 149, 200, 0.08);
     
     --color-danger: #f87171; /* Soft Coral Red */
     --color-danger-soft: rgba(248, 113, 113, 0.05);
     
-    --color-text: #333333; /* Soft Black/Gray */
-    --color-text-light: #666666; /* Muted Gray */
+    --color-text: #2d3748; /* Un gris más oscuro azuledado para legibilidad */
+    --color-text-light: #4a5568; 
     
-    --color-bg: #f5f5f7; /* Apple-esque soft gray */
+    --color-bg: #e9fcff; /* Azul clarito solicitado */
     --color-surface: #ffffff;
-    --color-surface-muted: #ededed;
+    --color-surface-muted: #bce9f8; /* El otro azul secundario para áreas con menos énfasis */
     
     --glass-bg: rgba(255, 255, 255, 0.75);
     --glass-border: rgba(0, 0, 0, 0.05);
@@ -60,19 +60,27 @@
 
 html {
     font-family: var(--font-body);
-    background: radial-gradient(circle at top right, #ffffff, var(--color-bg));
-    background-attachment: fixed;
+    /* Improved gradient for Safari: avoid background-attachment: fixed which causes issues on mobile */
+    background: radial-gradient(circle at top right, #e9fcff, #bce9f8);
+    background-size: cover;
+    background-repeat: no-repeat;
     color: var(--color-text);
-    scroll-behavior: smooth;
-    height: 100%;
+    /* Use svh/lvh or -webkit-fill-available for better Safari height handling if needed, but min-height is safer for root */
+    min-height: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
     min-height: 100%;
+    /* Use a standard min-height approach */
+    min-height: 100vh;
+    min-height: 100svh;
     line-height: 1.6;
     font-size: 0.95rem;
     -webkit-font-smoothing: antialiased;
     text-align: left;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 h1,

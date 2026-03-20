@@ -1,0 +1,143 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+    const services = await getCollection("services");
+    return services.map((service) => ({
+        params: { id: service.id },
+        props: service,
+    }));
+}
+
+const service = Astro.props;
+const {
+    title,
+    description,
+    icon,
+    content,
+} = service.data;
+---
+
+<Layout title={`${title} | Farmacia ortopedia Albiñana`}>
+    <Header />
+    <main class="service-detail-page">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href={`${import.meta.env.BASE_URL}/services`} class="btn"
+                    >← Volver a servicios</a
+                >
+            </nav>
+
+            <div class="service-layout fade-in-up">
+                <div class="service-top-info">
+                   <div class="service-icon-large">{icon}</div>
+                   <h1 class="service-title page-title">{title}</h1>
+                   <p class="service-summary">{description}</p>
+                </div>
+            </div>
+
+            <!-- Descripción detallada -->
+            {
+                content && (
+                    <section class="service-body-section fade-in-up">
+                        <div class="service-body" set:html={content} />
+                    </section>
+                )
+            }
+        </div>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .service-detail-page {
+        padding-top: calc(var(--header-height) + 3rem);
+        min-height: 80vh;
+        background-color: var(--color-bg);
+        padding-bottom: var(--section-padding);
+    }
+
+    .breadcrumb {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .service-top-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-xl);
+        max-width: 800px;
+    }
+
+    .service-icon-large {
+        font-size: 4rem;
+        line-height: 1;
+    }
+
+    .service-title {
+        color: var(--color-primary);
+        line-height: 1.1;
+        letter-spacing: -0.05em;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .service-summary {
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        color: var(--color-text-light);
+        line-height: 1.4;
+        font-weight: 600;
+    }
+
+    /* Descripción detallada */
+    .service-body-section {
+        margin-top: var(--spacing-lg);
+        padding-top: var(--spacing-lg);
+        border-top: 1px solid var(--glass-border);
+        max-width: 800px;
+    }
+
+    .service-body {
+        font-size: 1.15rem;
+        color: var(--color-text);
+        line-height: 1.8;
+    }
+
+    .service-body :global(p) {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .service-body :global(ul) {
+        list-style: disc;
+        margin-left: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .service-body :global(li) {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .service-body :global(strong) {
+        color: var(--color-primary);
+        font-weight: 700;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .service-icon-large {
+            font-size: 3rem;
+        }
+
+        .service-title {
+            font-size: 2.2rem;
+        }
+
+        .service-summary {
+            font-size: 1.2rem;
+        }
+    }
+</style>

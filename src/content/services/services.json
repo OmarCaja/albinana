@@ -1,45 +1,52 @@
 {
   "servicios": [
     {
-      "id": "1",
+      "id": "ortopedia-betera",
       "title": "Ortopedia en Bétera",
-      "description": "En nuestra farmacia te ofrecemos un servicio especializado de ortopedia con asesoramiento personalizado. Disponemos de productos ortopédicos para movilidad, descanso, rehabilitación y cuidado postural, adaptados a cada paciente. Nuestro equipo te ayuda a encontrar la mejor solución para mejorar tu bienestar diario. Además, contamos con servicio de alquiler de ayudas técnicas como sillas de ruedas, andadores y bastones ingleses, ideal para recuperaciones temporales, viajes o situaciones puntuales, sin necesidad de realizar una compra. Si buscas ortopedia en Bétera, estamos aquí para ayudarte. Visítanos o solicita información sin compromiso.",
+      "description": "Servicio especializado de ortopedia con asesoramiento personalizado y alquiler de ayudas técnicas.",
+      "content": "<p>En nuestra farmacia te ofrecemos un servicio especializado de ortopedia con asesoramiento personalizado. Disponemos de productos ortopédicos para movilidad, descanso, rehabilitación y cuidado postural, adaptados a cada paciente. Nuestro equipo te ayuda a encontrar la mejor solución para mejorar tu bienestar diario.</p><p>Además, contamos con servicio de alquiler de ayudas técnicas como:</p><ul><li>Sillas de ruedas</li><li>Andadores</li><li>Bastones ingleses</li></ul><p>Este servicio es ideal para recuperaciones temporales, viajes o situaciones puntuales, sin necesidad de realizar una compra. Si buscas ortopedia en Bétera, estamos aquí para ayudarte. Visítanos o solicita información sin compromiso.</p>",
       "icon": "🦽"
     },
     {
-      "id": "2",
+      "id": "seguimiento-farmacoterapeutico",
       "title": "Seguimiento farmacoterapéutico",
-      "description": "En nuestra farmacia en realizamos seguimiento farmacoterapéutico para garantizar que tu medicación sea segura y eficaz. Revisamos tratamientos, resolvemos dudas y prevenimos posibles interacciones, colaborando con tu médico cuando es necesario. Confía en una farmacia en Bétera que cuida de tu salud de forma personalizada.",
+      "description": "Garantizamos que tu medicación sea segura y eficaz mediante revisiones periódicas.",
+      "content": "<p>En nuestra farmacia realizamos seguimiento farmacoterapéutico para garantizar que tu medicación sea segura y eficaz. Revisamos tratamientos, resolvemos dudas y prevenimos posibles interacciones, colaborando con tu médico cuando es necesario. Confía en una farmacia en Bétera que cuida de tu salud de forma personalizada.</p>",
       "icon": "💊"
     },
     {
-      "id": "3",
+      "id": "formulacion-magistral",
       "title": "Formulación magistral",
-      "description": "Te ofrecemos un servicio especializado de formulación magistral, orientado a pacientes que necesitan tratamientos personalizados adaptados a sus necesidades específicas. Te asesoramos de forma profesional para encontrar la mejor solución cuando no existen alternativas comerciales adecuadas. Si necesitas un medicamento a medida en, consulta con nuestro equipo farmacéutico.",
+      "description": "Creamos medicamentos a medida adaptados a tus necesidades específicas.",
+      "content": "<p>Te ofrecemos un servicio especializado de formulación magistral, orientado a pacientes que necesitan tratamientos personalizados adaptados a sus necesidades específicas. Te asesoramos de forma profesional para encontrar la mejor solución cuando no existen alternativas comerciales adecuadas. Si necesitas un medicamento a medida en Bétera, consulta con nuestro equipo farmacéutico.</p>",
       "icon": "🧪"
     },
     {
-      "id": "4",
+      "id": "perforacion-lobulo-oreja",
       "title": "Perforación del lóbulo de la oreja",
-      "description": "Realizamos la perforación del lóbulo de la oreja en nuestra farmacia en Bétera con sistemas estériles, seguros e hipoalergénicos. Un servicio rápido, higiénico y apto para todas las edades. Pide cita en tu farmacia de confianza y disfruta de una experiencia segura.",
+      "description": "Sistema estéril, seguro e hipoalergénico para todas las edades.",
+      "content": "<p>Realizamos la perforación del lóbulo de la oreja en nuestra farmacia en Bétera con sistemas estériles, seguros e hipoalergénicos. Un servicio rápido, higiénico y apto para todas las edades. Pide cita en tu farmacia de confianza y disfruta de una experiencia segura.</p>",
       "icon": "👂"
     },
     {
-      "id": "5",
+      "id": "control-salud-cardiovascular",
       "title": "Control de tensión, glucosa y colesterol",
-      "description": "Cuida tu salud cardiovascular con nuestro servicio de control rápido y fiable. En nuestra farmacia en puedes realizar controles de tensión arterial, glucosa y colesterol de forma rápida y fiable. Además, te ofrecemos asesoramiento profesional según tus resultados. Pide cita y cuida tu salud cardiovascular con total confianza.",
+      "description": "Cuida tu salud cardiovascular con controles rápidos y fiables.",
+      "content": "<p>Cuida tu salud cardiovascular con nuestro servicio de control rápido y fiable. En nuestra farmacia en Bétera puedes realizar controles de tensión arterial, glucosa y colesterol de forma rápida y fiable. Además, te ofrecemos asesoramiento profesional según tus resultados. Pide cita y cuida tu salud cardiovascular con total confianza.</p>",
       "icon": "💉"
     },
     {
-      "id": "6",
+      "id": "dermofarmacia-personalizada",
       "title": "Dermofarmacia",
-      "description": "Somos tu referencia en dermofarmacia. Analizamos tu piel y te recomendamos tratamientos personalizados para el cuidado facial, corporal y capilar, trabajando con las mejores marcas del mercado. Descubre el mejor cuidado de la piel en tu farmacia.",
+      "description": "Análisis de piel y tratamientos personalizados con las mejores marcas.",
+      "content": "<p>Somos tu referencia en dermofarmacia. Analizamos tu piel y te recomendamos tratamientos personalizados para el cuidado facial, corporal y capilar, trabajando con las mejores marcas del mercado. Descubre el mejor cuidado de la piel en tu farmacia.</p>",
       "icon": "🧴"
     },
     {
-      "id": "7",
+      "id": "cuidado-infantil-cestas-bebe",
       "title": "Cuidado infantil y cestas para bebés",
-      "description": "En nuestra farmacia encontrarás todo para el cuidado infantil, desde productos esenciales hasta cestas de regalo personalizadas para bebés. Diseñamos cada detalle para ofrecer regalos únicos, útiles y especiales. Encarga tu cesta de bebé personalizada y sorprende con un regalo inolvidable.",
+      "description": "Productos esenciales y cestas de regalo personalizadas para los más pequeños.",
+      "content": "<p>En nuestra farmacia encontrarás todo para el cuidado infantil, desde productos esenciales hasta cestas de regalo personalizadas para bebés. Diseñamos cada detalle para ofrecer regalos únicos, útiles y especiales. Encarga tu cesta de bebé personalizada y sorprende con un regalo inolvidable.</p>",
       "icon": "🧸"
     }
   ]
