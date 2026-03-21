@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+
+const { post } = Astro.props;
+---
+
+<article class="blog-card glass-card fade-in-up">
+  <a href={`/blogs/${post.id}`}>
+    <div class="card-content">
+      <div class="card-meta">
+        <time
+          datetime={post.data.pubDate.toISOString()}
+        >
+          {post.data.pubDate.toLocaleDateString(
+            "es-ES",
+            {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            },
+          )}
+        </time>
+      </div>
+      <h2 class="card-title">
+        {post.data.title}
+      </h2>
+      <p class="card-desc">
+        {post.data.description}
+      </p>
+      <span class="btn">Leer más &rarr;</span>
+    </div>
+  </a>
+</article>

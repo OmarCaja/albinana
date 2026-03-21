@@ -149,6 +149,29 @@ ul {
     margin-top: var(--spacing-xl);
 }
 
+.grid-brands {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xl);
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .grid-brands {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+        gap: var(--spacing-xs);
+    }
+
+    .brand-card {
+        min-height: 60px;
+    }
+
+    .card-image-wrap {
+        min-height: 40px;
+    }
+}
+
 
 
 .text-editorial {

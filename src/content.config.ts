@@ -23,6 +23,7 @@ const brands = defineCollection({
     schema: z.object({
         id: z.string(),
         imagen: z.string(),
+        priority: z.number().optional(),
     }),
 });
 

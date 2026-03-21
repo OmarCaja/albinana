@@ -5,12 +5,21 @@ import Footer from "../components/Footer.astro";
 import BrandCard from "../components/BrandCard.astro";
 import { getCollection } from "astro:content";
 
-const marcas = await getCollection("brands");
+const marcas = (await getCollection("brands")).sort((a, b) => {
+    // If priority is not defined, sort by id to maintain consistency
+    if (a.data.priority === undefined && b.data.priority === undefined) {
+        return a.id.localeCompare(b.id);
+    }
+    if (a.data.priority === undefined) return 1;
+    if (b.data.priority === undefined) return -1;
+    // Sort by priority (higher numbers first)
+    return b.data.priority - a.data.priority;
+});
 ---
 
-<Layout 
-	title="Nuestras Marcas | Farmacia ortopedia Albiñana"
-	description="Trabajamos con las mejores marcas de parafarmacia, cosmética y ortopedia para garantizarte los mejores resultados."
+<Layout
+	title="Nuestras Marcas | Farmacia Ortopedia Albiñana"
+	description="Trabajamos con las mejores marcas de parafarmacia, cosmética y Ortopedia para garantizarte los mejores resultados."
 >
 	<Header />
 	<main>
@@ -22,7 +31,7 @@ const marcas = await getCollection("brands");
 					Albiñana
 				</p>
 
-				<div class="grid-standard">
+				<div class="grid-brands">
 					{
 						marcas.map((marca) => (
 							<BrandCard

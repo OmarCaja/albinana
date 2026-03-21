@@ -9,10 +9,10 @@ const services = await getCollection("services");
 
 // Sort services by priority (ascending order, so 1 comes first)
 const sortedServices = [...services].sort((a, b) => {
-    // If priority is not defined, set it to a high number (4) so it appears at the end
-    const priorityA = a.data.priority ?? 4;
-    const priorityB = b.data.priority ?? 4;
-    return priorityA - priorityB;
+	// If priority is not defined, set it to a high number (4) so it appears at the end
+	const priorityA = a.data.priority ?? 4;
+	const priorityB = b.data.priority ?? 4;
+	return priorityA - priorityB;
 });
 ---
 
@@ -24,7 +24,6 @@ const sortedServices = [...services].sort((a, b) => {
 		margin-top: var(--spacing-xl);
 	}
 
-
 	@media (min-width: 1024px) {
 		.grid-services {
 			grid-template-columns: repeat(2, 1fr);
@@ -34,8 +33,8 @@ const sortedServices = [...services].sort((a, b) => {
 </style>
 
 <Layout
-	title="Servicios Farmacia ortopedia Albiñana | Cuidamos de tu salud"
-	description="Desde seguimiento farmacoterapéutico hasta ortopedia a medida. Descubre todos los servicios que ofrecemos en Bétera."
+	title="Servicios Farmacia Ortopedia Albiñana | Cuidamos de tu salud"
+	description="Desde seguimiento farmacoterapéutico hasta Ortopedia. Descubre todos los servicios que ofrecemos en Bétera."
 >
 	<Header />
 	<main>

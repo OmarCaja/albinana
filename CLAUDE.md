@@ -20,7 +20,7 @@
 
 ## ⚡ Project Overview
 
-This is an Astro.js website for **Farmacia ortopedia Albiñana**, a pharmacy in Bétera, Spain.
+This is an Astro.js website for **Farmacia Ortopedia Albiñana**, a pharmacy in Bétera, Spain.
 
 - Astro 6.x project
 - Static-first architecture

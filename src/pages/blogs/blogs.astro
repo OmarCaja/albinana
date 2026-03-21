@@ -1,0 +1,37 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blogs")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Layout
+    title="Blog de Salud y Bienestar | Farmacia Ortopedia Albiñana"
+    description="Consejos expertos sobre nutrición, dermocosmética, Ortopedia y salud general. Tu fuente de información en Bétera."
+>
+    <Header />
+    <main class="blog-page">
+        <section class="section-full">
+            <div class="container">
+                <h1 class="page-title fade-in-up">Blog de salud</h1>
+                <p class="page-subtitle fade-in-up">
+                    Consejos, noticias y novedades para tu bienestar.
+                </p>
+
+                <div class="grid-standard">
+                    {
+                        posts.map((post) => (
+                            <BlogCard post={post} />
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
