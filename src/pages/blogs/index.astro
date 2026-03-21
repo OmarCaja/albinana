@@ -12,7 +12,8 @@ const posts = (await getCollection("blogs")).sort(
 
 <Layout
     title="Blog de Salud y Bienestar | Farmacia Ortopedia Albiñana"
-    description="Consejos expertos sobre nutrición, dermocosmética, Ortopedia y salud general. Tu fuente de información en Bétera."
+    description="Consejos expertos sobre complementos
+                nutricionales, dermocosmética, ortopedia y salud general. Tu fuente de información en Bétera."
 >
     <Header />
     <main class="blog-page">
@@ -24,11 +25,7 @@ const posts = (await getCollection("blogs")).sort(
                 </p>
 
                 <div class="grid-standard">
-                    {
-                        posts.map((post) => (
-                            <BlogCard post={post} />
-                        ))
-                    }
+                    {posts.map((post) => <BlogCard post={post} />)}
                 </div>
             </div>
         </section>

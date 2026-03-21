@@ -1,8 +1,8 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import OfferCard from "../components/OfferCard.astro";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import OfferCard from "../../components/OfferCard.astro";
 import { getCollection } from "astro:content";
 
 const offers = await getCollection("offers");
@@ -146,6 +146,8 @@ const todayISOMasking = today.toISOString().split("T")[0];
                 <p class="page-subtitle">
                     Aprovecha nuestros descuentos exclusivos por tiempo limitado
                     en una amplia selección de productos.
+                    <br />
+                    <span class="offer-note">Consulta nuestras condiciones especiales para cada promoción.</span>
                 </p>
 
                 <div class="offers-grid">

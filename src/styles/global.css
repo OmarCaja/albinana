@@ -189,6 +189,20 @@ ul {
     letter-spacing: 0.02em;
 }
 
+/* Offer note styling */
+.offer-note {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    font-style: italic;
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--color-accent-soft);
+    border-radius: var(--border-radius-sm);
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
 .block-label {
     font-size: 0.75rem;
     text-transform: uppercase;

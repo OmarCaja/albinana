@@ -1,8 +1,8 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import ServiceCard from "../components/ServiceCard.astro";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
 import { getCollection } from "astro:content";
 
 const services = await getCollection("services");
