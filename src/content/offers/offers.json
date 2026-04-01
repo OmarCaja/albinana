@@ -174,5 +174,37 @@
     "brand": "EUCERIN",
     "products": "FACIALES",
     "discount": "20%"
+  },
+  {
+    "id": "23",
+    "startDate": "2026-04-01",
+    "endDate": "2026-04-30",
+    "brand": "CANTABRIA LABS",
+    "products": "RADIANCE",
+    "discount": "2ªUD 40%"
+  },
+  {
+    "id": "24",
+    "startDate": "2026-04-01",
+    "endDate": "2026-04-30",
+    "brand": "VICHY",
+    "products": "CHAMPÚS DERCOS",
+    "discount": "20%"
+  },
+  {
+    "id": "25",
+    "startDate": "2026-05-01",
+    "endDate": "2026-05-31",
+    "brand": "CANTABRIA LABS",
+    "products": "NEORETIN",
+    "discount": "2ªUD 40%"
+  },
+  {
+    "id": "26",
+    "startDate": "2026-06-01",
+    "endDate": "2026-06-30",
+    "brand": "CANTABRIA LABS",
+    "products": "CONTORNOS OJOS",
+    "discount": "2ªUD 40%"
   }
 ]

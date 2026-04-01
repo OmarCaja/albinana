@@ -1,51 +1,58 @@
 :root {
     /* Color Palette - Minimalist Studio Luxe */
-    --color-primary: #000000; /* Absolute Black for power and clarity */
+    --color-primary: #000000;
+    /* Absolute Black for power and clarity */
     --color-primary-dark: #111111;
-    --color-accent: #0095c8; /* Nuevo azul para acentos */
+    --color-accent: #0095c8;
+    /* Nuevo azul para acentos */
     --color-accent-soft: rgba(0, 149, 200, 0.08);
-    
-    --color-danger: #f87171; /* Soft Coral Red */
+
+    --color-danger: #f87171;
+    /* Soft Coral Red */
     --color-danger-soft: rgba(248, 113, 113, 0.05);
-    
-    --color-text: #2d3748; /* Un gris más oscuro azuledado para legibilidad */
-    --color-text-light: #4a5568; 
-    
-    --color-bg: #e9fcff; /* Azul clarito solicitado */
+
+    --color-text: #2d3748;
+    /* Un gris más oscuro azuledado para legibilidad */
+    --color-text-light: #4a5568;
+
+    --color-bg: #e9fcff;
+    /* Azul clarito solicitado */
     --color-surface: #ffffff;
-    --color-surface-muted: #bce9f8; /* El otro azul secundario para áreas con menos énfasis */
-    
+    --color-surface-muted: #bce9f8;
+    /* El otro azul secundario para áreas con menos énfasis */
+
     --glass-bg: rgba(255, 255, 255, 0.75);
     --glass-border: rgba(0, 0, 0, 0.05);
     --glass-blur: 20px;
-    
+
     /* Typography */
     --font-body: 'Inter', system-ui, -apple-system, sans-serif;
     --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
-    
+
     /* Spacing & Borders */
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
     --spacing-xl: 4rem;
-    --spacing-2xl: 6rem; /* Reduced from 10rem */
-    
+    --spacing-2xl: 6rem;
+    /* Reduced from 10rem */
+
     --section-padding: 5rem;
-    
+
     --border-radius: 20px;
     --border-radius-sm: 10px;
     --border-radius-lg: 32px;
-    
+
     /* Shadows - Ultra minimal */
     --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.02);
     --shadow-lg: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
     --shadow-premium: 0 30px 60px -12px rgba(0, 0, 0, 0.12), 0 18px 36px -18px rgba(0, 0, 0, 0.15);
-    
+
     --header-height: 60px;
     --transition-fast: 0.15s cubic-bezier(0.2, 0, 0, 1);
     --transition-smooth: 0.8s cubic-bezier(0.2, 0, 0, 1);
-    
+
     --container-max-width: 1600px;
 }
 
@@ -127,7 +134,8 @@ ul {
 /* Typography & Layout Patterns */
 .page-title {
     font-size: clamp(2.2rem, 6vw, 3.8rem);
-    margin-bottom: var(--spacing-md); /* Increased from var(--spacing-sm) for better coherence */
+    margin-bottom: var(--spacing-md);
+    /* Increased from var(--spacing-sm) for better coherence */
     letter-spacing: -0.06em;
     line-height: 1.0;
     color: var(--color-primary);
@@ -200,7 +208,6 @@ ul {
     border-radius: var(--border-radius-sm);
     display: inline-block;
     width: 100%;
-    text-align: center;
 }
 
 .block-label {
@@ -258,7 +265,8 @@ ul {
 }
 
 .section-full {
-    padding-top: calc(var(--header-height) + 3rem); /* Reduced initial gap for a tighter feel */
+    padding-top: calc(var(--header-height) + 3rem);
+    /* Reduced initial gap for a tighter feel */
     padding-bottom: var(--section-padding);
 }
 
@@ -268,13 +276,15 @@ ul {
     align-items: center;
     gap: 0.5rem;
     font-weight: 600;
-    font-size: 1rem; /* Reduced from 1.1rem */
+    font-size: 1rem;
+    /* Reduced from 1.1rem */
     color: var(--color-accent);
     transition: all var(--transition-fast);
     cursor: pointer;
     border: none;
     background: none;
-    padding: 0.5rem 0; /* Vertical breathing room, no horizontal for link-style */
+    padding: 0.5rem 0;
+    /* Vertical breathing room, no horizontal for link-style */
     font-family: var(--font-heading);
     letter-spacing: -0.01em;
     line-height: 1.2;
@@ -292,13 +302,16 @@ ul {
 .fade-in-up {
     opacity: 0;
     transform: translateY(10px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    /* GPU acceleration for mobile Safari */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     will-change: opacity, transform;
 }
 
 .fade-in-up.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translate3d(0,0,0);
 }
 
 /* Menu Open Effects */
@@ -309,7 +322,8 @@ body.menu-open footer {
     user-select: none;
 }
 
-main, footer {
+main,
+footer {
     transition: filter 0.4s ease;
 }
 

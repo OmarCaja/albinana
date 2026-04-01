@@ -65,7 +65,9 @@
         }
     }
 
-    customElements.define("hamburger-menu", HamburgerMenu);
+    if (!customElements.get("hamburger-menu")) {
+        customElements.define("hamburger-menu", HamburgerMenu);
+    }
 </script>
 
 <style>

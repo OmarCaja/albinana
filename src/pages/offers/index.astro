@@ -36,10 +36,6 @@ const groupedOffers = sortedOffers.reduce((acc: any[], current) => {
     return acc;
 }, []);
 
-function isOfferActive(startDate: string, endDate: string, todayStr: string) {
-    return todayStr >= startDate && todayStr <= endDate;
-}
-
 function getFullOfferText(offer: any) {
     const { brand, products, discount, startDate, endDate } = offer.data;
     const brandName = brand
@@ -129,9 +125,6 @@ function getFullOfferText(offer: any) {
 
     return { title: titleText, description: descriptionText };
 }
-
-const today = new Date();
-const todayISOMasking = today.toISOString().split("T")[0];
 ---
 
 <Layout
@@ -147,30 +140,33 @@ const todayISOMasking = today.toISOString().split("T")[0];
                     Aprovecha nuestros descuentos exclusivos por tiempo limitado
                     en una amplia selección de productos.
                     <br />
-                    <span class="offer-note">Consulta nuestras condiciones especiales para cada promoción.</span>
+                    <span class="offer-note"
+                        >Consulta nuestras condiciones especiales para cada
+                        promoción.</span
+                    >
                 </p>
 
-                <div class="offers-grid">
+                <div class="offers-grid" id="offers-container">
                     {
-                        groupedOffers
-                            .filter((offer: any) => {
-                                const isActiveState = isOfferActive(
-                                    offer.data.startDate,
-                                    offer.data.endDate,
-                                    todayISOMasking,
+                        groupedOffers.map((offer: any) => {
+                            const { title, description } =
+                                getFullOfferText(offer);
+                            const offerYear = offer.data.startDate.slice(0, 4);
+                            const isAllYearFull =
+                                offer.data.startDate.startsWith(
+                                    `${offerYear}-01`,
+                                ) &&
+                                offer.data.endDate.startsWith(
+                                    `${offerYear}-12`,
                                 );
-                                return isActiveState;
-                            })
-                            .map((offer: any) => {
-                                const { title, description } =
-                                    getFullOfferText(offer);
-                                const isAllYearFull =
-                                    offer.data.startDate.startsWith(
-                                        "2026-01",
-                                    ) &&
-                                    offer.data.endDate.startsWith("2026-12");
 
-                                return (
+                            return (
+                                <div
+                                    class="offer-wrapper"
+                                    data-start={offer.data.startDate}
+                                    data-end={offer.data.endDate}
+                                    style="display: none;"
+                                >
                                     <OfferCard
                                         brand={offer.data.brand}
                                         title={title}
@@ -179,10 +175,49 @@ const todayISOMasking = today.toISOString().split("T")[0];
                                         endDate={offer.data.endDate}
                                         isAllYear={isAllYearFull}
                                     />
-                                );
-                            })
+                                </div>
+                            );
+                        })
                     }
                 </div>
+                <script>
+                    function filterOffersByDate() {
+                        const today = new Date();
+                        const year = today.getFullYear();
+                        const month = String(today.getMonth() + 1).padStart(
+                            2,
+                            "0",
+                        );
+                        const day = String(today.getDate()).padStart(2, "0");
+                        const todayStr = `${year}-${month}-${day}`;
+
+                        const wrappers =
+                            document.querySelectorAll(".offer-wrapper");
+                        
+                        if (wrappers.length === 0) return;
+
+                        wrappers.forEach((wrapper: any) => {
+                            const start = wrapper.getAttribute("data-start");
+                            const end = wrapper.getAttribute("data-end");
+                            if (
+                                start &&
+                                end &&
+                                todayStr >= start &&
+                                todayStr <= end
+                            ) {
+                                // Set display to contents to make it part of the layout 
+                                // but keep the wrapper transparent
+                                wrapper.style.display = "contents";
+                            } else {
+                                wrapper.style.display = "none";
+                            }
+                        });
+                    }
+
+                    // Run on initial load and navigation
+                    filterOffersByDate();
+                    document.addEventListener("astro:page-load", filterOffersByDate);
+                </script>
             </div>
         </section>
     </main>
