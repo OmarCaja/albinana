@@ -146,7 +146,7 @@ const alternateUrls = Object.keys(languages).reduce((acc, l) => {
         />
 
         <title>{title}</title>
-        <ClientRouter />
+        <ClientRouter fallback="swap" />
         <script>
             // Global variables stored in the module scope to persist across navigations
             let currentObserver: IntersectionObserver | null = null;

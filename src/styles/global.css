@@ -324,3 +324,15 @@ footer {
 }
 
 /* Brand Card Styles */
+
+/* iOS Safari View Transitions Fix
+   Safari 18+ has bugs with native view transitions that cause content to load twice or flicker 
+   on initial navigation. This disables the visual transition on iOS Safari while keeping the SPA router active. */
+@supports (-webkit-touch-callout: none) {
+    html {
+        view-transition-name: none !important;
+    }
+    ::view-transition {
+        display: none !important;
+    }
+}
