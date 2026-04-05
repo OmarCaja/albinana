@@ -1,4 +1,5 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/translations";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/landing/Hero.astro";
@@ -8,21 +9,23 @@ import Horario from "../components/landing/Horario.astro";
 import About from "../components/landing/About.astro";
 import Contact from "../components/landing/Contact.astro";
 import Footer from "../components/Footer.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout
-	title="Farmacia Ortopedia Albiñana | Farmacia en Bétera 12h"
-	description="Farmacia Ortopedia Albiñana en Bétera. Atención personalizada, ortopedia, complementos
-                nutricionales y cosmética. Abiertos de lunes a sábado de 9:00 a 21:00."
+	title={t("home.meta.title")}
+	description={t("home.meta.description")}
 >
 	<Header />
 	<main>
-		<Hero />
-		<Fidelidad />
+		<Hero lang={lang} />
+		<Fidelidad lang={lang} />
 
-		<Horario />
-		<About />
-		<Contact />
+		<Horario lang={lang} />
+		<About lang={lang} />
+		<Contact lang={lang} />
 	</main>
 
 	<Footer />

@@ -1,5 +1,11 @@
 ---
+import { useTranslations, type Lang } from "../../i18n/translations";
 
+interface Props {
+    lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section class="fidelity-section">
@@ -8,15 +14,12 @@
             <div class="fidelity-content">
                 <div class="fidelity-badge">5%</div>
                 <div class="fidelity-text">
-                    <h2 class="fidelity-title">Tarjeta de Fidelización</h2>
+                    <h2 class="fidelity-title">{t("fidelity.title")}</h2>
                     <p class="fidelity-description">
-                        Por ser cliente de la farmacia y tener cuenta, acumula
-                        un 5%* del importe de tus compras en parafarmacia
-                        (excepto alimentación infantil) y descuéntalo en tus
-                        próximas compras de parafarmacia.
+                        {t("fidelity.description")}
                     </p>
                     <p class="fidelity-disclaimer">
-                        * No aplicable a medicamentos.
+                        {t("fidelity.disclaimer")}
                     </p>
                 </div>
             </div>

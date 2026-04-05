@@ -4,6 +4,10 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import OfferCard from "../../components/OfferCard.astro";
 import { getCollection } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const offers = await getCollection("offers");
 
@@ -48,10 +52,10 @@ function getFullOfferText(offer: any) {
     const discountUpper = discount.toUpperCase();
 
     // Period string logic
-    const startMonth = new Date(startDate).toLocaleString("es-ES", {
+    const startMonth = new Date(startDate).toLocaleString(t("offers.locale") as string, {
         month: "long",
     });
-    const endMonth = new Date(endDate).toLocaleString("es-ES", {
+    const endMonth = new Date(endDate).toLocaleString(t("offers.locale") as string, {
         month: "long",
     });
     let periodStr = "";
@@ -81,44 +85,43 @@ function getFullOfferText(offer: any) {
         }
     }
 
-    let titleText = `${brandName}${productLower === "todo" ? " (todo)" : " " + products.charAt(0).toUpperCase() + products.slice(1).toLowerCase()}${periodStr}`;
+    const todoStr = t("offer.allProducts");
+    let titleText = `${brandName}${productLower === "todo" ? ` ${todoStr}` : " " + products.charAt(0).toUpperCase() + products.slice(1).toLowerCase()}${periodStr}`;
 
     let descriptionText = "";
     if (discountUpper === "3X2") {
         if (productLower === "todo") {
-            descriptionText = "Llévate 3 productos y paga solo 2.";
+            descriptionText = t("offer.take3pay2") as string;
         } else if (
             productLower.includes("water wipes") ||
             productLower.includes("toallitas")
         ) {
-            descriptionText = "Llévate 3 productos y paga solo 2 en toallitas.";
+            descriptionText = t("offer.take3pay2wipes") as string;
         } else {
-            descriptionText = `Llévate 3 productos y paga solo 2 en ${productLower}.`;
+            descriptionText = (t("offer.take3pay2in") as Function)(productLower);
         }
     } else if (discountUpper.includes("2ªUD")) {
         const pct = discountUpper.match(/(\d+)%/)?.[1] || discountUpper;
-        descriptionText = `${pct}% en la segunda unidad.`;
+        descriptionText = (t("offer.2ndUnit") as Function)(pct);
         if (brand.toUpperCase() === "REIG JOFRE") {
-            descriptionText += " Todo el año";
+            descriptionText += " " + t("offer.2ndUnitAllYear");
         }
     } else if (discountUpper.includes("%")) {
-        descriptionText = `${discount} de descuento directo.`;
-        if (!descriptionText.includes("directo"))
-            descriptionText += " directo.";
+        descriptionText = (t("offer.directDiscount") as Function)(discount);
     } else if (discountUpper.includes("10€ EN 2UD")) {
         if (brand.toUpperCase() === "ISDIN") {
-            descriptionText = "10€ de descuento en la compra de 2 unidades.";
+            descriptionText = t("offer.10in2units") as string;
             if (new Date(startDate).getMonth() === 3) {
                 // April
-                descriptionText = "10€ de descuento en 2 unidades.";
+                descriptionText = t("offer.10in2unitsApril") as string;
             }
         } else {
-            descriptionText = "10€ de descuento al llevar 2 unidades.";
+            descriptionText = t("offer.10in2unitsGeneric") as string;
         }
     } else if (discountUpper.includes("1UD 3€ 2UD 8€")) {
-        descriptionText = "3€ en 1 unidad o 8€ en 2 unidades.";
+        descriptionText = t("offer.1u3e2u8e") as string;
     } else if (discountUpper.includes("4 €") || discountUpper.includes("4€")) {
-        descriptionText = "4€ de descuento directo.";
+        descriptionText = t("offer.4discount") as string;
     } else {
         descriptionText = discount;
     }
@@ -128,22 +131,20 @@ function getFullOfferText(offer: any) {
 ---
 
 <Layout
-    title="Ofertas y Promociones | Farmacia Ortopedia Albiñana"
-    description="Descubre nuestras ofertas y promociones exclusivas en parafarmacia, cosmética y salud. Ahorra en tus marcas favoritas."
+    title={t("offers.meta.title")}
+    description={t("offers.meta.description")}
 >
     <Header />
     <main>
         <section class="section-full">
             <div class="container">
-                <h1 class="page-title">Ofertas y Promociones</h1>
+                <h1 class="page-title">{t("offers.title")}</h1>
                 <p class="page-subtitle">
-                    Aprovecha nuestros descuentos exclusivos por tiempo limitado
-                    en una amplia selección de productos.
+                    {t("offers.subtitle")}
                     <br />
-                    <span class="offer-note"
-                        >Consulta nuestras condiciones especiales para cada
-                        promoción.</span
-                    >
+                    <span class="offer-note">
+                        {t("offers.note")}
+                    </span>
                 </p>
 
                 <div class="offers-grid" id="offers-container">

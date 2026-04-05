@@ -1,20 +1,32 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
+import { getLangFromUrl, getAlternateUrl, languages } from "../i18n/translations";
 
 interface Props {
     title: string;
     description?: string;
+    defaultDescription?: string;
 }
+
+const lang = getLangFromUrl(Astro.url);
 
 const {
     title,
-    description = "Farmacia Ortopedia Albiñana - Tu farmacia de confianza en Bétera.",
+    description = lang === "en"
+        ? "Farmacia Ortopedia Albiñana - Your trusted pharmacy in Bétera."
+        : "Farmacia Ortopedia Albiñana - Tu farmacia de confianza en Bétera.",
 } = Astro.props;
+
+// Build alternate URLs for hreflang
+const alternateUrls = Object.keys(languages).reduce((acc, l) => {
+    acc[l] = new URL(getAlternateUrl(Astro.url, l as keyof typeof languages), Astro.site ?? Astro.url).toString();
+    return acc;
+}, {} as Record<string, string>);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
     <head>
         <meta charset="UTF-8" />
         <meta name="description" content={description} />
@@ -40,12 +52,19 @@ const {
         <meta name="generator" content={Astro.generator} />
         <link rel="canonical" href={Astro.url} />
 
+        <!-- hreflang alternate links -->
+        {Object.entries(alternateUrls).map(([l, url]) => (
+            <link rel="alternate" hreflang={l === "es" ? "es-ES" : "en-GB"} href={url} />
+        ))}
+        <link rel="alternate" hreflang="x-default" href={alternateUrls["es"]} />
+
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
         <meta property="og:url" content={Astro.url} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={new URL("/logo.jpg", Astro.url)} />
+        <meta property="og:locale" content={lang === "en" ? "en_GB" : "es_ES"} />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />

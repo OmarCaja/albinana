@@ -8,12 +8,17 @@ interface Props {
     isAllYear: boolean;
 }
 
+import { getLangFromUrl, useTranslations } from "../i18n/translations";
+
 const { brand, title, description, startDate, endDate, isAllYear } =
     Astro.props;
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 function formatDate(dateStr: string) {
     const date = new Date(dateStr);
-    return date.toLocaleDateString("es-ES", {
+    return date.toLocaleDateString(t("offers.locale") as string, {
         day: "2-digit",
         month: "2-digit",
         year: "numeric",
@@ -25,7 +30,7 @@ function formatDate(dateStr: string) {
     <div class="offer-date-tag">
         {
             isAllYear
-                ? "Todo el año 2026"
+                ? t("offer.allYear")
                 : `${formatDate(startDate)} - ${formatDate(endDate)}`
         }
     </div>

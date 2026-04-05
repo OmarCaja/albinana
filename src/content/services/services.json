@@ -3,56 +3,77 @@
     {
       "id": "ortopedia-betera",
       "title": "Ortopedia en Bétera",
+      "title_en": "Orthopaedics in Bétera",
       "description": "Servicio especializado de Ortopedia con asesoramiento personalizado y alquiler de ayudas técnicas.",
+      "description_en": "Specialised Orthopaedic service with personalised advice and rental of technical aids.",
       "content": "<p>En nuestra farmacia te ofrecemos un servicio especializado de Ortopedia con asesoramiento personalizado. Disponemos de productos ortopédicos para movilidad, descanso, rehabilitación y cuidado postural, adaptados a cada paciente. Nuestro equipo te ayuda a encontrar la mejor solución para mejorar tu bienestar diario.</p><p>Además, contamos con servicio de alquiler de ayudas técnicas como:</p><ul><li>Sillas de ruedas</li><li>Andadores</li><li>Bastones ingleses</li></ul><p>Este servicio es ideal para recuperaciones temporales, viajes o situaciones puntuales, sin necesidad de realizar una compra. Si buscas Ortopedia en Bétera, estamos aquí para ayudarte. Visítanos o solicita información sin compromiso.</p>",
+      "content_en": "<p>In our pharmacy, we offer a specialized Orthopaedics service with personalized advice. We have orthopaedic products for mobility, rest, rehabilitation, and postural care, adapted to each patient. Our team helps you find the best solution to improve your daily well-being.</p><p>In addition, we have a rental service for technical aids such as:</p><ul><li>Wheelchairs</li><li>Walkers</li><li>Crutches</li></ul><p>This service is ideal for temporary recoveries, trips, or specific situations without the need to purchase. If you are looking for Orthopaedics in Bétera, we are here to help. Visit us or request information with no obligation.</p>",
       "icon": "🦽",
       "priority": 1
     },
     {
       "id": "seguimiento-farmacoterapeutico",
       "title": "Seguimiento farmacoterapéutico",
+      "title_en": "Pharmacotherapeutic monitoring",
       "description": "Garantizamos que tu medicación sea segura y eficaz mediante revisiones periódicas.",
+      "description_en": "We guarantee your medication is safe and effective through regular reviews.",
       "content": "<p>En nuestra farmacia realizamos seguimiento farmacoterapéutico para garantizar que tu medicación sea segura y eficaz. Revisamos tratamientos, resolvemos dudas y prevenimos posibles interacciones, colaborando con tu médico cuando es necesario. Confía en una farmacia en Bétera que cuida de tu salud de forma personalizada.</p>",
+      "content_en": "<p>In our pharmacy we carry out pharmacotherapeutic monitoring to ensure your medication is safe and effective. We review treatments, resolve doubts and prevent possible interactions, collaborating with your doctor when necessary. Trust a pharmacy in Bétera that precisely takes care of your health.</p>",
       "icon": "💊",
       "priority": 4
     },
     {
       "id": "formulacion-magistral",
       "title": "Formulación magistral",
+      "title_en": "Master formulation",
       "description": "Creamos medicamentos a medida adaptados a tus necesidades específicas.",
+      "description_en": "We create custom medicines adapted to your specific needs.",
       "content": "<p>Te ofrecemos un servicio especializado de formulación magistral, orientado a pacientes que necesitan tratamientos personalizados adaptados a sus necesidades específicas. Te asesoramos de forma profesional para encontrar la mejor solución cuando no existen alternativas comerciales adecuadas. Si necesitas un medicamento a medida en Bétera, consulta con nuestro equipo farmacéutico.</p>",
+      "content_en": "<p>We offer a specialised compounding service, aimed at patients who need personalised treatments adapted to their specific needs. We advise you professionally to find the best solution when no suitable commercial alternatives exist. If you need a custom-made medicine in Bétera, consult our pharmaceutical team.</p>",
       "icon": "🧪",
       "priority": 4
     },
     {
       "id": "perforacion-lobulo-oreja",
       "title": "Perforación del lóbulo de la oreja",
+      "title_en": "Ear lobe piercing",
       "description": "Sistema estéril, seguro e hipoalergénico para todas las edades.",
+      "description_en": "Sterile, safe and hypoallergenic system for all ages.",
       "content": "<p>Realizamos la perforación del lóbulo de la oreja en nuestra farmacia en Bétera con sistemas estériles, seguros e hipoalergénicos. Un servicio rápido, higiénico y apto para todas las edades. Pide cita en tu farmacia de confianza y disfruta de una experiencia segura.</p>",
+      "content_en": "<p>We perform ear piercing in our pharmacy in Bétera with sterile, safe, and hypoallergenic systems. A quick, hygienic service suitable for all ages. Book an appointment at your trusted pharmacy and enjoy a safe experience.</p>",
       "icon": "👂",
       "priority": 4
     },
     {
       "id": "control-salud-cardiovascular",
       "title": "Control de tensión, glucosa y colesterol",
+      "title_en": "Blood pressure, glucose and cholesterol control",
       "description": "Cuida tu salud cardiovascular con controles rápidos y fiables.",
+      "description_en": "Take care of your cardiovascular health with fast and reliable tests.",
       "content": "<p>Cuida tu salud cardiovascular con nuestro servicio de control rápido y fiable. En nuestra farmacia en Bétera puedes realizar controles de tensión arterial, glucosa y colesterol de forma rápida y fiable. Además, te ofrecemos asesoramiento profesional según tus resultados. Pide cita y cuida tu salud cardiovascular con total confianza.</p>",
+      "content_en": "<p>Look after your cardiovascular health with our quick and reliable check-up service. At our pharmacy in Bétera you can perform blood pressure, glucose and cholesterol checks quickly and reliably. We also offer professional advice based on your results. Make an appointment and entrust us with your cardiovascular health.</p>",
       "icon": "💉",
       "priority": 4
     },
     {
       "id": "dermofarmacia-personalizada",
       "title": "Dermofarmacia",
+      "title_en": "Dermopharmacy",
       "description": "Análisis de piel y tratamientos personalizados con las mejores marcas.",
+      "description_en": "Skin analysis and personalised treatments with the best brands.",
       "content": "<p>Somos tu referencia en dermofarmacia. Analizamos tu piel y te recomendamos tratamientos personalizados para el cuidado facial, corporal y capilar, trabajando con las mejores marcas del mercado. Descubre el mejor cuidado de la piel en tu farmacia.</p>",
+      "content_en": "<p>We are your reference point in dermo-pharmacy. We analyse your skin and recommend tailored treatments for facial, body and hair care, working with the best labels on the market. Discover the best skin care at your pharmacy.</p>",
       "icon": "🧴",
       "priority": 3
     },
     {
       "id": "cuidado-infantil-cestas-bebe",
       "title": "Cuidado infantil y cestas para bebés",
+      "title_en": "Child care and baby hampers",
       "description": "Productos esenciales y cestas de regalo personalizadas para los más pequeños.",
+      "description_en": "Essential products and personalised gift baskets for the little ones.",
       "content": "<p>En nuestra farmacia encontrarás todo para el cuidado infantil, desde productos esenciales hasta cestas de regalo personalizadas para bebés. Diseñamos cada detalle para ofrecer regalos únicos, útiles y especiales. Encarga tu cesta de bebé personalizada y sorprende con un regalo inolvidable.</p>",
+      "content_en": "<p>In our pharmacy you will find everything you need for baby care, from essential items to custom-made gift baskets for babies. We design every detail to offer unique, useful, and special gifts. Order your personalized baby basket and give an unforgettable present.</p>",
       "icon": "🧸",
       "priority": 2
     }

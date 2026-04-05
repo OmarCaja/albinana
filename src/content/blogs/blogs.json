@@ -2,15 +2,21 @@
   {
     "id": "bienvenidos",
     "title": "Bienvenidos a nuestra nueva web",
+    "title_en": "Welcome to our new website",
     "description": "Estrenamos página web para estar más cerca de ti.",
+    "description_en": "We are launching a new website to be closer to you.",
     "pubDate": "2024-01-15",
-    "content": "<h2>Bienvenidos a Farmacia Ortopedia Albiñana</h2><p>Estamos encantados de presentar nuestra nueva página web. Aquí podrás encontrar información sobre nuestros servicios, ofertas y consejos de salud.</p><p>Queremos estar más cerca de nuestros pacientes y ofrecer un servicio más accesible.</p><p>¡Gracias por confiar en nosotros!</p>"
+    "content": "<h2>Bienvenidos a Farmacia Ortopedia Albiñana</h2><p>Estamos encantados de presentar nuestra nueva página web. Aquí podrás encontrar información sobre nuestros servicios, ofertas y consejos de salud.</p><p>Queremos estar más cerca de nuestros pacientes y ofrecer un servicio más accesible.</p><p>¡Gracias por confiar en nosotros!</p>",
+    "content_en": "<h2>Welcome to Farmacia Ortopedia Albiñana</h2><p>We are delighted to present our new website. Here you can find information about our services, offers, and health tips.</p><p>We want to be closer to our patients and offer a more accessible service.</p><p>Thank you for trusting us!</p>"
   },
   {
     "id": "consejos-invierno",
     "title": "Consejos para cuidar tu piel en invierno",
+    "title_en": "Tips for taking care of your skin in winter",
     "description": "El frío puede dañar tu piel. Aquí te dejamos algunos consejos para mantenerla hidratada.",
+    "description_en": "Cold weather can damage your skin. Here are some tips to keep it hydrated.",
     "pubDate": "2024-01-20",
-    "content": "<h2>Cuida tu piel del frío</h2><p>El invierno puede ser duro para nuestra piel. El frío y el viento pueden resecarla y provocar irritaciones.</p><h3>Hidratación</h3><p>Es fundamental mantener la piel bien hidratada. Usa cremas ricas en nutrientes y bebe mucha agua.</p><h3>Protección solar</h3><p>Aunque sea invierno, el sol sigue incidiendo en nuestra piel. No olvides usar protector solar, especialmente en la cara.</p>"
+    "content": "<h2>Cuida tu piel del frío</h2><p>El invierno puede ser duro para nuestra piel. El frío y el viento pueden resecarla y provocar irritaciones.</p><h3>Hidratación</h3><p>Es fundamental mantener la piel bien hidratada. Usa cremas ricas en nutrientes y bebe mucha agua.</p><h3>Protección solar</h3><p>Aunque sea invierno, el sol sigue incidiendo en nuestra piel. No olvides usar protector solar, especialmente en la cara.</p>",
+    "content_en": "<h2>Protect your skin from the cold</h2><p>Winter can be harsh on our skin. Cold and wind can dry it out and cause irritation.</p><h3>Hydration</h3><p>It is essential to keep the skin well hydrated. Use nutrient-rich creams and drink plenty of water.</p><h3>Sun protection</h3><p>Even though it is winter, the sun still affects our skin. Don't forget to use sunscreen, especially on your face.</p>"
   }
 ]

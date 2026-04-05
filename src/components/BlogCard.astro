@@ -1,18 +1,25 @@
 ---
-import { getCollection } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../i18n/translations";
 
 const { post } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const prefix = lang === "es" ? "" : `/${lang}`;
+
+const currentTitle = lang === "en" ? (post.data.title_en || post.data.title) : post.data.title;
+const currentDescription = lang === "en" ? (post.data.description_en || post.data.description) : post.data.description;
 ---
 
 <article class="blog-card glass-card fade-in-up">
-  <a href={`/blogs/${post.id}`}>
+  <a href={`${prefix}/blogs/${post.id}`}>
     <div class="card-content">
       <div class="card-meta">
         <time
           datetime={post.data.pubDate.toISOString()}
         >
           {post.data.pubDate.toLocaleDateString(
-            "es-ES",
+            t("blog.locale") as string,
             {
               year: "numeric",
               month: "long",
@@ -22,12 +29,12 @@ const { post } = Astro.props;
         </time>
       </div>
       <h2 class="card-title">
-        {post.data.title}
+        {currentTitle}
       </h2>
       <p class="card-desc">
-        {post.data.description}
+        {currentDescription}
       </p>
-      <span class="btn">Leer más &rarr;</span>
+      <span class="btn">{t("blog.readMore")}</span>
     </div>
   </a>
 </article>

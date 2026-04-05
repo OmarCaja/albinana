@@ -1,5 +1,9 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/translations";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const prefix = lang === "es" ? "" : `/${lang}`;
 ---
 
 <hamburger-menu class="hamburger-menu">
@@ -12,19 +16,19 @@
     <nav class="nav-overlay">
         <ul class="nav-links">
             <li style="--i:1;">
-                <a href="/">Inicio</a>
+                <a href={`${prefix}/`}>{t("nav.home")}</a>
             </li>
             <li style="--i:2;">
-                <a href="/offers">Ofertas</a>
+                <a href={`${prefix}/offers`}>{t("nav.offers")}</a>
             </li>
             <li style="--i:3;">
-                <a href="/#contact">Contacto</a>
+                <a href={`${prefix}/#contact`}>{t("nav.contact")}</a>
             </li>
             <li style="--i:4;">
-                <a href="/services">Servicios</a>
+                <a href={`${prefix}/services`}>{t("nav.services")}</a>
             </li>
             <li style="--i:5;">
-                <a href="/brands">Nuestras Marcas</a>
+                <a href={`${prefix}/brands`}>{t("nav.brands")}</a>
             </li>
         </ul>
         <div class="nav-decoration"></div>

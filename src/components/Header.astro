@@ -1,10 +1,14 @@
 ---
 import HamburgerMenu from "./HamburgerMenu.astro";
+import LanguageSelector from "./LanguageSelector.astro";
+import { getLangFromUrl } from "../i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <header class="header">
     <div class="header-container header-content">
-        <a href="/" class="logo-link">
+        <a href={lang === "es" ? "/" : "/en"} class="logo-link">
             <img
                 src="/favicon.svg"
                 alt="Farmacia Ortopedia Albiñana Logo"
@@ -12,6 +16,7 @@ import HamburgerMenu from "./HamburgerMenu.astro";
             />
         </a>
         <div class="menu-wrapper">
+            <LanguageSelector />
             <HamburgerMenu />
         </div>
         <div class="reading-progress" id="readingProgress"></div>
@@ -61,6 +66,12 @@ import HamburgerMenu from "./HamburgerMenu.astro";
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .menu-wrapper {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
     }
 
     .logo-link {

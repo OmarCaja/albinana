@@ -1,21 +1,29 @@
 ---
+import { useTranslations, type Lang } from "../../i18n/translations";
 
+interface Props {
+    lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const prefix = lang === "es" ? "" : `/${lang}`;
 ---
 
 <section class="hero section">
     <div class="container">
         <div class="hero-content fade-in-up">
             <h1 class="hero-title">
-                Farmacia Ortopedia Albiñana<br />Tu farmacia en Bétera.
+                {t("hero.title").split("\n").map((line: string, i: number) => (
+                    i === 0 ? <>{line}<br /></> : line
+                ))}
             </h1>
             <p class="hero-subtitle">
-                Atención personalizada, consejo experto y los mejores productos
-                para cuidar de ti todos los días.
+                {t("hero.subtitle")}
             </p>
             <div class="hero-actions">
-                <a href="/services" class="btn">Nuestros servicios →</a>
-                <a href="/brands" class="btn">Nuestras marcas →</a>
-                <a href="/offers" class="btn">Nuestras ofertas →</a>
+                <a href={`${prefix}/services`} class="btn">{t("hero.cta.services")}</a>
+                <a href={`${prefix}/brands`} class="btn">{t("hero.cta.brands")}</a>
+                <a href={`${prefix}/offers`} class="btn">{t("hero.cta.offers")}</a>
             </div>
         </div>
     </div>

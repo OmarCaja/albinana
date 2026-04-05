@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blogs");
@@ -13,24 +14,32 @@ export async function getStaticPaths() {
 }
 
 const post = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const prefix = lang === "es" ? "" : `/${lang}`;
+
+const currentTitle = lang === "en" ? (post.data.title_en || post.data.title) : post.data.title;
+const currentDescription = lang === "en" ? (post.data.description_en || post.data.description) : post.data.description;
+const currentContent = lang === "en" ? (post.data.content_en || post.data.content) : post.data.content;
 ---
 
 <Layout
-    title={`${post.data.title} | Farmacia Albiñana`}
-    description={post.data.description}
+    title={`${currentTitle} | Farmacia Albiñana`}
+    description={currentDescription}
 >
     <Header />
     <main class="post-page">
         <div class="container">
             <nav class="breadcrumb">
-                <a href="/blogs" class="btn">← Volver a los blogs</a>
+                <a href={`${prefix}/blogs`} class="btn">{t("blog.back")}</a>
             </nav>
             <article class="post-container fade-in-up">
                 <header class="post-header">
                     <div class="meta">
                         <time datetime={post.data.pubDate.toISOString()}>
                             {
-                                post.data.pubDate.toLocaleDateString("es-ES", {
+                                post.data.pubDate.toLocaleDateString(t("blog.locale") as string, {
                                     year: "numeric",
                                     month: "long",
                                     day: "numeric",
@@ -38,11 +47,11 @@ const post = Astro.props;
                             }
                         </time>
                     </div>
-                    <h1 class="page-title">{post.data.title}</h1>
-                    <p class="page-subtitle">{post.data.description}</p>
+                    <h1 class="page-title">{currentTitle}</h1>
+                    <p class="page-subtitle">{currentDescription}</p>
                 </header>
 
-                <div class="post-content" set:html={post.data.content} />
+                <div class="post-content" set:html={currentContent} />
             </article>
         </div>
     </main>

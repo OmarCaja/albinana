@@ -4,6 +4,10 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import BrandCard from "../../components/BrandCard.astro";
 import { getCollection } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const marcas = (await getCollection("brands")).sort((a, b) => {
     // If priority is not defined, sort by id to maintain consistency
@@ -18,17 +22,16 @@ const marcas = (await getCollection("brands")).sort((a, b) => {
 ---
 
 <Layout
-	title="Nuestras Marcas | Farmacia Ortopedia Albiñana"
-	description="Trabajamos con las mejores marcas de parafarmacia, cosmética y Ortopedia para garantizarte los mejores resultados."
+	title={t("brands.meta.title")}
+	description={t("brands.meta.description")}
 >
 	<Header />
 	<main>
 		<section class="section-full">
 			<div class="container">
-				<h1 class="page-title">Nuestras Marcas</h1>
+				<h1 class="page-title">{t("brands.title")}</h1>
 				<p class="page-subtitle">
-					Conoce las marcas de productos que ofrecemos en Farmacia
-					Albiñana
+					{t("brands.subtitle")}
 				</p>
 
 				<div class="grid-brands">

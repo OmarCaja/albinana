@@ -5,6 +5,7 @@
     "endDate": "2026-03-31",
     "brand": "BEBE INNOVA",
     "products": "todo",
+    "products_en": "all",
     "discount": "3X2"
   },
   {
@@ -13,6 +14,7 @@
     "endDate": "2026-04-20",
     "brand": "BEBE INNOVA",
     "products": "WATER WIPES",
+    "products_en": "WATER WIPES",
     "discount": "3X2"
   },
   {
@@ -21,6 +23,7 @@
     "endDate": "2026-03-31",
     "brand": "EUCERIN",
     "products": "CORPORAL",
+    "products_en": "BODY",
     "discount": "25%"
   },
   {
@@ -29,6 +32,7 @@
     "endDate": "2026-02-28",
     "brand": "CANTABRIA LABS",
     "products": "RENEWAL",
+    "products_en": "RENEWAL",
     "discount": "2ªUD 40%"
   },
   {
@@ -37,6 +41,7 @@
     "endDate": "2026-03-31",
     "brand": "CANTABRIA LABS",
     "products": "BIRETIX",
+    "products_en": "BIRETIX",
     "discount": "2ªUD 40%"
   },
   {
@@ -45,6 +50,7 @@
     "endDate": "2026-04-30",
     "brand": "CANTABRIA LABS",
     "products": "IRALTONE ORAL",
+    "products_en": "IRALTONE ORAL",
     "discount": "2ªUD 30%"
   },
   {
@@ -53,6 +59,7 @@
     "endDate": "2026-07-15",
     "brand": "CANTABRIA LABS",
     "products": "HELIOCARE",
+    "products_en": "HELIOCARE",
     "discount": "2ªUD 30%"
   },
   {
@@ -61,6 +68,7 @@
     "endDate": "2026-06-30",
     "brand": "CANTABRIA LABS",
     "products": "IRALTONE TÓPICO",
+    "products_en": "IRALTONE TOPICAL",
     "discount": "2ªUD 30%"
   },
   {
@@ -69,6 +77,7 @@
     "endDate": "2026-05-31",
     "brand": "CANTABRIA LABS",
     "products": "HELIOCARE",
+    "products_en": "HELIOCARE",
     "discount": "3X2"
   },
   {
@@ -77,6 +86,7 @@
     "endDate": "2026-05-17",
     "brand": "CANTABRIA LABS",
     "products": "HELIOCARE",
+    "products_en": "HELIOCARE",
     "discount": "10€ EN 2UD"
   },
   {
@@ -85,6 +95,7 @@
     "endDate": "2026-08-15",
     "brand": "CERAVE",
     "products": "SOLARES",
+    "products_en": "SUNCARE",
     "discount": "20%"
   },
   {
@@ -93,6 +104,7 @@
     "endDate": "2026-07-31",
     "brand": "CERAVE",
     "products": "TODO",
+    "products_en": "ALL",
     "discount": "3X2"
   },
   {
@@ -101,6 +113,7 @@
     "endDate": "2026-03-31",
     "brand": "FARMA DORSCH",
     "products": "CORPORAL Y STICKS",
+    "products_en": "BODY & STICKS",
     "discount": "10%"
   },
   {
@@ -109,6 +122,7 @@
     "endDate": "2026-04-26",
     "brand": "ISDIN",
     "products": "SOLARES E ISDINCEUTICS",
+    "products_en": "SUNCARE & ISDINCEUTICS",
     "discount": "10€ EN 2UD"
   },
   {
@@ -117,6 +131,7 @@
     "endDate": "2026-03-29",
     "brand": "ISDIN",
     "products": "SOLARES E ISDINCEUTICS",
+    "products_en": "SUNCARE & ISDINCEUTICS",
     "discount": "10€ EN 2UD"
   },
   {
@@ -125,6 +140,7 @@
     "endDate": "2026-03-31",
     "brand": "LA ROCHE POSAY",
     "products": "FACIALES",
+    "products_en": "FACIALS",
     "discount": "20%"
   },
   {
@@ -133,6 +149,7 @@
     "endDate": "2026-05-31",
     "brand": "LA ROCHE POSAY",
     "products": "ANTHELIOS",
+    "products_en": "ANTHELIOS",
     "discount": "1ud 3€ 2ud 8€"
   },
   {
@@ -141,6 +158,7 @@
     "endDate": "2026-04-30",
     "brand": "REIG JOFRE",
     "products": "ARTICOLAGENO",
+    "products_en": "ARTICOLAGENO",
     "discount": "2ªUD 50%"
   },
   {
@@ -149,6 +167,7 @@
     "endDate": "2026-08-31",
     "brand": "REIG JOFRE",
     "products": "ARTICOLAGENO",
+    "products_en": "ARTICOLAGENO",
     "discount": "2ªUD 50%"
   },
   {
@@ -157,6 +176,7 @@
     "endDate": "2026-12-31",
     "brand": "REIG JOFRE",
     "products": "ARTICOLAGENO",
+    "products_en": "ARTICOLAGENO",
     "discount": "2ªUD 50%"
   },
   {
@@ -165,6 +185,7 @@
     "endDate": "2026-05-31",
     "brand": "VICHY",
     "products": "SOLARES",
+    "products_en": "SUNCARE",
     "discount": "4 €"
   },
   {
@@ -173,6 +194,7 @@
     "endDate": "2026-05-31",
     "brand": "EUCERIN",
     "products": "FACIALES",
+    "products_en": "FACIALS",
     "discount": "20%"
   },
   {
@@ -181,6 +203,7 @@
     "endDate": "2026-04-30",
     "brand": "CANTABRIA LABS",
     "products": "RADIANCE",
+    "products_en": "RADIANCE",
     "discount": "2ªUD 40%"
   },
   {
@@ -189,6 +212,7 @@
     "endDate": "2026-04-30",
     "brand": "VICHY",
     "products": "CHAMPÚS DERCOS",
+    "products_en": "DERCOS SHAMPOOS",
     "discount": "20%"
   },
   {
@@ -197,6 +221,7 @@
     "endDate": "2026-05-31",
     "brand": "CANTABRIA LABS",
     "products": "NEORETIN",
+    "products_en": "NEORETIN",
     "discount": "2ªUD 40%"
   },
   {
@@ -205,6 +230,7 @@
     "endDate": "2026-06-30",
     "brand": "CANTABRIA LABS",
     "products": "CONTORNOS OJOS",
+    "products_en": "EYE CONTOURS",
     "discount": "2ªUD 40%"
   }
 ]

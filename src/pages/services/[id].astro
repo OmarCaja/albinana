@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
 
 export async function getStaticPaths() {
     const services = await getCollection("services");
@@ -13,7 +14,15 @@ export async function getStaticPaths() {
 }
 
 const service = Astro.props;
-const { title, description, icon, content } = service.data;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const prefix = lang === "es" ? "" : `/${lang}`;
+
+const title = lang === "en" ? (service.data.title_en || service.data.title) : service.data.title;
+const description = lang === "en" ? (service.data.description_en || service.data.description) : service.data.description;
+const content = lang === "en" ? (service.data.content_en || service.data.content) : service.data.content;
+const { icon } = service.data;
 ---
 
 <Layout
@@ -24,7 +33,7 @@ const { title, description, icon, content } = service.data;
     <main class="service-detail-page">
         <div class="container">
             <nav class="breadcrumb">
-                <a href="/services" class="btn">← Volver a servicios</a>
+                <a href={`${prefix}/services`} class="btn">{t("services.back")}</a>
             </nav>
 
             <div class="service-layout fade-in-up">

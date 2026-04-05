@@ -6,11 +6,14 @@ const blogs = defineCollection({
     schema: z.object({
         id: z.string(),
         title: z.string(),
+        title_en: z.string().optional(),
         description: z.string(),
+        description_en: z.string().optional(),
         pubDate: z.coerce.date(),
         image: z.string().optional(),
         tags: z.array(z.string()).optional(),
         content: z.string().optional(),
+        content_en: z.string().optional(),
     }),
 });
 
@@ -34,9 +37,12 @@ const services = defineCollection({
     schema: z.object({
         id: z.string(),
         title: z.string(),
+        title_en: z.string().optional(),
         description: z.string(),
+        description_en: z.string().optional(),
         icon: z.string(),
         content: z.string().optional(),
+        content_en: z.string().optional(),
         priority: z.number().optional(),
     }),
 });
@@ -49,6 +55,7 @@ const offers = defineCollection({
         endDate: z.string(),
         brand: z.string(),
         products: z.string(),
+        products_en: z.string().optional(),
         discount: z.string(),
     }),
 });

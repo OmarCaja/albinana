@@ -1,17 +1,20 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/translations";
+
 const currentYear = new Date().getFullYear();
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer class="footer">
     <div class="container footer-content">
         <div class="footer-col">
             <h3 class="footer-title">Farmacia Ortopedia Albiñana</h3>
-            <p>Cuidando de ti cada día.</p>
+            <p>{t("footer.tagline")}</p>
         </div>
         <div class="footer-col">
             <p>
-                &copy; {currentYear} Farmacia Ortopedia Albiñana. Todos los derechos
-                reservados.
+                &copy; {currentYear} Farmacia Ortopedia Albiñana. {t("footer.rights")}
             </p>
         </div>
     </div>

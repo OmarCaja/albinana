@@ -4,7 +4,10 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import ServiceCard from "../../components/ServiceCard.astro";
 import { getCollection } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const services = await getCollection("services");
 
 // Sort services by priority (ascending order, so 1 comes first)
@@ -33,17 +36,16 @@ const sortedServices = [...services].sort((a, b) => {
 </style>
 
 <Layout
-	title="Servicios Farmacia Ortopedia Albiñana | Cuidamos de tu salud"
-	description="Desde seguimiento farmacoterapéutico hasta Ortopedia. Descubre todos los servicios que ofrecemos en Bétera."
+	title={t("services.meta.title")}
+	description={t("services.meta.description")}
 >
 	<Header />
 	<main>
 		<section class="section-full">
 			<div class="container">
-				<h1 class="page-title">Nuestros Servicios</h1>
+				<h1 class="page-title">{t("services.title")}</h1>
 				<p class="page-subtitle">
-					Ofrecemos una amplia gama de servicios farmacéuticos
-					especializados para cuidar de tu salud y bienestar
+					{t("services.subtitle")}
 				</p>
 
 				<div class="grid-services">
@@ -51,8 +53,8 @@ const sortedServices = [...services].sort((a, b) => {
 						sortedServices.map((service) => (
 							<ServiceCard
 								id={service.id}
-								title={service.data.title}
-								description={service.data.description}
+								title={lang === "en" ? (service.data.title_en || service.data.title) : service.data.title}
+								description={lang === "en" ? (service.data.description_en || service.data.description) : service.data.description}
 								icon={service.data.icon}
 							/>
 						))

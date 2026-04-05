@@ -4,6 +4,10 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import { getCollection } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const posts = (await getCollection("blogs")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -11,17 +15,16 @@ const posts = (await getCollection("blogs")).sort(
 ---
 
 <Layout
-    title="Blog de Salud y Bienestar | Farmacia Ortopedia Albiñana"
-    description="Consejos expertos sobre complementos
-                nutricionales, dermocosmética, ortopedia y salud general. Tu fuente de información en Bétera."
+    title={t("blog.meta.title")}
+    description={t("blog.meta.description")}
 >
     <Header />
     <main class="blog-page">
         <section class="section-full">
             <div class="container">
-                <h1 class="page-title fade-in-up">Blog de salud</h1>
+                <h1 class="page-title fade-in-up">{t("blog.title")}</h1>
                 <p class="page-subtitle fade-in-up">
-                    Consejos, noticias y novedades para tu bienestar.
+                    {t("blog.subtitle")}
                 </p>
 
                 <div class="grid-standard">

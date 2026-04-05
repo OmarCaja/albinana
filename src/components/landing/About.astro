@@ -1,23 +1,20 @@
 ---
+import { useTranslations, type Lang } from "../../i18n/translations";
 
+interface Props {
+    lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section id="about" class="section about-section">
     <div class="container">
         <div class="content-wrapper fade-in-up">
-            <h2 class="page-title">Sobre nosotros</h2>
+            <h2 class="page-title">{t("about.title")}</h2>
+            <p class="about-text text-editorial" set:html={t("about.p1")}></p>
             <p class="about-text text-editorial">
-                En <strong>Farmacia Ortopedia Albiñana</strong>, combinamos la
-                tradición farmacéutica con la innovación para ofrecerte el mejor
-                servicio. Situados en el corazón de Bétera, llevamos años
-                cuidando de la salud de nuestros vecinos con un trato cercano y
-                profesional.
-            </p>
-            <p class="about-text text-editorial">
-                Nuestro equipo de farmacéuticos está siempre dispuesto a
-                asesorarte, ya sea en medicamentos, dermocosmética o
-                complementos nutricionales. Tu bienestar es nuestra razón de
-                ser.
+                {t("about.p2")}
             </p>
         </div>
     </div>
@@ -37,7 +34,7 @@
         margin-bottom: var(--spacing-lg);
     }
 
-    .about-text strong {
+    .about-text :global(strong) {
         color: var(--color-primary);
         font-weight: 600;
     }
