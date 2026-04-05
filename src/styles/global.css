@@ -303,15 +303,11 @@ ul {
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    /* GPU acceleration for mobile Safari */
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    will-change: opacity, transform;
 }
 
 .fade-in-up.visible {
     opacity: 1;
-    transform: translateY(0) translate3d(0,0,0);
+    transform: translateY(0);
 }
 
 /* Menu Open Effects */

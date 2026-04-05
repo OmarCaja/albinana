@@ -214,8 +214,9 @@ function getFullOfferText(offer: any) {
                         });
                     }
 
-                    // Run on initial load and navigation
-                    filterOffersByDate();
+                    // Run only on astro:page-load — fires on both initial load AND navigations.
+                    // Never call filterOffersByDate() inline here to avoid a double-paint
+                    // on iOS Safari (inline call + page-load event = two renders per visit).
                     document.addEventListener("astro:page-load", filterOffersByDate);
                 </script>
             </div>

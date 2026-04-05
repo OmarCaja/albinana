@@ -198,12 +198,8 @@ const {
 
             // Use 'astro:page-load' to ensure scripts run on initial load and navigation
             document.addEventListener("astro:page-load", () => {
-                // Using requestAnimationFrame to sync with the next available frame
-                // This prevents flickering on mobile browsers like Safari.
-                requestAnimationFrame(() => {
-                    setupObserver();
-                    setupReadingProgress();
-                });
+                setupObserver();
+                setupReadingProgress();
             });
         </script>
     </head>

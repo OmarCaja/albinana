@@ -65,7 +65,9 @@ const { id, title, description, icon } = Astro.props;
 		}
 	}
 
-	customElements.define("service-card", ServiceCard);
+	if (!customElements.get("service-card")) {
+		customElements.define("service-card", ServiceCard);
+	}
 </script>
 
 <style>
