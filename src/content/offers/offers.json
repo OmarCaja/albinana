@@ -229,8 +229,53 @@
     "startDate": "2026-06-01",
     "endDate": "2026-06-30",
     "brand": "CANTABRIA LABS",
-    "products": "CONTORNOS OJOS",
-    "products_en": "EYE CONTOURS",
+    "products": "TODAS LAS GAMAS DE DERMO",
+    "products_en": "ALL DERMO RANGES",
     "discount": "2ªUD 40%"
+  },
+  {
+    "id": "27",
+    "startDate": "2026-04-22",
+    "endDate": "2026-05-03",
+    "brand": "FARMA DORSCH",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "15%"
+  },
+  {
+    "id": "28",
+    "startDate": "2026-04-27",
+    "endDate": "2026-05-10",
+    "brand": "ISDIN",
+    "products": "ISDINCEUTICS",
+    "products_en": "ISDINCEUTICS",
+    "discount": "15%"
+  },
+  {
+    "id": "29",
+    "startDate": "2026-05-18",
+    "endDate": "2026-05-31",
+    "brand": "ISDIN",
+    "products": "FOTOPROTECCIÓN",
+    "products_en": "SUN PROTECTION",
+    "discount": "10€ EN 2UD"
+  },
+  {
+    "id": "30",
+    "startDate": "2026-05-01",
+    "endDate": "2026-07-01",
+    "brand": "LA ROCHE POSAY",
+    "products": "SERUMS Y CREMAS",
+    "products_en": "SERUMS & CREAMS",
+    "discount": "8€"
+  },
+  {
+    "id": "31",
+    "startDate": "2026-06-01",
+    "endDate": "2026-06-30",
+    "brand": "VICHY",
+    "products": "CHAMPÚS DERCOS",
+    "products_en": "DERCOS SHAMPOOS",
+    "discount": "15%"
   }
 ]
