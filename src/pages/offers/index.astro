@@ -52,12 +52,18 @@ function getFullOfferText(offer: any) {
     const discountUpper = discount.toUpperCase();
 
     // Period string logic
-    const startMonth = new Date(startDate).toLocaleString(t("offers.locale") as string, {
-        month: "long",
-    });
-    const endMonth = new Date(endDate).toLocaleString(t("offers.locale") as string, {
-        month: "long",
-    });
+    const startMonth = new Date(startDate).toLocaleString(
+        t("offers.locale") as string,
+        {
+            month: "long",
+        },
+    );
+    const endMonth = new Date(endDate).toLocaleString(
+        t("offers.locale") as string,
+        {
+            month: "long",
+        },
+    );
     let periodStr = "";
 
     if (startMonth === endMonth) {
@@ -98,7 +104,9 @@ function getFullOfferText(offer: any) {
         ) {
             descriptionText = t("offer.take3pay2wipes") as string;
         } else {
-            descriptionText = (t("offer.take3pay2in") as Function)(productLower);
+            descriptionText = (t("offer.take3pay2in") as Function)(
+                productLower,
+            );
         }
     } else if (discountUpper.includes("2ªUD")) {
         const pct = discountUpper.match(/(\d+)%/)?.[1] || discountUpper;
@@ -107,6 +115,8 @@ function getFullOfferText(offer: any) {
             descriptionText += " " + t("offer.2ndUnitAllYear");
         }
     } else if (discountUpper.includes("%")) {
+        descriptionText = (t("offer.directDiscount") as Function)(discount);
+    } else if (discountUpper.match(/^\d+\s?€$/)) {
         descriptionText = (t("offer.directDiscount") as Function)(discount);
     } else if (discountUpper.includes("10€ EN 2UD")) {
         if (brand.toUpperCase() === "ISDIN") {
@@ -120,8 +130,6 @@ function getFullOfferText(offer: any) {
         }
     } else if (discountUpper.includes("1UD 3€ 2UD 8€")) {
         descriptionText = t("offer.1u3e2u8e") as string;
-    } else if (discountUpper.includes("4 €") || discountUpper.includes("4€")) {
-        descriptionText = t("offer.4discount") as string;
     } else {
         descriptionText = discount;
     }
@@ -194,7 +202,7 @@ function getFullOfferText(offer: any) {
 
                         const wrappers =
                             document.querySelectorAll(".offer-wrapper");
-                        
+
                         if (wrappers.length === 0) return;
 
                         wrappers.forEach((wrapper: any) => {
@@ -206,7 +214,7 @@ function getFullOfferText(offer: any) {
                                 todayStr >= start &&
                                 todayStr <= end
                             ) {
-                                // Set display to contents to make it part of the layout 
+                                // Set display to contents to make it part of the layout
                                 // but keep the wrapper transparent
                                 wrapper.style.display = "contents";
                             } else {
@@ -218,7 +226,10 @@ function getFullOfferText(offer: any) {
                     // Run only on astro:page-load — fires on both initial load AND navigations.
                     // Never call filterOffersByDate() inline here to avoid a double-paint
                     // on iOS Safari (inline call + page-load event = two renders per visit).
-                    document.addEventListener("astro:page-load", filterOffersByDate);
+                    document.addEventListener(
+                        "astro:page-load",
+                        filterOffersByDate,
+                    );
                 </script>
             </div>
         </section>

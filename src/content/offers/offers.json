@@ -277,5 +277,23 @@
     "products": "CHAMPÚS DERCOS",
     "products_en": "DERCOS SHAMPOOS",
     "discount": "15%"
+  },
+  {
+    "id": "32",
+    "startDate": "2026-06-15",
+    "endDate": "2026-07-26",
+    "brand": "ISDIN",
+    "products": "FOTOPROTECTORES",
+    "products_en": "SUN PROTECTION",
+    "discount": "10€ POR LA COMPRA DE 2UD"
+  },
+  {
+    "id": "33",
+    "startDate": "2026-05-01",
+    "endDate": "2026-06-30",
+    "brand": "VICHY",
+    "products": "DESODORANTES",
+    "products_en": "DEODORANTS",
+    "discount": "3€"
   }
 ]
