@@ -114,6 +114,10 @@ function getFullOfferText(offer: any) {
         if (brand.toUpperCase() === "REIG JOFRE") {
             descriptionText += " " + t("offer.2ndUnitAllYear");
         }
+    } else if (discountUpper.includes("EN COMPRAS >")) {
+        const pctMatch = discountUpper.match(/(\d+%)/)?.[1] || "";
+        const amountMatch = discountUpper.match(/(\d+€)/)?.[1] || "";
+        descriptionText = (t("offer.percentOverAmount") as Function)(pctMatch, amountMatch);
     } else if (discountUpper.includes("%")) {
         descriptionText = (t("offer.directDiscount") as Function)(discount);
     } else if (discountUpper.match(/^\d+\s?€$/)) {

@@ -13,28 +13,82 @@ const currentDescription = lang === "en" ? (post.data.description_en || post.dat
 
 <article class="blog-card glass-card fade-in-up">
   <a href={`${prefix}/blogs/${post.id}`}>
+    <div class="card-meta">
+      <time
+        datetime={post.data.pubDate.toISOString()}
+      >
+        {post.data.pubDate.toLocaleDateString(
+          t("blog.locale") as string,
+          {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          },
+        )}
+      </time>
+    </div>
     <div class="card-content">
-      <div class="card-meta">
-        <time
-          datetime={post.data.pubDate.toISOString()}
-        >
-          {post.data.pubDate.toLocaleDateString(
-            t("blog.locale") as string,
-            {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            },
-          )}
-        </time>
-      </div>
-      <h2 class="card-title">
+      <h3 class="card-title">
         {currentTitle}
-      </h2>
+      </h3>
       <p class="card-desc">
         {currentDescription}
       </p>
-      <span class="btn">{t("blog.readMore")}</span>
+      <span class="btn" style="margin-top: auto;">{t("blog.readMore")}</span>
     </div>
   </a>
 </article>
+
+<style>
+    .blog-card {
+        border: 1px solid var(--glass-border);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out, border-color var(--transition-fast), background-color var(--transition-fast);
+        overflow: hidden;
+    }
+    
+    .blog-card:hover {
+        border-color: var(--color-accent-soft);
+        background: linear-gradient(to bottom right, var(--glass-bg), rgba(0, 149, 200, 0.03));
+    }
+
+    .blog-card a {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    .card-meta {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--color-text-light);
+        padding: 0.5rem 1.5rem;
+        background: var(--color-accent-soft);
+        border-bottom: 1px solid var(--glass-border);
+        letter-spacing: 0.05em;
+    }
+    
+    .card-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.2;
+        color: var(--color-primary);
+        font-family: var(--font-heading);
+    }
+    
+    .card-desc {
+        font-size: 1.1rem;
+        color: var(--color-text);
+        font-weight: 500;
+        line-height: 1.4;
+        margin-bottom: var(--spacing-md);
+    }
+
+    @media (max-width: 768px) {
+        .card-title {
+            font-size: 1.2rem;
+        }
+        .card-desc {
+            font-size: 1rem;
+        }
+    }
+</style>

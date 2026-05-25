@@ -295,5 +295,23 @@
     "products": "DESODORANTES",
     "products_en": "DEODORANTS",
     "discount": "3€"
+  },
+  {
+    "id": "34",
+    "startDate": "2026-06-01",
+    "endDate": "2026-07-31",
+    "brand": "EUCERIN",
+    "products": "CORPORAL",
+    "products_en": "BODY",
+    "discount": "20% EN COMPRAS > 10€"
+  },
+  {
+    "id": "35",
+    "startDate": "2026-06-01",
+    "endDate": "2026-06-30",
+    "brand": "ISDIN",
+    "products": "CORPORAL",
+    "products_en": "BODY",
+    "discount": "2ªUD 30%"
   }
 ]

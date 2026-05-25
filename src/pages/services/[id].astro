@@ -30,35 +30,31 @@ const { icon } = service.data;
     description={description}
 >
     <Header />
-    <main class="service-detail-page">
+    <main class="post-page">
         <div class="container">
             <nav class="breadcrumb">
                 <a href={`${prefix}/services`} class="btn">{t("services.back")}</a>
             </nav>
+            <article class="post-container fade-in-up">
+                <header class="post-header">
+                    <div class="meta">
+                        <span class="service-icon">{icon}</span>
+                    </div>
+                    <h1 class="page-title">{title}</h1>
+                    <p class="page-subtitle">{description}</p>
+                </header>
 
-            <div class="service-layout fade-in-up">
-                <div class="service-top-info">
-                    <div class="service-icon-large">{icon}</div>
-                    <h1 class="service-title page-title">{title}</h1>
-                    <p class="service-summary">{description}</p>
-                </div>
-            </div>
-
-            <!-- Descripción detallada -->
-            {
-                content && (
-                    <section class="service-body-section fade-in-up">
-                        <div class="service-body" set:html={content} />
-                    </section>
-                )
-            }
+                {content && (
+                    <div class="post-content" set:html={content} />
+                )}
+            </article>
         </div>
     </main>
     <Footer />
 </Layout>
 
 <style>
-    .service-detail-page {
+    .post-page {
         padding-top: calc(var(--header-height) + 3rem);
         min-height: 80vh;
         background-color: var(--color-bg);
@@ -69,80 +65,74 @@ const { icon } = service.data;
         margin-bottom: var(--spacing-sm);
     }
 
-    .service-top-info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--spacing-md);
-        margin-bottom: var(--spacing-xl);
-        max-width: 800px;
+    .breadcrumb a:hover {
+        opacity: 0.8;
     }
 
-    .service-icon-large {
-        font-size: 4rem;
+    .post-container {
+        width: 100%;
+        background: transparent;
+    }
+
+    .post-header {
+        margin-bottom: var(--spacing-md);
+        padding-bottom: var(--spacing-sm);
+    }
+
+    .meta {
+        display: flex;
+        gap: var(--spacing-md);
+        color: var(--color-text-light);
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .service-icon {
+        font-size: 2.5rem;
         line-height: 1;
     }
 
-    .service-title {
+    .post-content {
+        line-height: 1.6;
+        font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+        color: var(--color-text);
+        letter-spacing: -0.01em;
+    }
+
+    /* Markdown Content Styling */
+    .post-content :global(h1),
+    .post-content :global(h2),
+    .post-content :global(h3) {
         color: var(--color-primary);
-        line-height: 1.1;
+        margin-top: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
         letter-spacing: -0.05em;
         font-weight: 700;
-        margin: 0;
     }
 
-    .service-summary {
-        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-        color: var(--color-text-light);
-        line-height: 1.4;
-        font-weight: 600;
+    .post-content :global(h2) {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
     }
 
-    /* Descripción detallada */
-    .service-body-section {
-        margin-top: var(--spacing-lg);
-        padding-top: var(--spacing-lg);
-        border-top: 1px solid var(--glass-border);
-        max-width: 800px;
-    }
-
-    .service-body {
-        font-size: 1.15rem;
-        color: var(--color-text);
-        line-height: 1.8;
-    }
-
-    .service-body :global(p) {
+    .post-content :global(p) {
         margin-bottom: var(--spacing-md);
+        color: var(--color-text);
     }
 
-    .service-body :global(ul) {
+    .post-content :global(ul) {
         list-style: disc;
         margin-left: var(--spacing-lg);
         margin-bottom: var(--spacing-md);
     }
 
-    .service-body :global(li) {
-        margin-bottom: var(--spacing-sm);
-    }
-
-    .service-body :global(strong) {
-        color: var(--color-primary);
+    .post-content :global(strong) {
         font-weight: 700;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
-        .service-icon-large {
-            font-size: 3rem;
-        }
-
-        .service-title {
-            font-size: 2.2rem;
-        }
-
-        .service-summary {
-            font-size: 1.2rem;
+        .post-container {
+            padding: 0;
         }
     }
 </style>

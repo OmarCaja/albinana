@@ -1,22 +1,12 @@
 [
   {
-    "id": "bienvenidos",
-    "title": "Bienvenidos a nuestra nueva web",
-    "title_en": "Welcome to our new website",
-    "description": "Estrenamos página web para estar más cerca de ti.",
-    "description_en": "We are launching a new website to be closer to you.",
-    "pubDate": "2024-01-15",
-    "content": "<h2>Bienvenidos a Farmacia Ortopedia Albiñana</h2><p>Estamos encantados de presentar nuestra nueva página web. Aquí podrás encontrar información sobre nuestros servicios, ofertas y consejos de salud.</p><p>Queremos estar más cerca de nuestros pacientes y ofrecer un servicio más accesible.</p><p>¡Gracias por confiar en nosotros!</p>",
-    "content_en": "<h2>Welcome to Farmacia Ortopedia Albiñana</h2><p>We are delighted to present our new website. Here you can find information about our services, offers, and health tips.</p><p>We want to be closer to our patients and offer a more accessible service.</p><p>Thank you for trusting us!</p>"
-  },
-  {
-    "id": "consejos-invierno",
-    "title": "Consejos para cuidar tu piel en invierno",
-    "title_en": "Tips for taking care of your skin in winter",
-    "description": "El frío puede dañar tu piel. Aquí te dejamos algunos consejos para mantenerla hidratada.",
-    "description_en": "Cold weather can damage your skin. Here are some tips to keep it hydrated.",
-    "pubDate": "2024-01-20",
-    "content": "<h2>Cuida tu piel del frío</h2><p>El invierno puede ser duro para nuestra piel. El frío y el viento pueden resecarla y provocar irritaciones.</p><h3>Hidratación</h3><p>Es fundamental mantener la piel bien hidratada. Usa cremas ricas en nutrientes y bebe mucha agua.</p><h3>Protección solar</h3><p>Aunque sea invierno, el sol sigue incidiendo en nuestra piel. No olvides usar protector solar, especialmente en la cara.</p>",
-    "content_en": "<h2>Protect your skin from the cold</h2><p>Winter can be harsh on our skin. Cold and wind can dry it out and cause irritation.</p><h3>Hydration</h3><p>It is essential to keep the skin well hydrated. Use nutrient-rich creams and drink plenty of water.</p><h3>Sun protection</h3><p>Even though it is winter, the sun still affects our skin. Don't forget to use sunscreen, especially on your face.</p>"
+    "id": "dia-mundial-melanoma",
+    "title": "23 de mayo: día mundial contra el melanoma",
+    "title_en": "May 23: world melanoma day",
+    "description": "Descubre qué es el melanoma, sus principales signos (la regla ABCDE), sus causas y cómo protegerte.",
+    "description_en": "Discover what melanoma is, its main signs (the ABCDE rule), its causes, and how to protect yourself.",
+    "pubDate": "2026-05-23",
+    "content": "<h2>¿Qué es el melanoma?</h2><p>El melanoma es un tipo de cáncer de piel que se origina en los melanocitos.</p><p>Los melanocitos son células que producen el pigmento que da color a la piel. El pigmento se conoce como melanina.</p><p>En su fase inicial, el melanoma suele presentarse como una mancha o lunar nuevo que parece diferente a los demás, o como un lunar existente que cambia de tamaño, forma o color.</p><h2>¿Cuáles son los principales signos?</h2><ul><li><strong>Asimetría:</strong> La mitad del lunar no coincide con la otra mitad.</li><li><strong>Bordes:</strong> Los bordes son irregulares, dentados, borrosos o mal definidos.</li><li><strong>Color:</strong> Presenta varios colores o tonos (marrón, negro, rojizo, blanco o azul).</li><li><strong>Diámetro:</strong> El diámetro es mayor de 6 milímetros (el tamaño de un borrador de lápiz), aunque pueden ser más pequeños.</li><li><strong>Evolución:</strong> El lunar cambia de tamaño, forma, color o elevación, o presenta síntomas nuevos como picor, dolor o sangrado.</li></ul><h2>¿Cuáles son las causas?</h2><ul><li><strong>Exposición a la luz solar:</strong> rayos UV (UVA) sobretodo las quemaduras graves.</li><li><strong>Genética y lunares:</strong> antecedentes familiares o presencia de lunares.</li><li><strong>Fototipo:</strong> las personas con pieles y ojos claros son más vulnerables.</li></ul><h2>¿Cómo podemos protegernos?</h2><img src=\"/blogs/dia-mundial-melanoma/how-to-protect.png\" alt=\"Cómo protegernos del sol\" style=\"max-width:400px; width:100%; height:auto; border-radius:12px; margin:20px 0; display:block; box-shadow:0 4px 10px rgba(0,0,0,0.1);\" />",
+    "content_en": "<h2>What is melanoma?</h2><p>Melanoma is a type of skin cancer that originates in melanocytes.</p><p>Melanocytes are cells that produce the pigment that gives skin its color. The pigment is known as melanin.</p><p>In its initial phase, melanoma usually appears as a new spot or mole that looks different from the rest, or as an existing mole that changes in size, shape, or color.</p><h2>What are the main signs?</h2><ul><li><strong>Asymmetry:</strong> One half of the mole does not match the other half.</li><li><strong>Border:</strong> The edges are irregular, ragged, notched, or blurred.</li><li><strong>Color:</strong> It has various colors or shades (brown, black, reddish, white, or blue).</li><li><strong>Diameter:</strong> The diameter is larger than 6 millimeters (the size of a pencil eraser), although they can be smaller.</li><li><strong>Evolution:</strong> The mole changes in size, shape, color, or elevation, or presents new symptoms such as itching, pain, or bleeding.</li></ul><h2>What are the causes?</h2><ul><li><strong>Sun exposure:</strong> UV rays (UVA) especially severe sunburns.</li><li><strong>Genetics and moles:</strong> family history or presence of moles.</li><li><strong>Phototype:</strong> people with fair skin and light eyes are more vulnerable.</li></ul><h2>How can we protect ourselves?</h2><img src=\"/blogs/dia-mundial-melanoma/how-to-protect.png\" alt=\"How to protect ourselves from the sun\" style=\"max-width:400px; width:100%; height:auto; border-radius:12px; margin:20px 0; display:block; box-shadow:0 4px 10px rgba(0,0,0,0.1);\" />"
   }
 ]
