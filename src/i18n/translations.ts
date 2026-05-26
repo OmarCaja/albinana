@@ -13,7 +13,7 @@ export const ui = {
     "nav.contact": "Contacto",
     "nav.services": "Servicios",
     "nav.brands": "Nuestras Marcas",
-    "nav.blog": "Blog",
+    "nav.blogs": "Blogs",
 
     // Hero
     "hero.title": "Farmacia Ortopedia Albiñana\nTu farmacia en Bétera.",
@@ -135,7 +135,7 @@ export const ui = {
     "nav.contact": "Contact",
     "nav.services": "Services",
     "nav.brands": "Our Brands",
-    "nav.blog": "Blog",
+    "nav.blogs": "Blogs",
 
     // Hero
     "hero.title": "Farmacia Ortopedia Albiñana\nYour pharmacy in Bétera.",
