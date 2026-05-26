@@ -71,3 +71,11 @@ La estructura que debe seguir cada objeto es la siguiente:
 - **Textos poco legibles en JSON**: Nunca introducir textos largos y sin procesar directamente en la propiedad `discount` de las ofertas (ej. evitar `"20% (> 10€)"`). En su lugar, se debe crear un patrón y procesarlo en la lógica de front-end usando el sistema de traducciones (`src/i18n/translations.ts`).
 - **Dejar menús inaccesibles o huérfanos**: Cuando se habilita una nueva funcionalidad principal en la web (como la sección de Blogs), hay que asegurarse de añadir el enlace correspondiente en el menú principal de navegación (p. ej., `src/components/HamburgerMenu.astro`).
 - **Uso excesivo de mayúsculas (Title Case / All Caps)**: Nunca usar mayúsculas tipo "Title Case" en español (ej. evitar "23 de Mayo: Día Mundial contra el Melanoma"). Se debe usar "Sentence case" donde solo la primera palabra de la frase va en mayúscula (ej. "23 de mayo: Día mundial contra el melanoma"). Tampoco se deben usar bloques enteros en mayúsculas como "LAS CAUSAS" o "MELANOMA"; siempre usar minúsculas ("Las causas", "melanoma").
+
+## Uso de Astro y MCPs
+
+Este proyecto es un sitio web desarrollado con Astro.js, una plataforma de generación estática moderna. Para cualquier desarrollo o modificación del proyecto que requiera información técnica sobre Astro, se debe utilizar siempre el MCP `Astro_docs_search_astro_docs` para consultar la documentación oficial y mantener la implementación consistente con las mejores prácticas del framework.
+
+- **Importante**: Antes de implementar cualquier funcionalidad en Astro, se debe buscar información en la documentación oficial usando el comando `Astro_docs_search_astro_docs`.
+- **Proceso recomendado**: Si se necesita implementar una funcionalidad específica en Astro, primero consultar la documentación oficial mediante el MCP antes de cualquier cambio.
+- **Mantenimiento**: Las actualizaciones del proyecto deben seguir las directrices y buenas prácticas documentadas en la documentación oficial de Astro para garantizar consistencia técnica y calidad del código.
