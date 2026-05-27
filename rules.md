@@ -1,81 +1,87 @@
-# Reglas y consideraciones del proyecto
+# Project Rules and Considerations
 
 > [!IMPORTANT]
-> **Regla de oro del proyecto:** La consistencia del diseño. Es imprescindible que todas las páginas y elementos de la web mantengan exactamente el mismo estilo, tipografías, bordes (`border-radius`, `glass-border`), colores (`var(--color-primary)`, `var(--glass-bg)`, etc.), tamaños de letra, espaciados (`var(--spacing-*)`) y márgenes. Antes de crear o modificar componentes o páginas, revisa `src/styles/global.css` y componentes similares existentes (como `OfferCard.astro` o `BlogCard.astro`) para garantizar esta consistencia absoluta.
+> **Golden Rule of the Project:** Design consistency. It is essential that all pages and elements of the website maintain exactly the same style, typography, borders (`border-radius`, `glass-border`), colors (`var(--color-primary)`, `var(--glass-bg)`, etc.), font sizes, spacing (`var(--spacing-*)`) and margins. Before creating or modifying components or pages, review `src/styles/global.css` and existing similar components (such as `OfferCard.astro` or `BlogCard.astro`) to ensure absolute consistency.
 
-Este archivo contiene las directrices principales para el mantenimiento y escalabilidad del proyecto. Se debe consultar siempre antes de realizar modificaciones.
+This file contains the main guidelines for the maintenance and scalability of the project. It should always be consulted before making modifications.
 
-## Gestión de Ofertas (`src/content/offers/offers.json`)
+## Documentation Language
 
-Para añadir nuevas promociones, se debe modificar el archivo `offers.json` añadiendo un nuevo objeto al array con la siguiente estructura:
+All project documentation must be written in English to ensure consistency and maintainability across the codebase.
+
+## Offer Management (`src/content/offers/offers.json`)
+
+To add new promotions, the `offers.json` file must be modified by adding a new object to the array with the following structure:
 
 ```json
 {
-  "id": "Único (incrementar el último ID)",
+  "id": "Unique (increment the last ID)",
   "startDate": "YYYY-MM-DD",
   "endDate": "YYYY-MM-DD",
-  "brand": "NOMBRE DE LA MARCA",
-  "products": "PRODUCTO O GAMA",
+  "brand": "BRAND NAME",
+  "products": "PRODUCT OR RANGE",
   "products_en": "PRODUCT OR RANGE",
-  "discount": "FORMATO_ESTANDAR_DEL_DESCUENTO"
+  "discount": "STANDARD_FORMAT_OF_THE_DISCOUNT"
 }
 ```
 
-### Formatos de Descuento Soportados
+### Supported Discount Formats
 
-Para que los descuentos se rendericen correctamente con traducciones amigables (human-readable) en la web (gestionado en `src/pages/offers/index.astro`), se **deben** utilizar los siguientes patrones exactos en la propiedad `discount`:
+To ensure discounts are rendered correctly with friendly (human-readable) translations on the website (managed in `src/pages/offers/index.astro`), the following exact patterns **must** be used in the `discount` property:
 
-1. **3x2:** `"3X2"` -> Renderiza "Llévate 3 productos y paga solo 2."
-2. **Descuento en la segunda unidad:** `"2ªUD 30%"` (o cualquier porcentaje) -> Renderiza "30% en la segunda unidad."
-3. **Descuento directo en porcentaje:** `"20%"` -> Renderiza "20% de descuento directo."
-4. **Descuento directo en euros:** `"3€"` -> Renderiza "3€ de descuento directo."
-5. **Descuento por llevar varias unidades:** `"10€ EN 2UD"` -> Renderiza "10€ de descuento al llevar 2 unidades." (con variaciones específicas si la marca es ISDIN o dependiendo del mes).
-6. **Descuento mixto escalonado:** `"1UD 3€ 2UD 8€"` -> Renderiza "3€ en 1 unidad o 8€ en 2 unidades."
-7. **Descuento porcentual por compra superior:** `"20% EN COMPRAS > 10€"` -> Renderiza "20% de descuento en compras superiores a 10€."
+1. **3x2:** `"3X2"` -> Renders "Take 3 products and pay for only 2."
+2. **Discount on second unit:** `"2nd UD 30%"` (or any percentage) -> Renders "30% on the second unit."
+3. **Direct percentage discount:** `"20%"` -> Renders "20% direct discount."
+4. **Direct euro discount:** `"3€"` -> Renders "3€ direct discount."
+5. **Discount for multiple units:** `"10€ IN 2UD"` -> Renders "10€ discount for 2 units." (with specific variations if the brand is ISDIN or depending on the month).
+6. **Mixed stepped discount:** `"1UD 3€ 2UD 8€"` -> Renders "3€ on 1 unit or 8€ on 2 units."
+7. **Percentage discount for purchases over a threshold:** `"20% IN PURCHASES > 10€"` -> Renders "20% discount for purchases over 10€."
 
-### Consideraciones al añadir nuevos tipos de promociones
+### Considerations when adding new promotion types
 
-Si surge la necesidad de añadir un formato de descuento que **no** se ajusta a los enumerados arriba, sigue estos pasos:
+If there is a need to add a discount format that **does not** fit the above list, follow these steps:
 
-1. **NO** introduzcas el texto largo o descriptivo directamente en el `discount` de `offers.json`. Utiliza un patrón corto y predecible.
-2. Ve al archivo `src/i18n/translations.ts` y añade la nueva función o clave de traducción para los idiomas soportados (`es` y `en`).
-3. Ve a `src/pages/offers/index.astro` y actualiza la función `getFullOfferText()` añadiendo un nuevo `else if` que capture mediante `includes()` o expresiones regulares tu nuevo patrón, y extrayendo los datos variables (porcentajes, precios) para pasarlos a la traducción correspondiente.
+1. **DO NOT** directly input long or descriptive text into the `discount` property of `offers.json`. Use a short and predictable pattern.
+2. Go to the file `src/i18n/translations.ts` and add the new translation function or key for supported languages (`es` and `en`).
+3. Go to `src/pages/offers/index.astro` and update the `getFullOfferText()` function by adding a new `else if` that captures your new pattern via `includes()` or regular expressions, and extracting variable data (percentages, prices) to pass them to the corresponding translation.
 
-Esto garantiza que la interfaz de la web ofrezca siempre textos coherentes, amigables y con un soporte multiidioma correcto.
+This ensures that the website interface always provides consistent, friendly text with correct multi-language support.
 
-## Gestión de Blogs (`src/content/blogs/blogs.json`)
+## Blog Management (`src/content/blogs/blogs.json`)
 
-Para crear o modificar entradas del blog, se edita directamente el array en `src/content/blogs/blogs.json`.
-La estructura que debe seguir cada objeto es la siguiente:
+To create or modify blog entries, the array in `src/content/blogs/blogs.json` is edited directly.
+The structure that each object must follow is as follows:
 ```json
 {
-  "id": "slug-url-del-blog",
-  "title": "Título en español",
-  "title_en": "Title in english",
-  "description": "Breve descripción",
+  "id": "slug-url-of-the-blog",
+  "title": "Title in Spanish",
+  "title_en": "Title in English",
+  "description": "Short description",
   "description_en": "Short description",
   "pubDate": "YYYY-MM-DD",
-  "content": "<h2>Contenido HTML en español</h2>...",
-  "content_en": "<h2>HTML content in english</h2>..."
+  "content": "<h2>Spanish HTML content</h2>...",
+  "content_en": "<h2>English HTML content</h2>..."
 }
 ```
-**Consideraciones:**
-- El `id` se utilizará como la URL final (`/blogs/tu-slug`).
-- El `content` soporta etiquetas HTML (como `<h2>`, `<h3>`, `<p>`, `<ul>`, `<li>`, `<strong>`), y estas serán parseadas y estilizadas automáticamente por la plantilla `.astro` correspondiente.
-- Asegúrate siempre de limpiar datos o blogs "de prueba" (mock data) en producción.
+**Considerations:**
+- The `id` will be used as the final URL (`/blogs/your-slug`).
+- The `content` supports HTML tags (such as `<h2>`, `<h3>`, `<p>`, `<ul>`, `<li>`, `<strong>`), and these will be automatically parsed and styled by the corresponding `.astro` template.
+- Always ensure that test data or mock blogs are cleaned up in production.
 
-## Correcciones y Lecciones Aprendidas (A evitar)
+## Corrections and Lessons Learned (To Avoid)
 
-*(Esta sección se irá actualizando a medida que se detecten errores o se establezcan nuevas convenciones tras correcciones para evitar repetir fallos en el futuro).*
+*(This section will be updated as errors are detected or new conventions are established after corrections to avoid repeating failures in the future).*
 
-- **Textos poco legibles en JSON**: Nunca introducir textos largos y sin procesar directamente en la propiedad `discount` de las ofertas (ej. evitar `"20% (> 10€)"`). En su lugar, se debe crear un patrón y procesarlo en la lógica de front-end usando el sistema de traducciones (`src/i18n/translations.ts`).
-- **Dejar menús inaccesibles o huérfanos**: Cuando se habilita una nueva funcionalidad principal en la web (como la sección de Blogs), hay que asegurarse de añadir el enlace correspondiente en el menú principal de navegación (p. ej., `src/components/HamburgerMenu.astro`).
-- **Uso excesivo de mayúsculas (Title Case / All Caps)**: Nunca usar mayúsculas tipo "Title Case" en español (ej. evitar "23 de Mayo: Día Mundial contra el Melanoma"). Se debe usar "Sentence case" donde solo la primera palabra de la frase va en mayúscula (ej. "23 de mayo: Día mundial contra el melanoma"). Tampoco se deben usar bloques enteros en mayúsculas como "LAS CAUSAS" o "MELANOMA"; siempre usar minúsculas ("Las causas", "melanoma").
+- **Unreadable texts in JSON**: Never input long, unprocessed texts directly into the `discount` property of offers (e.g., avoid `"20% (> 10€)"`). Instead, create a pattern and process it in the front-end logic using the translation system (`src/i18n/translations.ts`).
+- **Leaving menus inaccessible or orphaned**: When a new main functionality is enabled on the website (such as the Blogs section), ensure that the corresponding link is added to the main navigation menu (e.g., `src/components/HamburgerMenu.astro`).
+- **Excessive use of capital letters (Title Case / All Caps)**: Never use Title Case in Spanish (e.g., avoid "23 de Mayo: Día Mundial contra el Melanoma"). Use Sentence case where only the first word of the sentence is capitalized (e.g., "23 de mayo: Día mundial contra el melanoma"). Also, do not use all caps blocks like "LAS CAUSAS" or "MELANOMA"; always use lowercase ("Las causas", "melanoma").
 
-## Uso de Astro y MCPs
+## Astro and MCP Usage
 
-Este proyecto es un sitio web desarrollado con Astro.js, una plataforma de generación estática moderna. Para cualquier desarrollo o modificación del proyecto que requiera información técnica sobre Astro, se debe utilizar siempre el MCP `Astro_docs_search_astro_docs` para consultar la documentación oficial y mantener la implementación consistente con las mejores prácticas del framework.
+This project is a website built with Astro.js, a modern static site generation platform. For any development or modification of the project that requires technical information about Astro, the `Astro_docs_search_astro_docs` MCP must always be used to consult the official documentation and maintain implementation consistency with the framework's best practices.
 
-- **Importante**: Antes de implementar cualquier funcionalidad en Astro, se debe buscar información en la documentación oficial usando el comando `Astro_docs_search_astro_docs`.
-- **Proceso recomendado**: Si se necesita implementar una funcionalidad específica en Astro, primero consultar la documentación oficial mediante el MCP antes de cualquier cambio.
-- **Mantenimiento**: Las actualizaciones del proyecto deben seguir las directrices y buenas prácticas documentadas en la documentación oficial de Astro para garantizar consistencia técnica y calidad del código.
+- **Important**: Before implementing any functionality in Astro, information must be searched in the official documentation using the `Astro_docs_search_astro_docs` command.
+- **Recommended process**: If a specific functionality in Astro needs to be implemented, first consult the official documentation through the MCP before any changes.
+- **Maintenance**: Project updates must follow the guidelines and best practices documented in the official Astro documentation to ensure technical consistency and code quality.
+
+(End of file - total 81 lines)

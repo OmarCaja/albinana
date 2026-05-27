@@ -313,5 +313,23 @@
     "products": "CORPORAL",
     "products_en": "BODY",
     "discount": "2ªUD 30%"
+  },
+  {
+    "id": "36",
+    "startDate": "2026-06-01",
+    "endDate": "2026-06-30",
+    "brand": "LA ROCHE POSAY",
+    "products": "ANTHELIOS",
+    "products_en": "ANTHELIOS",
+    "discount": "1UD 3€ 2UD 8€ o 3x2"
+  },
+  {
+    "id": "37",
+    "startDate": "2026-07-01",
+    "endDate": "2026-08-31",
+    "brand": "LA ROCHE POSAY",
+    "products": "ANTHELIOS",
+    "products_en": "ANTHELIOS",
+    "discount": "1UD 15% 2UD 40%"
   }
 ]

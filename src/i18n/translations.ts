@@ -122,6 +122,8 @@ export const ui = {
     "offer.10in2unitsApril": "10€ de descuento en 2 unidades.",
     "offer.10in2unitsGeneric": "10€ de descuento al llevar 2 unidades.",
     "offer.1u3e2u8e": "3€ en 1 unidad o 8€ en 2 unidades.",
+    "offer.1u3e2u8eOr3x2": "3€ en la 1ª unidad, 8€ en la 2ª unidad o 3x2. No acumulables.",
+    "offer.1u15pct2u40pct": "15% en la 1ª unidad o 40% en la 2ª unidad. No acumulables.",
     "offer.allProducts": "(todo)",
     "offer.allYear": "Todo el año 2026",
 
@@ -244,6 +246,8 @@ export const ui = {
     "offer.10in2unitsApril": "€10 off on 2 units.",
     "offer.10in2unitsGeneric": "€10 off when taking 2 units.",
     "offer.1u3e2u8e": "€3 on 1 unit or €8 on 2 units.",
+    "offer.1u3e2u8eOr3x2": "€3 off 1st unit, €8 off 2nd unit or 3-for-2. Not combinable.",
+    "offer.1u15pct2u40pct": "15% off 1st unit or 40% off 2nd unit. Not combinable.",
     "offer.allProducts": "(all)",
     "offer.allYear": "All year 2026",
 

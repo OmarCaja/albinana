@@ -108,6 +108,8 @@ function getFullOfferText(offer: any) {
                 productLower,
             );
         }
+    } else if (discountUpper.includes("1UD 15% 2UD 40%")) {
+        descriptionText = t("offer.1u15pct2u40pct") as string;
     } else if (discountUpper.includes("2ªUD")) {
         const pct = discountUpper.match(/(\d+)%/)?.[1] || discountUpper;
         descriptionText = (t("offer.2ndUnit") as Function)(pct);
@@ -117,7 +119,10 @@ function getFullOfferText(offer: any) {
     } else if (discountUpper.includes("EN COMPRAS >")) {
         const pctMatch = discountUpper.match(/(\d+%)/)?.[1] || "";
         const amountMatch = discountUpper.match(/(\d+€)/)?.[1] || "";
-        descriptionText = (t("offer.percentOverAmount") as Function)(pctMatch, amountMatch);
+        descriptionText = (t("offer.percentOverAmount") as Function)(
+            pctMatch,
+            amountMatch,
+        );
     } else if (discountUpper.includes("%")) {
         descriptionText = (t("offer.directDiscount") as Function)(discount);
     } else if (discountUpper.match(/^\d+\s?€$/)) {
@@ -132,8 +137,12 @@ function getFullOfferText(offer: any) {
         } else {
             descriptionText = t("offer.10in2unitsGeneric") as string;
         }
+    } else if (discountUpper.includes("1UD 3€ 2UD 8€") && discountUpper.includes("3X2")) {
+        descriptionText = t("offer.1u3e2u8eOr3x2") as string;
     } else if (discountUpper.includes("1UD 3€ 2UD 8€")) {
         descriptionText = t("offer.1u3e2u8e") as string;
+    } else if (discountUpper.includes("1UD 15% 2UD 40%")) {
+        descriptionText = t("offer.1u15pct2u40pct") as string;
     } else {
         descriptionText = discount;
     }
