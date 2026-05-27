@@ -22,6 +22,7 @@ export const ui = {
     "hero.cta.services": "Nuestros servicios →",
     "hero.cta.brands": "Nuestras marcas →",
     "hero.cta.offers": "Nuestras ofertas →",
+    "hero.cta.blogs": "Nuestros blogs →",
 
     // Fidelidad
     "fidelity.title": "Tarjeta de Fidelización",
@@ -144,6 +145,7 @@ export const ui = {
     "hero.cta.services": "Our services →",
     "hero.cta.brands": "Our brands →",
     "hero.cta.offers": "Our offers →",
+    "hero.cta.blogs": "Our blogs →",
 
     // Fidelidad
     "fidelity.title": "Loyalty Card",
