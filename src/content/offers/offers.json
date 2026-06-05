@@ -261,15 +261,6 @@
     "discount": "10€ EN 2UD"
   },
   {
-    "id": "30",
-    "startDate": "2026-05-01",
-    "endDate": "2026-07-01",
-    "brand": "LA ROCHE POSAY",
-    "products": "SERUMS Y CREMAS",
-    "products_en": "SERUMS & CREAMS",
-    "discount": "8€"
-  },
-  {
     "id": "31",
     "startDate": "2026-06-01",
     "endDate": "2026-06-30",
@@ -331,5 +322,41 @@
     "products": "ANTHELIOS",
     "products_en": "ANTHELIOS",
     "discount": "1UD 15% 2UD 40%"
+  },
+  {
+    "id": "38",
+    "startDate": "2026-06-01",
+    "endDate": "2026-07-31",
+    "brand": "VICHY",
+    "products": "SOLARES",
+    "products_en": "SUNCARE",
+    "discount": "1UD 25% 2UD 60%"
+  },
+  {
+    "id": "39",
+    "startDate": "2026-05-15",
+    "endDate": "2026-08-31",
+    "brand": "EUCERIN",
+    "products": "FOTOPROTECTORES",
+    "products_en": "SUN PROTECTION",
+    "discount": "1UD 15% 2UD 50%"
+  },
+  {
+    "id": "40",
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30",
+    "brand": "CANTABRIA LABS",
+    "products": "BIRETIX",
+    "products_en": "BIRETIX",
+    "discount": "2ªUD 40%"
+  },
+  {
+    "id": "41",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
+    "brand": "CANTABRIA LABS",
+    "products": "NEORETIN",
+    "products_en": "NEORETIN",
+    "discount": "2ªUD 40%"
   }
 ]
