@@ -358,5 +358,32 @@
     "products": "NEORETIN",
     "products_en": "NEORETIN",
     "discount": "2ªUD 40%"
+  },
+  {
+    "id": "42",
+    "startDate": "2026-07-01",
+    "endDate": "2026-07-31",
+    "brand": "CANTABRIA LABS",
+    "products": "ARTÍCULOS SELECCIONADOS",
+    "products_en": "SELECTED ARTICLES",
+    "discount": "1UD 15% 2UD 20% 3UD 30%"
+  },
+  {
+    "id": "43",
+    "startDate": "2026-07-16",
+    "endDate": "2026-08-31",
+    "brand": "CANTABRIA LABS",
+    "products": "HELIOCARE FOTOPROTECTORES CORPORALES",
+    "products_en": "HELIOCARE BODY SUNSCREENS",
+    "discount": "10€ EN 2UD"
+  },
+  {
+    "id": "44",
+    "startDate": "2026-09-01",
+    "endDate": "2026-10-31",
+    "brand": "CANTABRIA LABS",
+    "products": "HELIOCARE FOTOPROTECTOR FACIAL, ORAL Y COLOR",
+    "products_en": "HELIOCARE FACIAL, ORAL AND COLOR SUNSCREEN",
+    "discount": "10€ EN 2UD"
   }
 ]

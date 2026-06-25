@@ -51,48 +51,8 @@ function getFullOfferText(offer: any) {
     const productLower = products.toLowerCase();
     const discountUpper = discount.toUpperCase();
 
-    // Period string logic
-    const startMonth = new Date(startDate).toLocaleString(
-        t("offers.locale") as string,
-        {
-            month: "long",
-        },
-    );
-    const endMonth = new Date(endDate).toLocaleString(
-        t("offers.locale") as string,
-        {
-            month: "long",
-        },
-    );
-    let periodStr = "";
-
-    if (startMonth === endMonth) {
-        periodStr = ` (${startMonth})`;
-    } else {
-        periodStr = ` (${startMonth}-${endMonth})`;
-    }
-
-    if (brand.toUpperCase() === "REIG JOFRE") {
-        periodStr = "";
-    }
-
-    // Pattern heuristic matching user desire
-    if (brand.toUpperCase() === "ISDIN") {
-        // keep period
-    } else if (
-        !["HELIOCARE", "SOLARES E ISDINCEUTICS"].some(
-            (kw) =>
-                products.toUpperCase().includes(kw) ||
-                brand.toUpperCase().includes(kw),
-        )
-    ) {
-        if (!brand.includes("CANTABRIA LABS") && !brand.includes("ISDIN")) {
-            periodStr = "";
-        }
-    }
-
     const todoStr = t("offer.allProducts");
-    let titleText = `${brandName}${productLower === "todo" ? ` ${todoStr}` : " " + products.charAt(0).toUpperCase() + products.slice(1).toLowerCase()}${periodStr}`;
+    let titleText = `${brandName}${productLower === "todo" ? ` ${todoStr}` : " " + products.charAt(0).toUpperCase() + products.slice(1).toLowerCase()}`;
 
     let descriptionText = "";
     if (discountUpper === "3X2") {
@@ -120,6 +80,13 @@ function getFullOfferText(offer: any) {
         descriptionText = (t("offer.percentOverAmount") as Function)(
             pctMatch,
             amountMatch,
+        );
+    } else if (/^1UD\s+\S+\s+2UD\s+\S+\s+3UD\s+\S+$/i.test(discountUpper)) {
+        const parts = discountUpper.split(/\s+/);
+        descriptionText = (t("offer.steppedDiscount3") as Function)(
+            parts[1],
+            parts[3],
+            parts[5],
         );
     } else if (/^1UD\s+\S+\s+2UD\s+\S+$/i.test(discountUpper)) {
         const parts = discountUpper.split(/\s+2UD\s+/i);
