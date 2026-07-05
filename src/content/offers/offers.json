@@ -54,15 +54,6 @@
     "discount": "2ªUD 30%"
   },
   {
-    "id": "7",
-    "startDate": "2026-06-01",
-    "endDate": "2026-07-15",
-    "brand": "CANTABRIA LABS",
-    "products": "HELIOCARE",
-    "products_en": "HELIOCARE",
-    "discount": "2ªUD 30%"
-  },
-  {
     "id": "8",
     "startDate": "2026-06-01",
     "endDate": "2026-06-30",
@@ -186,7 +177,7 @@
     "brand": "VICHY",
     "products": "SOLARES",
     "products_en": "SUNCARE",
-    "discount": "4 €"
+    "discount": "4€"
   },
   {
     "id": "22",
@@ -276,7 +267,7 @@
     "brand": "ISDIN",
     "products": "FOTOPROTECTORES",
     "products_en": "SUN PROTECTION",
-    "discount": "10€ POR LA COMPRA DE 2UD"
+    "discount": "10€ EN 2UD"
   },
   {
     "id": "33",
@@ -370,12 +361,12 @@
   },
   {
     "id": "43",
-    "startDate": "2026-07-16",
+    "startDate": "2026-07-01",
     "endDate": "2026-08-31",
     "brand": "CANTABRIA LABS",
-    "products": "HELIOCARE FOTOPROTECTORES CORPORALES",
-    "products_en": "HELIOCARE BODY SUNSCREENS",
-    "discount": "10€ EN 2UD"
+    "products": "HELIOCARE TODAS LAS REFERENCIAS",
+    "products_en": "HELIOCARE ALL REFERENCES",
+    "discount": "1UD 4€ 2UD 10€"
   },
   {
     "id": "44",

@@ -100,6 +100,9 @@ function getFullOfferText(offer: any) {
         descriptionText = (t("offer.directDiscount") as Function)(discount);
     } else if (discountUpper.match(/^\d+\s?€$/)) {
         descriptionText = (t("offer.directDiscount") as Function)(discount);
+    } else if (/^\d+€\s+EN\s+1UD\s+O\s+\d+€\s+EN\s+2UD$/i.test(discountUpper)) {
+        const match = discountUpper.match(/(\d+)€\s+EN\s+1UD\s+O\s+(\d+)€\s+EN\s+2UD/i);
+        descriptionText = (t("offer.xein1udOrYein2ud") as Function)(match![1], match![2]);
     } else if (discountUpper.includes("10€ EN 2UD")) {
         if (brand.toUpperCase() === "ISDIN") {
             descriptionText = t("offer.10in2units") as string;
