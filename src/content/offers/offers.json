@@ -83,7 +83,7 @@
   {
     "id": "11",
     "startDate": "2026-05-15",
-    "endDate": "2026-08-15",
+    "endDate": "2026-08-31",
     "brand": "CERAVE",
     "products": "SOLARES",
     "products_en": "SUNCARE",
@@ -92,7 +92,7 @@
   {
     "id": "12",
     "startDate": "2026-06-15",
-    "endDate": "2026-07-31",
+    "endDate": "2026-08-15",
     "brand": "CERAVE",
     "products": "TODO",
     "products_en": "ALL",
@@ -376,5 +376,14 @@
     "products": "HELIOCARE FOTOPROTECTOR FACIAL, ORAL Y COLOR",
     "products_en": "HELIOCARE FACIAL, ORAL AND COLOR SUNSCREEN",
     "discount": "10€ EN 2UD"
+  },
+  {
+    "id": "45",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31",
+    "brand": "AFTERBITE Y REPELBITE",
+    "products": "REPELENTES",
+    "products_en": "REPELLENTS",
+    "discount": "1UD 15% 2UD 40%"
   }
 ]
