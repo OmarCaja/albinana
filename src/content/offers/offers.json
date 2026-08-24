@@ -385,5 +385,50 @@
     "products": "REPELENTES",
     "products_en": "REPELLENTS",
     "discount": "1UD 15% 2UD 40%"
+  },
+  {
+    "id": "46",
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30",
+    "brand": "VICHY",
+    "products": "DESODORANTES",
+    "products_en": "DEODORANTS",
+    "discount": "3€"
+  },
+  {
+    "id": "47",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "brand": "GLAXO",
+    "products": "RHINOMER",
+    "products_en": "RHINOMER",
+    "discount": "1UD 2€ 2UD 5€"
+  },
+  {
+    "id": "48",
+    "startDate": "2026-09-20",
+    "endDate": "2026-10-20",
+    "brand": "LA ROCHE POSAY",
+    "products": "EFFACLAR",
+    "products_en": "EFFACLAR",
+    "discount": "20%"
+  },
+  {
+    "id": "49",
+    "startDate": "2026-09-28",
+    "endDate": "2026-10-11",
+    "brand": "CANTABRIA LABS",
+    "products": "IRALTONE",
+    "products_en": "IRALTONE",
+    "discount": "3X2"
+  },
+  {
+    "id": "50",
+    "startDate": "2026-10-12",
+    "endDate": "2026-10-31",
+    "brand": "CANTABRIA LABS",
+    "products": "IRALTONE",
+    "products_en": "IRALTONE",
+    "discount": "2ªUD 30%"
   }
 ]
