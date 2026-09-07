@@ -1,238 +1,85 @@
 # CLAUDE.md
 
-## 🧠 Agent Rules (Highest Priority)
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-- Follow this file strictly unless explicitly instructed otherwise.
-- Do NOT ignore these rules even if the user prompt is ambiguous.
-- Prioritize consistency with the existing codebase over introducing new patterns.
-- Do not over-engineer solutions.
+## Project Overview
 
----
+Astro 7 static site for **Farmacia Ortopedia Albiñana**, a pharmacy in Bétera, Spain. Content (blogs, brands, services, offers) is JSON-driven via Astro Content Collections. Bilingual: Spanish (default) / English.
 
-## 🌍 Language Rules
+## Commands
 
-- All code, comments, variable names, and documentation MUST be written in English.
-- NEVER mix Spanish (or other languages) inside code.
-- User-facing content (UI text) may remain in Spanish if already written that way.
-- Chat responses may follow the user's language, but code must always be English.
+Package manager is **pnpm** (`pnpm-lock.yaml` is the lockfile — don't use npm/yarn).
 
----
-
-## ⚡ Project Overview
-
-This is an Astro.js website for **Farmacia Ortopedia Albiñana**, a pharmacy in Bétera, Spain.
-
-- Astro 6.x project
-- Static-first architecture
-- Component-based structure
-- JSON-driven content (products, blogs, offers)
-
----
-
-## 🏗️ Architecture & Principles
-
-- Prefer server-first rendering
-- Minimize client-side JavaScript
-- Keep components small, reusable, and focused
-- Avoid global state unless strictly necessary
-- Favor simplicity over abstraction
-
----
-
-## 🏗️ Project Structure
-
-```
-/
-├── src/
-│   ├── pages/              # Page components (index.astro, blogs, products)
-│   ├── components/         # Reusable components (Header, Footer, Hero, etc.)
-│   ├── layouts/            # Page layouts
-│   ├── content/            # Content files (blogs, products, offers)
-│   ├── styles/             # Global CSS styles
-└── package.json            # Dependencies and scripts
+```bash
+pnpm install       # install dependencies
+pnpm dev           # dev server at localhost:4321
+pnpm build         # build to ./dist/
+pnpm preview       # preview the production build
+pnpm astro check   # type-check
 ```
 
+There is no test suite or linter configured.
+
+## Architecture
+
+### i18n routing — pages are NOT duplicated per language
+
+Spanish is the default locale with no URL prefix; English is served under `/en/*` (`astro.config.mjs`, `prefixDefaultLocale: false`). The `/en/*` route files do **not** reimplement the page — they just re-export the Spanish one as a component, e.g. `src/pages/en/index.astro` is only:
+
+```astro
 ---
-
-## 📂 Collections & Content Import
-
-### Creating Collections
-
-- Define collections in `src/content.config.ts` using the Astro Content API
-- Example:
-
-```ts
-import { defineCollection, z } from "astro:content";
-
-export const collections = {
-  blogs: defineCollection({
-    schema: z.object({
-      title: z.string(),
-      description: z.string(),
-      date: z.string(),
-    }),
-  }),
-  products: defineCollection({
-    schema: z.object({
-      name: z.string(),
-      price: z.number(),
-      available: z.boolean(),
-    }),
-  }),
-};
+import Page from '../index.astro';
+---
+<Page />
 ```
 
-### Importing collections
+The actual page component (in `src/pages/...`, without the `en/` prefix) detects the language itself at render time via `getLangFromUrl(Astro.url)` from `src/i18n/translations.ts`, then picks the right string/content field. When adding a new page or route, follow this pattern: build the page once under `src/pages/<route>`, then add a thin `src/pages/en/<route>` wrapper that imports and renders it — don't hand-write a parallel English page.
 
-```ts
-import { getCollection } from "astro:content";
+`useTranslations(lang)` returns a `t(key)` lookup against the `ui` dictionary in `translations.ts`; `getAlternateUrl` builds the hreflang-alternate links consumed by `Layout.astro`.
 
-const posts = (await getCollection("blogs")).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-```
+### Content collections (`src/content.config.ts`)
 
----
+All four collections load from hand-edited JSON via `astro/loaders`' `file()` loader — there is no CMS:
 
-## 🧩 Component Guidelines
+- `blogs` ← `src/content/blogs/blogs.json`
+- `brands` ← `src/content/brands/brands.json` (custom `parser` unwraps the top-level `marcas` key)
+- `services` ← `src/content/services/services.json` (custom `parser` unwraps the top-level `servicios` key)
+- `offers` ← `src/content/offers/offers.json`
 
-- Use clear, descriptive names:
-  - ProductCard.astro
-  - Avoid names like Card1.astro
+Bilingual content fields use a `_en` suffix convention (`title` / `title_en`, `content` / `content_en`, etc.) with Spanish as the fallback when the `_en` field is missing. Follow this convention for any new translatable field instead of introducing a separate localization mechanism.
 
-- One responsibility per component
-- Avoid large monolithic components
-- Reuse existing components whenever possible
+### Editing content JSON directly
 
----
+**Blogs** (`src/content/blogs/blogs.json`): `id` becomes the URL slug (`/blogs/<id>`). `content`/`content_en` are raw HTML strings (`<h2>`, `<h3>`, `<p>`, `<ul>`, `<li>`, `<strong>`) rendered by the blog template — don't add a markdown pipeline for this. Remove any test/mock blog entries before they ship.
 
-## 🎯 Code Style Rules
+**Offers** (`src/content/offers/offers.json`): new entries need a unique incrementing `id`, `startDate`/`endDate` (`YYYY-MM-DD`), `brand`, `products`/`products_en`, and `discount`. The `discount` field must match one of these exact patterns — the front-end parses it into human copy via `src/i18n/translations.ts`, it is never displayed raw:
 
-### General
-- Keep code clean and readable
-- Avoid deep nesting
-- Prefer early returns
+| Pattern | Renders as |
+|---|---|
+| `"3X2"` | "Take 3 products and pay for only 2." |
+| `"2nd UD 30%"` | "30% on the second unit." |
+| `"2nd UD 10€"` | "10€ off the second unit." |
+| `"20%"` | "20% direct discount." |
+| `"3€"` | "3€ direct discount." |
+| `"10€ IN 2UD"` | "10€ discount for 2 units." (has ISDIN/month-specific variants) |
+| `"1UD 3€ 2UD 8€"` | "3€ on 1 unit or 8€ on 2 units." |
+| `"20% IN PURCHASES > 10€"` | "20% discount for purchases over 10€." |
+| `"50% X OTRO PRODUCTO"` | "50% off with the purchase of another product from the brand." |
 
-### Naming
-- Use descriptive English names:
-  - getProductData
-  - isAvailable
-- Avoid unnecessary abbreviations
+Never put a free-text discount description directly in `discount` (e.g. `"20% (> 10€)"`) — add a new pattern and a matching translation/parsing case instead.
 
-### Astro Templates
-- Use semantic HTML
-- Avoid unnecessary wrapper elements
-- Keep markup easy to scan
+### Styling consistency
 
----
+Reuse existing CSS custom properties from `src/styles/global.css` (`--color-primary`, `--glass-bg`, `--glass-border`, `--spacing-*`, border-radius tokens, etc.) rather than hardcoding values. Before adding or changing a component, check an existing analogous one (`OfferCard.astro`, `BlogCard.astro`) for the established pattern.
 
-## 🎨 Styling Rules
+### Spanish copy conventions
 
-- Prefer scoped styles inside `.astro` components
-- Use global styles only when necessary
-- Reuse existing CSS variables
-- Avoid inline styles unless required
+Use sentence case, not Title Case: "23 de mayo: Día mundial contra el melanoma", not "23 de Mayo: Día Mundial contra el Melanoma". Don't write words in all caps for emphasis (avoid "LAS CAUSAS"; use "Las causas").
 
----
+### Adding a new section
 
-## ⚙️ JavaScript Usage
+When enabling a new top-level section (e.g. a new content type with its own nav entry), remember to add its link to `src/components/HamburgerMenu.astro` — it's not derived automatically from routes.
 
-- Only use client-side JavaScript when necessary
-- Prefer Astro directives:
-  - client:load
-  - client:idle
-  - client:visible
+## Language rules
 
-- Keep scripts small and focused
-
----
-
-## 🔌 MCP Usage Rules
-
-- Prefer MCP for:
-  - File creation
-  - Refactoring
-  - Multi-file updates
-
-- Be explicit and deterministic
-- Do NOT suggest manual steps if MCP can perform the task
-- Do NOT scan the entire project unless explicitly required
-
----
-
-## 📚 Documentation & Tools
-
-### Astro Docs
-- Use `mcp__astro-docs__search_astro_docs` for Astro-related questions
-
-### Library Docs
-- Use:
-  1. `mcp__context7__resolve-library-id`
-  2. `mcp__context7__query-docs`
-
-- Prefer official documentation over assumptions
-
----
-
-## 🚫 Strict Anti-Patterns
-
-Do NOT:
-
-- Introduce unnecessary dependencies
-- Rewrite working code without reason
-- Add unused code
-- Mix languages in code
-- Create overly complex abstractions
-- Re-analyze the entire project unnecessarily
-
----
-
-## 🧪 Debugging & Refactoring
-
-### Bug Fixing
-- Identify root cause before fixing
-- Avoid superficial fixes
-
-### Refactoring
-- Do not change behavior unless requested
-- Focus on readability and structure
-
----
-
-## 📦 Dependencies
-
-- Prefer built-in Astro features
-- If adding a dependency:
-  - Justify it
-  - Choose lightweight, maintained options
-
----
-
-## 📝 Output Expectations
-
-- Provide production-ready code
-- Keep explanations brief and relevant
-- Do not include unnecessary commentary
-
----
-
-## 🔁 Consistency Rule
-
-- Always match existing patterns in the codebase
-- Do not introduce new patterns unless clearly beneficial
-
----
-
-## 🚀 Performance Awareness
-
-- Keep pages lightweight
-- Avoid unnecessary JavaScript
-- Optimize for fast load times
-
----
-
-## 🧠 Context Optimization Rule
-
-- Do NOT re-analyze the entire project unless explicitly asked
-- Focus only on relevant files for each task
-- Assume this document represents the project standards
+All code, identifiers, and comments must be in English. UI copy in the `ui` dictionaries (`src/i18n/translations.ts`) and content JSON stays in Spanish/English as appropriate — don't translate the Spanish content strings into code-style English.

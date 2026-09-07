@@ -466,5 +466,32 @@
     "products": "FOTOPROTECCIÓN",
     "products_en": "SUN PROTECTION",
     "discount": "35%"
+  },
+  {
+    "id": "55",
+    "startDate": "2026-09-28",
+    "endDate": "2026-10-11",
+    "brand": "ISDIN",
+    "products": "FOTOPROTECTORES E ISDINCEUTICS",
+    "products_en": "SUNSCREENS AND ISDINCEUTICS",
+    "discount": "2ªUD 10€"
+  },
+  {
+    "id": "56",
+    "startDate": "2026-09-01",
+    "endDate": "2026-12-31",
+    "brand": "LA ROCHE POSAY",
+    "products": "SOLARES",
+    "products_en": "SUNSCREENS",
+    "discount": "50% X OTRO PRODUCTO"
+  },
+  {
+    "id": "57",
+    "startDate": "2026-09-01",
+    "endDate": "2026-12-31",
+    "brand": "CERAVE",
+    "products": "SOLARES",
+    "products_en": "SUNSCREENS",
+    "discount": "50% X OTRO PRODUCTO"
   }
 ]

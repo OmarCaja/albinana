@@ -9,7 +9,14 @@ const { id, imagen } = Astro.props;
 
 <div class="brand-card glass-card fade-in-up">
     <div class="card-image-wrap">
-        <img src={imagen} class="card-image" alt={`Marca ${id}`} />
+        <img
+            src={imagen}
+            class="card-image"
+            alt={`Marca ${id}`}
+            width="300"
+            height="200"
+            loading="lazy"
+        />
     </div>
 </div>
 

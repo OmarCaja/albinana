@@ -49,7 +49,7 @@
     --shadow-lg: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
     --shadow-premium: 0 30px 60px -12px rgba(0, 0, 0, 0.12), 0 18px 36px -18px rgba(0, 0, 0, 0.15);
 
-    --header-height: 60px;
+    --header-height: calc(60px + env(safe-area-inset-top));
     --transition-fast: 0.15s cubic-bezier(0.2, 0, 0, 1);
     --transition-smooth: 0.8s cubic-bezier(0.2, 0, 0, 1);
 
@@ -115,6 +115,22 @@ img {
 
 ul {
     list-style: none;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: var(--spacing-sm);
+    z-index: 2000;
+    background: var(--color-primary);
+    color: #fff;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: var(--spacing-sm);
 }
 
 /* Utility Classes */
@@ -279,7 +295,7 @@ ul {
     font-size: 1rem;
     /* Reduced from 1.1rem */
     color: var(--color-accent);
-    transition: all var(--transition-fast);
+    transition: color var(--transition-fast);
     cursor: pointer;
     border: none;
     background: none;
@@ -321,6 +337,18 @@ body.menu-open footer {
 main,
 footer {
     transition: filter 0.4s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-up,
+    .fade-in-up.visible,
+    main,
+    footer,
+    .toggle-btn .bar,
+    .nav-overlay,
+    .nav-links li {
+        transition: none !important;
+    }
 }
 
 /* Brand Card Styles */

@@ -69,11 +69,19 @@ function getFullOfferText(offer: any) {
             );
         }
     } else if (discountUpper.includes("2ªUD")) {
-        const pct = discountUpper.match(/(\d+)%/)?.[1] || discountUpper;
-        descriptionText = (t("offer.2ndUnit") as Function)(pct);
+        const euro = discountUpper.match(/(\d+)€/)?.[1];
+        if (euro) {
+            descriptionText = (t("offer.2ndUnitEuro") as Function)(euro);
+        } else {
+            const pct = discountUpper.match(/(\d+)%/)?.[1] || discountUpper;
+            descriptionText = (t("offer.2ndUnit") as Function)(pct);
+        }
         if (brand.toUpperCase() === "REIG JOFRE") {
             descriptionText += " " + t("offer.2ndUnitAllYear");
         }
+    } else if (discountUpper.match(/^\d+%\s+X\s+OTRO\s+PRODUCTO$/)) {
+        const pct = discountUpper.match(/(\d+)%/)![1];
+        descriptionText = (t("offer.pctWithOtherProduct") as Function)(pct);
     } else if (discountUpper.includes("EN COMPRAS >")) {
         const pctMatch = discountUpper.match(/(\d+%)/)?.[1] || "";
         const amountMatch = discountUpper.match(/(\d+€)/)?.[1] || "";
@@ -131,7 +139,7 @@ function getFullOfferText(offer: any) {
     description={t("offers.meta.description")}
 >
     <Header />
-    <main>
+    <main id="main-content">
         <section class="section-full">
             <div class="container">
                 <h1 class="page-title">{t("offers.title")}</h1>

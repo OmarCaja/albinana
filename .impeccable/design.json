@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-07T11:31:22Z",
+  "title": "Design System: Farmacia Ortopedia Albiñana",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Absolute Ink",
+        "canonical": "#000000",
+        "tonalRamp": ["#000000", "#1a1a1a", "#333333", "#4d4d4d", "#737373", "#a6a6a6", "#d9d9d9", "#f5f5f5"]
+      },
+      "trust-blue": {
+        "role": "secondary",
+        "displayName": "Trust Blue",
+        "canonical": "#0095c8",
+        "tonalRamp": ["#00232d", "#003c4c", "#00566c", "#0095c8", "#3aa8d1", "#74bfdd", "#a8d7e9", "#dcf1f8"]
+      },
+      "coral-alert": {
+        "role": "status",
+        "displayName": "Coral Alert",
+        "canonical": "#f87171",
+        "tonalRamp": ["#5c1410", "#8a201a", "#c23026", "#f87171", "#fa8f8f", "#fbaaaa", "#fdc5c5", "#fee5e5"]
+      },
+      "slate": {
+        "role": "neutral",
+        "displayName": "Slate",
+        "canonical": "#2d3748",
+        "tonalRamp": ["#1a202c", "#2d3748", "#4a5568", "#718096", "#a0aec0", "#cbd5e0", "#e2e8f0", "#edf2f7"]
+      },
+      "pale-sky": {
+        "role": "neutral",
+        "displayName": "Pale Sky",
+        "canonical": "#e9fcff",
+        "tonalRamp": ["#003940", "#0d6570", "#1a91a0", "#4dc4d4", "#8adde8", "#c2eef4", "#e9fcff", "#f7feff"]
+      },
+      "sky-muted": {
+        "role": "neutral",
+        "displayName": "Sky Muted",
+        "canonical": "#bce9f8"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff"
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Headings, page titles, and the hero headline only." },
+      "body": { "displayName": "Body", "purpose": "Paragraph and description text throughout." },
+      "action": { "displayName": "Action", "purpose": "Button and link text; the one place the display font crosses into interactive copy." },
+      "label": { "displayName": "Label", "purpose": "Uppercase meta text — dates, brand labels, block labels." }
+    },
+    "shadows": [
+      { "name": "subtle", "value": "0 1px 2px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.02)", "purpose": "The only shadow in active use; a whisper of lift under every glass card." },
+      { "name": "lg", "value": "0 20px 40px -12px rgba(0,0,0,0.1)", "purpose": "Declared but currently unused anywhere in the codebase; reserved for a component that needs stronger lift." },
+      { "name": "premium", "value": "0 30px 60px -12px rgba(0,0,0,0.12), 0 18px 36px -18px rgba(0,0,0,0.15)", "purpose": "Declared but currently unused anywhere in the codebase; reserved for a rare high-emphasis surface." }
+    ],
+    "motion": [
+      { "name": "transition-fast", "value": "0.15s cubic-bezier(0.2, 0, 0, 1)", "purpose": "Default easing for hover/focus color and border transitions." },
+      { "name": "transition-smooth", "value": "0.8s cubic-bezier(0.2, 0, 0, 1)", "purpose": "Slower easing for larger state changes (e.g. menu blur)." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Text-style CTA link used for every action in the site, from the hero to card footers.",
+      "html": "<a href=\"#\" class=\"ds-btn-primary\">Ver servicios</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-heading); font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; line-height: 1.2; color: var(--color-accent); background: none; border: none; padding: 0.5rem 0; cursor: pointer; transition: color 0.15s cubic-bezier(0.2, 0, 0, 1); } .ds-btn-primary:hover, .ds-btn-primary:focus-visible { color: var(--color-primary); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }"
+    },
+    {
+      "name": "Glass Card",
+      "kind": "card",
+      "refersTo": "card-glass",
+      "description": "The single recurring surface pattern: a frosted, translucent rounded container used for offers, blog posts, brands, and services.",
+      "html": "<div class=\"ds-card-glass\"><div class=\"ds-card-content\"><h3 class=\"ds-card-title\">Ortopedia en Bétera</h3><p class=\"ds-card-desc\">Servicio especializado con asesoramiento personalizado.</p></div></div>",
+      "css": ".ds-card-glass { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-lg); backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur)); box-shadow: var(--shadow-subtle); overflow: hidden; transition: border-color 0.15s cubic-bezier(0.2, 0, 0, 1), background-color 0.15s cubic-bezier(0.2, 0, 0, 1); } .ds-card-glass:hover { border-color: var(--color-accent-soft); } .ds-card-content { padding: var(--spacing-lg); display: flex; flex-direction: column; gap: var(--spacing-sm); } .ds-card-title { font-family: var(--font-heading); font-size: 1.4rem; line-height: 1.2; color: var(--color-primary); margin-bottom: 0.75rem; } .ds-card-desc { font-size: 1.1rem; color: var(--color-text); font-weight: 500; line-height: 1.4; }"
+    },
+    {
+      "name": "Discount Badge",
+      "kind": "chip",
+      "refersTo": "badge-discount",
+      "description": "The only place Coral Alert appears — a scarce, single-purpose status marker for time-limited offers.",
+      "html": "<span class=\"ds-badge-discount\">3x2</span>",
+      "css": ".ds-badge-discount { position: absolute; top: var(--spacing-md); left: var(--spacing-md); background: var(--color-danger); color: #fff; font-weight: 700; font-size: 0.75rem; padding: 0.3rem 0.7rem; border-radius: var(--border-radius-sm); backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3); text-transform: uppercase; letter-spacing: 0.05em; }"
+    },
+    {
+      "name": "Header Nav",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "Fixed glass header with a live reading-progress bar in Trust Blue along its bottom edge.",
+      "html": "<header class=\"ds-header\"><div class=\"ds-header-content\"><a href=\"/\" class=\"ds-logo-link\"><img src=\"/favicon.svg\" alt=\"Logo\" class=\"ds-logo-img\" /></a><div class=\"ds-reading-progress\"></div></div></header>",
+      "css": ".ds-header { height: var(--header-height); width: 100%; position: fixed; top: 0; left: 0; z-index: 100; background: var(--glass-bg); backdrop-filter: saturate(180%) blur(var(--glass-blur)); -webkit-backdrop-filter: saturate(180%) blur(var(--glass-blur)); border-bottom: 1px solid var(--glass-border); } .ds-header-content { position: relative; height: 100%; display: flex; align-items: center; padding: 0 2rem; } .ds-logo-img { width: 30px; height: 30px; border-radius: 8px; object-fit: cover; } .ds-logo-link:hover .ds-logo-img { opacity: 0.8; } .ds-reading-progress { position: absolute; bottom: -1px; left: 0; width: 40%; height: 2px; background: var(--color-accent); transition: width 0.1s ease-out; }"
+    },
+    {
+      "name": "Service Disclosure",
+      "kind": "custom",
+      "refersTo": "service-card",
+      "description": "Signature component: a glass card that expands in place to reveal service detail via a grid-rows transition, rather than navigating away.",
+      "html": "<div class=\"ds-service-card\"><button class=\"ds-service-trigger\" aria-expanded=\"false\"><div class=\"ds-service-header\"><span class=\"ds-service-icon\">🦴</span><div class=\"ds-title-wrap\"><h3 class=\"ds-service-title\">Ortopedia</h3><span class=\"ds-toggle-hint\">Ver detalles</span></div><svg class=\"ds-chevron\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"6 9 12 15 18 9\"></polyline></svg></div></button></div>",
+      "css": ".ds-service-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-lg); backdrop-filter: blur(var(--glass-blur)); box-shadow: var(--shadow-subtle); overflow: hidden; transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), background-color 0.15s cubic-bezier(0.2, 0, 0, 1); } .ds-service-card:hover { transform: translateY(-2px); background-color: rgba(255, 255, 255, 0.9); } .ds-service-trigger { width: 100%; padding: var(--spacing-lg); background: none; border: none; text-align: left; cursor: pointer; } .ds-service-header { display: flex; align-items: center; gap: var(--spacing-md); } .ds-service-icon { font-size: 2.2rem; line-height: 1; transition: transform 0.3s ease; } .ds-service-card:hover .ds-service-icon { transform: scale(1.1); } .ds-title-wrap { flex: 1; display: flex; flex-direction: column; gap: 2px; } .ds-service-title { font-family: var(--font-heading); font-size: 1.35rem; color: var(--color-primary); font-weight: 700; letter-spacing: -0.02em; margin: 0; } .ds-toggle-hint { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--color-accent); } .ds-chevron { color: var(--color-accent); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0.6; } .ds-service-trigger[aria-expanded=\"true\"] .ds-chevron { transform: rotate(180deg); opacity: 1; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Clinical Calm",
+    "overview": "The system reads as a quiet, trustworthy advisor rather than a shop window: absolute black carries authority in headings and the footer, one sky-blue accent stands in for care and guidance on every link and highlight, and everything else recedes into pale sky and white. Cards float as frosted glass — translucent, gently blurred, barely shadowed — so content feels lightly lifted off the page rather than boxed in. There is no ornament competing for attention: no gradients beyond a whisper-soft accent wash, no filled buttons, no heavy iconography.\n\nDensity stays comfortable rather than dense: generous section padding (--section-padding: 5rem), wide line lengths capped for readability (max-width: 45ch on subtitles, 65–75ch implied for body copy), and a single accent color kept rare enough that its every appearance reads as \"this matters\" — a link, a live offer, a call to action.",
+    "keyCharacteristics": [
+      "Absolute black + one trust-blue accent; no secondary hue.",
+      "Frosted-glass cards (blur + hairline border + whisper shadow) as the one recurring surface pattern.",
+      "Text-style buttons (no fill, no border) that shift from blue to black on hover.",
+      "Generous whitespace and capped line lengths over dense information packing.",
+      "Rounded, soft geometry throughout (10–32px radii); no sharp corners anywhere."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Trust Blue is the only hue permitted for interactive or emphasis meaning. A second accent color must not be introduced without revising this document; use black, white, or the pale-sky neutrals for everything else.", "section": "colors" },
+      { "name": "The Tight Headline Rule", "body": "Display text always runs negative letter-spacing (-0.04em to -0.06em) and near-1.0 line-height; loosened, airy headings are off-brand for this system.", "section": "typography" },
+      { "name": "The No-Heavy-Shadow Rule", "body": "If a component needs to feel elevated, reach for the glass treatment (blur + hairline border) before reaching for a stronger shadow. A heavy drop shadow is a signal something is off-system.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Trust Blue as the only accent color; every new interactive or emphasis element reaches for it before any new hue.",
+      "Do build new surfaces from the glass-card pattern (blur + hairline border + subtle shadow) rather than introducing a new card treatment.",
+      "Do use Outfit for headings and button/action text, Inter for everything else, with tight negative letter-spacing on display text.",
+      "Do keep buttons as text-style links with no fill or border; the blue-to-black hover shift is the only state change they need."
+    ],
+    "donts": [
+      "Don't introduce a second accent hue or a filled/solid button — both are off-system for this design.",
+      "Don't reach for a strong drop shadow; depth comes from glass blur, not shadow weight.",
+      "Don't use Coral Alert outside the discount badge context — it's a scarce, single-purpose status color.",
+      "Don't use sharp corners; every surface in this system is rounded (10–32px)."
+    ]
+  }
+}

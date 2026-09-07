@@ -13,6 +13,8 @@ const lang = getLangFromUrl(Astro.url);
                 src="/favicon.svg"
                 alt="Farmacia Ortopedia Albiñana Logo"
                 class="logo-img"
+                width="30"
+                height="30"
             />
         </a>
         <div class="menu-wrapper">
@@ -52,12 +54,12 @@ const lang = getLangFromUrl(Astro.url);
         width: 100%;
         max-width: 1600px; /* Wider than normal container */
         margin: 0 auto;
-        padding: 0 var(--spacing-lg);
+        padding: env(safe-area-inset-top) var(--spacing-lg) 0;
     }
 
     @media (min-width: 1024px) {
         .header-container {
-            padding: 0 var(--spacing-xl);
+            padding: env(safe-area-inset-top) var(--spacing-xl) 0;
         }
     }
 

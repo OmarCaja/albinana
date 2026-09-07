@@ -1,7 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
-import { getLangFromUrl, getAlternateUrl, languages } from "../i18n/translations";
+import { getLangFromUrl, getAlternateUrl, languages, useTranslations } from "../i18n/translations";
 
 interface Props {
     title: string;
@@ -10,6 +10,7 @@ interface Props {
 }
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const {
     title,
@@ -48,6 +49,7 @@ const alternateUrls = Object.keys(languages).reduce((acc, l) => {
             href="/apple-touch-icon.png"
         />
         <meta name="apple-mobile-web-app-title" content="Farmacia Albiñana" />
+        <meta name="theme-color" content="#e9fcff" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="generator" content={Astro.generator} />
         <link rel="canonical" href={Astro.url} />
@@ -223,6 +225,7 @@ const alternateUrls = Object.keys(languages).reduce((acc, l) => {
         </script>
     </head>
     <body>
+        <a href="#main-content" class="skip-link">{t("nav.skipToContent")}</a>
         <slot />
     </body>
 </html>

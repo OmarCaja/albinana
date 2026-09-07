@@ -8,6 +8,7 @@ export const defaultLang = "es";
 export const ui = {
   es: {
     // Nav
+    "nav.skipToContent": "Saltar al contenido",
     "nav.home": "Inicio",
     "nav.offers": "Ofertas",
     "nav.contact": "Contacto",
@@ -48,6 +49,7 @@ export const ui = {
     // Contact
     "contact.title": "Contacto.",
     "contact.subtitle": "Estamos aquí para cuidar de ti.",
+    "contact.addressLabel": "Dirección",
     "contact.mapsBtn": "Ver en Google Maps ↗",
     "contact.callLabel": "Llámanos",
     "contact.waLabel": "WhatsApp",
@@ -115,7 +117,9 @@ export const ui = {
       `Llévate 3 productos y paga solo 2 en ${product}.`,
     "offer.take3pay2wipes": "Llévate 3 productos y paga solo 2 en toallitas.",
     "offer.2ndUnit": (pct: string) => `${pct}% en la segunda unidad.`,
+    "offer.2ndUnitEuro": (amount: string) => `${amount}€ en la segunda unidad.`,
     "offer.2ndUnitAllYear": "Todo el año",
+    "offer.pctWithOtherProduct": (pct: string) => `${pct}% dto. por la compra de otro producto de la marca.`,
     "offer.directDiscount": (d: string) => `${d} de descuento directo.`,
     "offer.percentOverAmount": (pct: string, amount: string) => `${pct} de descuento en compras superiores a ${amount}.`,
     "offer.10in2units": "10€ de descuento en la compra de 2 unidades.",
@@ -136,6 +140,7 @@ export const ui = {
 
   en: {
     // Nav
+    "nav.skipToContent": "Skip to content",
     "nav.home": "Home",
     "nav.offers": "Offers",
     "nav.contact": "Contact",
@@ -176,6 +181,7 @@ export const ui = {
     // Contact
     "contact.title": "Contact.",
     "contact.subtitle": "We are here to take care of you.",
+    "contact.addressLabel": "Address",
     "contact.mapsBtn": "View on Google Maps ↗",
     "contact.callLabel": "Call us",
     "contact.waLabel": "WhatsApp",
@@ -242,7 +248,9 @@ export const ui = {
       `Buy 3 and pay for 2 on ${product}.`,
     "offer.take3pay2wipes": "Buy 3 and pay for 2 on wipes.",
     "offer.2ndUnit": (pct: string) => `${pct}% off on the second unit.`,
+    "offer.2ndUnitEuro": (amount: string) => `€${amount} off the second unit.`,
     "offer.2ndUnitAllYear": "All year round",
+    "offer.pctWithOtherProduct": (pct: string) => `${pct}% off with the purchase of another product from the brand.`,
     "offer.directDiscount": (d: string) => `${d} direct discount.`,
     "offer.percentOverAmount": (pct: string, amount: string) => `${pct} discount on purchases over ${amount}.`,
     "offer.10in2units": "€10 off when buying 2 units.",
