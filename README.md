@@ -1,43 +1,30 @@
-# Astro Starter Kit: Minimal
+# Farmacia Ortopedia Albiñana
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Astro 7 static site for Farmacia Ortopedia Albiñana, a pharmacy in Bétera, Spain. Content (blogs, brands, services, offers) is JSON-driven via Astro Content Collections. Bilingual: Spanish (default) / English (`/en/*`).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+See [CLAUDE.md](./CLAUDE.md) for architecture details (i18n routing, content collections, styling conventions).
 
-## 🚀 Project Structure
+## Commands
 
-Inside of your Astro project, you'll see the following folders and files:
+Package manager is **pnpm**.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+| Command             | Action                                    |
+| :------------------ | :----------------------------------------- |
+| `pnpm install`       | Install dependencies                       |
+| `pnpm dev`           | Start local dev server at `localhost:4321` |
+| `pnpm build`         | Build production site to `./dist/`         |
+| `pnpm preview`       | Preview the production build locally       |
+| `pnpm astro check`   | Type-check                                 |
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Editing content
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Blogs, brands, services, and offers are hand-edited JSON under `src/content/*/`. See [CLAUDE.md](./CLAUDE.md#editing-content-json-directly) for the field conventions (e.g. the fixed `discount` patterns for offers).
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Claude Code skills
 
-## 🧞 Commands
+`.claude/skills/` has skills for the recurring content-editing workflows:
 
-All commands are run from the root of the project, from a terminal:
+- **`add-blog`** — add a new blog post from pasted article text plus an image already placed in `public/blogs/`.
+- **`add-offer`** — add one or more promotional offers from pasted lines (date range, brand, discount).
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Use them from Claude Code by describing the task normally (e.g. pasting a new blog or a list of offers) — they trigger automatically.

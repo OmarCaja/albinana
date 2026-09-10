@@ -80,6 +80,13 @@ Use sentence case, not Title Case: "23 de mayo: Día mundial contra el melanoma"
 
 When enabling a new top-level section (e.g. a new content type with its own nav entry), remember to add its link to `src/components/HamburgerMenu.astro` — it's not derived automatically from routes.
 
+## Claude Code skills
+
+`.claude/skills/` has repeatable-workflow skills for this repo's content-editing tasks — prefer these over ad-hoc edits when the request matches:
+
+- **`add-blog`**: turns a pasted article (title + Spanish body text) plus an image already dropped into `public/blogs/<folder>/` into a new `src/content/blogs/blogs.json` entry — derives the slug, matches the existing HTML/image-tag template, translates to English, and verifies with `pnpm build`.
+- **`add-offer`**: turns pasted promo lines (date range, brand, discount description) into new `src/content/offers/offers.json` entries — converts dates, maps the discount description to one of the fixed `discount` patterns (adding a new pattern when needed), and verifies with `pnpm build`.
+
 ## Language rules
 
 All code, identifiers, and comments must be in English. UI copy in the `ui` dictionaries (`src/i18n/translations.ts`) and content JSON stays in Spanish/English as appropriate — don't translate the Spanish content strings into code-style English.
