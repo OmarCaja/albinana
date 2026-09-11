@@ -493,5 +493,32 @@
     "products": "SOLARES",
     "products_en": "SUNSCREENS",
     "discount": "50% X OTRO PRODUCTO"
+  },
+  {
+    "id": "58",
+    "startDate": "2026-12-01",
+    "endDate": "2026-12-31",
+    "brand": "CANTABRIA LABS",
+    "products": "RENEWAL",
+    "products_en": "RENEWAL",
+    "discount": "2ªUD 40%"
+  },
+  {
+    "id": "59",
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
+    "brand": "CANTABRIA LABS",
+    "products": "INMUNOFERON",
+    "products_en": "INMUNOFERON",
+    "discount": "10%"
+  },
+  {
+    "id": "60",
+    "startDate": "2026-09-15",
+    "endDate": "2026-10-15",
+    "brand": "BERGER",
+    "products": "RECAMBIOS LAMPE 500ML",
+    "products_en": "LAMPE 500ML REFILLS",
+    "discount": "3X2"
   }
 ]
