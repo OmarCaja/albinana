@@ -103,7 +103,6 @@ export const ui = {
     // Layout meta defaults
     "layout.defaultDescription":
       "Farmacia Ortopedia Albiñana - Tu farmacia de confianza en Bétera.",
-    "layout.appTitle": "Farmacia Albiñana",
 
     // Home page meta
     "home.meta.title":
@@ -234,7 +233,6 @@ export const ui = {
     // Layout meta defaults
     "layout.defaultDescription":
       "Farmacia Ortopedia Albiñana - Your trusted pharmacy in Bétera.",
-    "layout.appTitle": "Farmacia Albiñana",
 
     // Home page meta
     "home.meta.title":

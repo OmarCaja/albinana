@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://farmaciaalbinana.es',
+  site: 'https://www.farmaciaalbinana.es',
   integrations: [sitemap({
     i18n: {
       defaultLocale: 'es',

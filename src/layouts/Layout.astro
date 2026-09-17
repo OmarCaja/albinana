@@ -48,7 +48,7 @@ const alternateUrls = Object.keys(languages).reduce((acc, l) => {
             sizes="180x180"
             href="/apple-touch-icon.png"
         />
-        <meta name="apple-mobile-web-app-title" content="Farmacia Albiñana" />
+        <meta name="apple-mobile-web-app-title" content="Farmacia Ortopedia Albiñana" />
         <meta name="theme-color" content="#e9fcff" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="generator" content={Astro.generator} />
@@ -66,6 +66,7 @@ const alternateUrls = Object.keys(languages).reduce((acc, l) => {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={new URL("/logo.jpg", Astro.url)} />
+        <meta property="og:site_name" content="Farmacia Ortopedia Albiñana" />
         <meta property="og:locale" content={lang === "en" ? "en_GB" : "es_ES"} />
 
         <!-- Twitter -->
@@ -83,9 +84,9 @@ const alternateUrls = Object.keys(languages).reduce((acc, l) => {
             {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                "name": "Farmacia Albiñana",
-                "alternateName": ["Farmacia Ortopedia Albiñana", "Albiñana"],
-                "url": "https://farmaciaalbinana.es"
+                "name": "Farmacia Ortopedia Albiñana",
+                "alternateName": ["Farmacia Albiñana", "Albiñana"],
+                "url": "https://www.farmaciaalbinana.es/"
             }
         </script>
 
@@ -93,10 +94,10 @@ const alternateUrls = Object.keys(languages).reduce((acc, l) => {
             {
                 "@context": "https://schema.org",
                 "@type": "Pharmacy",
-                "name": "Farmacia Albiñana",
-                "image": "https://farmaciaalbinana.es/logo.jpg",
-                "@id": "https://farmaciaalbinana.es/",
-                "url": "https://farmaciaalbinana.es/",
+                "name": "Farmacia Ortopedia Albiñana",
+                "image": "https://www.farmaciaalbinana.es/logo.jpg",
+                "@id": "https://www.farmaciaalbinana.es/",
+                "url": "https://www.farmaciaalbinana.es/",
                 "telephone": "+34647892464",
                 "address": {
                     "@type": "PostalAddress",
