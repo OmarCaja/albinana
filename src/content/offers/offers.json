@@ -520,5 +520,41 @@
     "products": "RECAMBIOS LAMPE 500ML",
     "products_en": "LAMPE 500ML REFILLS",
     "discount": "3X2"
+  },
+  {
+    "id": "61",
+    "startDate": "2026-10-19",
+    "endDate": "2026-11-15",
+    "brand": "ISDIN",
+    "products": "CUIDADO CORPORAL",
+    "products_en": "BODY CARE",
+    "discount": "2ªUD 30%"
+  },
+  {
+    "id": "62",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
+    "brand": "ISDIN",
+    "products": "PRODUCTOS ACNIBEN",
+    "products_en": "ACNIBEN PRODUCTS",
+    "discount": "3€"
+  },
+  {
+    "id": "63",
+    "startDate": "2026-10-08",
+    "endDate": "2026-10-31",
+    "brand": "CANTABRIA LABS",
+    "products": "HELIOCARE",
+    "products_en": "HELIOCARE",
+    "discount": "5€"
+  },
+  {
+    "id": "64",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
+    "brand": "ESTEVE",
+    "products": "DORMINATUR",
+    "products_en": "DORMINATUR",
+    "discount": "20%"
   }
 ]
