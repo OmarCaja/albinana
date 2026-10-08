@@ -72,15 +72,6 @@
     "discount": "3X2"
   },
   {
-    "id": "10",
-    "startDate": "2026-03-09",
-    "endDate": "2026-05-17",
-    "brand": "CANTABRIA LABS",
-    "products": "HELIOCARE",
-    "products_en": "HELIOCARE",
-    "discount": "10€ EN 2UD"
-  },
-  {
     "id": "11",
     "startDate": "2026-05-15",
     "endDate": "2026-08-31",
