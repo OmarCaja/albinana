@@ -115,5 +115,23 @@
     "products": "DORMINATUR",
     "products_en": "DORMINATUR",
     "discount": "20%"
+  },
+  {
+    "id": "65",
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
+    "brand": "CERAVE",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "2ªUD 40%"
+  },
+  {
+    "id": "66",
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
+    "brand": "LA ROCHE POSAY",
+    "products": "PRODUCTOS ANTIEDAD",
+    "products_en": "ANTI-AGING PRODUCTS",
+    "discount": "25%"
   }
 ]
