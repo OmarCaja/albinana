@@ -229,5 +229,11 @@ const alternateUrls = Object.keys(languages).reduce((acc, l) => {
     <body>
         <a href="#main-content" class="skip-link">{t("nav.skipToContent")}</a>
         <slot />
+        <script is:inline data-astro-rerun>
+            // Drop anniversary content once it's over, without waiting for a rebuild
+            document.querySelectorAll("[data-anniversary-ends]").forEach((el) => {
+                if (Date.now() >= Date.parse(el.dataset.anniversaryEnds)) el.remove();
+            });
+        </script>
     </body>
 </html>

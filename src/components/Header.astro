@@ -1,9 +1,12 @@
 ---
 import HamburgerMenu from "./HamburgerMenu.astro";
 import LanguageSelector from "./LanguageSelector.astro";
-import { getLangFromUrl } from "../i18n/translations";
+import { getLangFromUrl, useTranslations } from "../i18n/translations";
+import { ANNIVERSARY_END } from "../anniversary";
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const showAnniversaryBar = new Date() < ANNIVERSARY_END;
 ---
 
 <header class="header">
@@ -23,6 +26,17 @@ const lang = getLangFromUrl(Astro.url);
         </div>
         <div class="reading-progress" id="readingProgress"></div>
     </div>
+    {
+        showAnniversaryBar && (
+            <a
+                href={lang === "es" ? "/#aniversario" : "/en/#aniversario"}
+                class="announcement-bar"
+                data-anniversary-ends={ANNIVERSARY_END.toISOString()}
+            >
+                🎉 {t("anniversary.bar")} →
+            </a>
+        )
+    }
 </header>
 
 <style>
@@ -38,6 +52,29 @@ const lang = getLangFromUrl(Astro.url);
         -webkit-backdrop-filter: saturate(180%) blur(var(--glass-blur));
         border-bottom: 1px solid var(--glass-border);
         transition: background-color var(--transition-fast);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .announcement-bar {
+        height: var(--announcement-height);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 var(--spacing-md);
+        background: var(--color-accent);
+        color: var(--color-surface);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .announcement-bar:hover {
+        text-decoration: underline;
     }
 
     .reading-progress {
@@ -64,7 +101,8 @@ const lang = getLangFromUrl(Astro.url);
     }
 
     .header-content {
-        height: 100%;
+        flex: 1;
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;

@@ -15,7 +15,6 @@ pnpm install       # install dependencies
 pnpm dev           # dev server at localhost:4321
 pnpm build         # build to ./dist/
 pnpm preview       # preview the production build
-pnpm astro check   # type-check
 ```
 
 There is no test suite or linter configured.

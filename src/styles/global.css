@@ -49,11 +49,17 @@
     --shadow-lg: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
     --shadow-premium: 0 30px 60px -12px rgba(0, 0, 0, 0.12), 0 18px 36px -18px rgba(0, 0, 0, 0.15);
 
-    --header-height: calc(60px + env(safe-area-inset-top));
+    --announcement-height: 0px;
+    --header-height: calc(60px + env(safe-area-inset-top) + var(--announcement-height));
     --transition-fast: 0.15s cubic-bezier(0.2, 0, 0, 1);
     --transition-smooth: 0.8s cubic-bezier(0.2, 0, 0, 1);
 
     --container-max-width: 1600px;
+}
+
+/* Make room for the announcement bar in the fixed header while it exists */
+:root:has(.announcement-bar) {
+    --announcement-height: 2rem;
 }
 
 *,

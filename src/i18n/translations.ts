@@ -25,6 +25,21 @@ export const ui = {
     "hero.cta.offers": "Nuestras ofertas →",
     "hero.cta.blogs": "Nuestros blogs →",
 
+    // Aniversario
+    "anniversary.title": "20 Aniversario",
+    "anniversary.subtitle": "2 semanas llenas de sorpresas del 9 al 19 de noviembre",
+    "anniversary.raffles": "Sorteos",
+    "anniversary.promotions": "Promociones",
+    "anniversary.events": "Eventos",
+    "anniversary.gifts": "Regalos",
+    "anniversary.more": "Y mucho más...",
+    "anniversary.thanks": "Gracias por formar parte de nuestra historia",
+    "anniversary.countdown.startsIn": "Empieza en {n} días",
+    "anniversary.countdown.startsTomorrow": "Empieza mañana",
+    "anniversary.countdown.daysLeft": "Quedan {n} días",
+    "anniversary.countdown.lastDay": "¡Último día!",
+    "anniversary.bar": "20 aniversario · Del 9 al 19 de noviembre",
+
     // Fidelidad
     "fidelity.title": "Tarjeta de Fidelización",
     "fidelity.description":
@@ -155,6 +170,21 @@ export const ui = {
     "hero.cta.brands": "Our brands →",
     "hero.cta.offers": "Our offers →",
     "hero.cta.blogs": "Our blogs →",
+
+    // Aniversario
+    "anniversary.title": "20th anniversary",
+    "anniversary.subtitle": "2 weeks full of surprises from 9 to 19 November",
+    "anniversary.raffles": "Raffles",
+    "anniversary.promotions": "Promotions",
+    "anniversary.events": "Events",
+    "anniversary.gifts": "Gifts",
+    "anniversary.more": "And much more...",
+    "anniversary.thanks": "Thank you for being part of our story",
+    "anniversary.countdown.startsIn": "Starts in {n} days",
+    "anniversary.countdown.startsTomorrow": "Starts tomorrow",
+    "anniversary.countdown.daysLeft": "{n} days left",
+    "anniversary.countdown.lastDay": "Last day!",
+    "anniversary.bar": "20th anniversary · 9 to 19 November",
 
     // Fidelidad
     "fidelity.title": "Loyalty Card",
