@@ -126,7 +126,9 @@ const badges = [
         document.body.appendChild(canvas);
 
         const ctx = canvas.getContext("2d")!;
-        const dpr = window.devicePixelRatio || 1;
+        // Confetti doesn't need retina sharpness; a 3x canvas on iPhones keeps
+        // the main thread busy enough to delay taps on links
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
         const w = window.innerWidth;
         const h = window.innerHeight;
         canvas.width = w * dpr;
@@ -149,7 +151,12 @@ const badges = [
         }));
 
         let start: number | undefined;
+        let stopped = false;
+        document.addEventListener("astro:before-preparation", () => (stopped = true), {
+            once: true,
+        });
         const frame = (now: number) => {
+            if (stopped) return canvas.remove();
             start ??= now;
             ctx.clearRect(0, 0, w, h);
             // Fade out over the last second of a 4s run
@@ -170,33 +177,6 @@ const badges = [
             else canvas.remove();
         };
         requestAnimationFrame(frame);
-    }
-
-    // Native smooth scroll is too fast and its speed can't be tuned
-    function slowScrollTo(el: HTMLElement, duration = 2200) {
-        const from = window.scrollY;
-        const to = Math.max(
-            0,
-            el.getBoundingClientRect().top +
-                from -
-                (window.innerHeight - el.offsetHeight) / 2,
-        );
-        let start: number | undefined;
-        let cancelled = false;
-        // Stop if the visitor starts scrolling on their own
-        const cancel = () => (cancelled = true);
-        window.addEventListener("wheel", cancel, { once: true });
-        window.addEventListener("touchstart", cancel, { once: true });
-
-        const step = (now: number) => {
-            if (cancelled) return;
-            start ??= now;
-            const t = Math.min(1, (now - start) / duration);
-            const eased = t < 0.5 ? 4 * t ** 3 : 1 - (-2 * t + 2) ** 3 / 2;
-            window.scrollTo(0, from + (to - from) * eased);
-            if (t < 1) requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
     }
 
     document.addEventListener("astro:page-load", () => {
@@ -225,12 +205,14 @@ const badges = [
         celebrated = true;
 
         const celebrate = () => {
-            if (reduceMotion) {
-                banner.scrollIntoView({ block: "center" });
-                return;
-            }
-            slowScrollTo(banner);
-            launchConfetti();
+            // Native smooth scroll only: a hand-rolled scrollTo per frame fires a
+            // scrollend per frame on iOS Safari, and ClientRouter saves history on
+            // each one, tripping Safari's 100 replaceState/10s limit and breaking links
+            banner.scrollIntoView({
+                behavior: reduceMotion ? "auto" : "smooth",
+                block: "center",
+            });
+            if (!reduceMotion) launchConfetti();
         };
 
         // Wait until the tab is visible so the animation isn't missed
