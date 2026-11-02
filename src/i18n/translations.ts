@@ -39,6 +39,12 @@ export const ui = {
     "anniversary.countdown.daysLeft": "Quedan {n} días",
     "anniversary.countdown.lastDay": "¡Último día!",
     "anniversary.bar": "20 aniversario · Del 9 al 19 de noviembre",
+    "anniversary.cta": "Descubre todo el aniversario →",
+    "anniversary.meta.title": "20 aniversario | Farmacia Ortopedia Albiñana",
+    "anniversary.meta.description":
+      "Celebra con nosotros los 20 años de Farmacia Ortopedia Albiñana en Bétera: sorteos, promociones, eventos y regalos del 9 al 19 de noviembre.",
+    "anniversary.offers.title": "Ofertas del aniversario",
+    "anniversary.offers.subtitle": "Descuentos especiales del 9 al 22 de noviembre.",
 
     // Fidelidad
     "fidelity.title": "Tarjeta de Fidelización",
@@ -185,6 +191,12 @@ export const ui = {
     "anniversary.countdown.daysLeft": "{n} days left",
     "anniversary.countdown.lastDay": "Last day!",
     "anniversary.bar": "20th anniversary · 9 to 19 November",
+    "anniversary.cta": "Discover the whole anniversary →",
+    "anniversary.meta.title": "20th anniversary | Farmacia Ortopedia Albiñana",
+    "anniversary.meta.description":
+      "Celebrate 20 years of Farmacia Ortopedia Albiñana in Bétera with us: raffles, promotions, events and gifts from 9 to 19 November.",
+    "anniversary.offers.title": "Anniversary offers",
+    "anniversary.offers.subtitle": "Special discounts from 9 to 22 November.",
 
     // Fidelidad
     "fidelity.title": "Loyalty Card",

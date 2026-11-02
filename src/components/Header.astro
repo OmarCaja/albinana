@@ -29,7 +29,7 @@ const showAnniversaryBar = new Date() < ANNIVERSARY_END;
     {
         showAnniversaryBar && (
             <a
-                href={lang === "es" ? "/#aniversario" : "/en/#aniversario"}
+                href={lang === "es" ? "/anniversary/" : "/en/anniversary/"}
                 class="announcement-bar"
                 data-anniversary-ends={ANNIVERSARY_END.toISOString()}
             >

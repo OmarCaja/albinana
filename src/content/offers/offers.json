@@ -133,5 +133,162 @@
     "products": "PRODUCTOS ANTIEDAD",
     "products_en": "ANTI-AGING PRODUCTS",
     "discount": "25%"
+  },
+  {
+    "id": "67",
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
+    "brand": "EUCERIN",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "30%"
+  },
+  {
+    "id": "68",
+    "startDate": "2026-11-23",
+    "endDate": "2026-11-30",
+    "brand": "ISDIN",
+    "products": "COVERAGE E ISDINCEUTICS",
+    "products_en": "COVERAGE AND ISDINCEUTICS",
+    "discount": "25%"
+  },
+  {
+    "id": "69",
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
+    "brand": "MERITENE Y SOLGAR",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "25%"
+  },
+  {
+    "id": "70",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "brand": "DR BROWN'S",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "3X2",
+    "anniversary": true
+  },
+  {
+    "id": "71",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "brand": "CANTABRIA LABS",
+    "products": "DERMOCOSMÉTICA",
+    "products_en": "DERMOCOSMETICS",
+    "discount": "3X2",
+    "anniversary": true
+  },
+  {
+    "id": "72",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "brand": "BERGER",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "20%",
+    "anniversary": true
+  },
+  {
+    "id": "73",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "brand": "SEBAMED",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "20%",
+    "anniversary": true
+  },
+  {
+    "id": "74",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "brand": "PROTIADVANCE",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "20%",
+    "anniversary": true
+  },
+  {
+    "id": "75",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "brand": "HEEL Y ESSENTIALIS",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "20%",
+    "anniversary": true
+  },
+  {
+    "id": "76",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "brand": "ACTAFARMA",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "20%",
+    "anniversary": true
+  },
+  {
+    "id": "77",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "brand": "ESTEVE",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "20%",
+    "anniversary": true
+  },
+  {
+    "id": "78",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "brand": "FARMA DORSCH",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "20%",
+    "anniversary": true
+  },
+  {
+    "id": "79",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "brand": "MERITENE Y SOLGAR",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "25%",
+    "anniversary": true
+  },
+  {
+    "id": "80",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "brand": "ISDIN",
+    "products": "COVERAGE E ISDINCEUTICS",
+    "products_en": "COVERAGE AND ISDINCEUTICS",
+    "discount": "25%",
+    "anniversary": true
+  },
+  {
+    "id": "81",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "brand": "LA ROCHE POSAY",
+    "products": "TODO",
+    "products_en": "ALL",
+    "discount": "25%",
+    "anniversary": true
+  },
+  {
+    "id": "82",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "brand": "EUCERIN",
+    "products": "TODO EXCEPTO PACKS",
+    "products_en": "ALL EXCEPT PACKS",
+    "discount": "30%",
+    "anniversary": true
   }
 ]

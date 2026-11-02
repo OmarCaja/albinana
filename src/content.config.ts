@@ -57,6 +57,8 @@ const offers = defineCollection({
         products: z.string(),
         products_en: z.string().optional(),
         discount: z.string(),
+        // Shown only on the anniversary page, not on /offers
+        anniversary: z.boolean().optional(),
     }),
 });
 
