@@ -81,6 +81,8 @@ export const ui = {
     // Footer
     "footer.tagline": "Cuidando de ti cada día.",
     "footer.rights": "Todos los derechos reservados.",
+    "footer.developedWith": "Desarrollado con",
+    "footer.by": "por",
 
     // Services page
     "services.title": "Nuestros Servicios",
@@ -233,6 +235,8 @@ export const ui = {
     // Footer
     "footer.tagline": "Taking care of you every day.",
     "footer.rights": "All rights reserved.",
+    "footer.developedWith": "Developed with",
+    "footer.by": "by",
 
     // Services page
     "services.title": "Our Services",
