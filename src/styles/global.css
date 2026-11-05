@@ -247,7 +247,6 @@ ul {
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius-lg);
     backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
     box-shadow: var(--shadow-subtle);
     overflow: hidden;
     height: 100%;
