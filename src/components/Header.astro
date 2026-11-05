@@ -47,13 +47,22 @@ const showAnniversaryBar = new Date() < ANNIVERSARY_END;
         top: 0;
         left: 0;
         z-index: 100;
-        background: var(--glass-bg);
-        backdrop-filter: saturate(180%) blur(var(--glass-blur));
-        -webkit-backdrop-filter: saturate(180%) blur(var(--glass-blur));
         border-bottom: 1px solid var(--glass-border);
         transition: background-color var(--transition-fast);
         display: flex;
         flex-direction: column;
+    }
+
+    /* Blur lives on a pseudo-element: Chrome drops a parent's backdrop-filter
+       when a descendant (the menu overlay) also has one. */
+    .header::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: var(--glass-bg);
+        backdrop-filter: saturate(180%) blur(var(--glass-blur));
+        -webkit-backdrop-filter: saturate(180%) blur(var(--glass-blur));
     }
 
     .announcement-bar {
