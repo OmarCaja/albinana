@@ -6,6 +6,7 @@ import OfferCard from "../../components/OfferCard.astro";
 import { getCollection } from "astro:content";
 import { getLangFromUrl, useTranslations } from "../../i18n/translations";
 import { groupOffers, getFullOfferText } from "../../offers";
+import { plannerWeeks } from "../../anniversaryPlanner";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -13,6 +14,14 @@ const t = useTranslations(lang);
 const offers = groupOffers(
     await getCollection("offers", (offer) => offer.data.anniversary === true),
 );
+
+const isEn = lang === "en";
+const locale = t("offers.locale") as string;
+const weekday = (day: number) =>
+    new Date(Date.UTC(2026, 10, day)).toLocaleDateString(locale, {
+        weekday: "short",
+        timeZone: "UTC",
+    });
 ---
 
 <Layout
@@ -25,6 +34,85 @@ const offers = groupOffers(
             <div class="container">
                 <h1 class="page-title">{t("anniversary.title")}</h1>
                 <p class="page-subtitle">{t("anniversary.subtitle")}</p>
+
+                <section class="anniversary-block">
+                    <h2 class="anniversary-block-title">
+                        {t("anniversary.planner.title")}
+                    </h2>
+                    <p class="anniversary-block-subtitle">
+                        {t("anniversary.planner.subtitle")}
+                    </p>
+                    {
+                        plannerWeeks.map((week) => (
+                            <>
+                                <h3 class="planner-week">
+                                    {(
+                                        t(
+                                            `anniversary.planner.${week.key}`,
+                                        ) as string
+                                    )
+                                        .split(" · ")
+                                        .map((part, i) => (
+                                            <>
+                                                {i > 0 && (
+                                                    <span class="planner-sep">
+                                                        ·
+                                                    </span>
+                                                )}
+                                                {part}
+                                            </>
+                                        ))}
+                                </h3>
+                                <div class="planner-grid">
+                                    {week.days.map((d) => (
+                                        <div
+                                            class:list={[
+                                                "planner-day glass-card",
+                                                {
+                                                    highlight: d.highlight,
+                                                    closed: d.closed,
+                                                },
+                                            ]}
+                                        >
+                                            <div class="planner-date">
+                                                <span class="planner-weekday">
+                                                    {weekday(d.day)}
+                                                </span>
+                                                <span class="planner-number">
+                                                    {d.day}
+                                                </span>
+                                            </div>
+                                            <div class="card-content">
+                                                <h4 class="planner-title">
+                                                    {isEn ? d.title_en : d.title}
+                                                </h4>
+                                                <p class="planner-text">
+                                                    {isEn ? d.text_en : d.text}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </>
+                        ))
+                    }
+                    <h3 class="planner-week">
+                        {t("anniversary.planner.dates.title")}
+                    </h3>
+                    <ul class="planner-dates">
+                        <li>{t("anniversary.planner.dates.1")}</li>
+                        <li>{t("anniversary.planner.dates.2")}</li>
+                        <li>{t("anniversary.planner.dates.3")}</li>
+                    </ul>
+                    <div class="planner-thanks glass-card">
+                        <p class="planner-thanks-title">
+                            {t("anniversary.thanks")}
+                        </p>
+                        <p class="planner-thanks-signature">
+                            {t("anniversary.planner.signature")}
+                        </p>
+                    </div>
+                </section>
 
                 <section class="anniversary-block">
                     <h2 class="anniversary-block-title">
@@ -74,6 +162,102 @@ const offers = groupOffers(
         color: var(--color-text-light);
         font-size: 1.1rem;
         margin-top: var(--spacing-sm);
+    }
+
+    .planner-week {
+        margin-top: var(--spacing-lg);
+        color: var(--color-text);
+    }
+
+    .planner-sep {
+        margin: 0 0.6em;
+    }
+
+    .planner-thanks {
+        margin-top: var(--spacing-xl);
+        padding: var(--spacing-lg) var(--spacing-md);
+        text-align: center;
+        border: 1px solid var(--color-accent-soft);
+        background: linear-gradient(
+            to bottom right,
+            var(--glass-bg),
+            rgba(0, 149, 200, 0.08)
+        );
+    }
+
+    .planner-thanks-title {
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1.2;
+        color: var(--color-accent);
+    }
+
+    .planner-thanks-signature {
+        margin-top: var(--spacing-sm);
+        color: var(--color-text-light);
+        font-size: 1.1rem;
+    }
+
+    .planner-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-md);
+    }
+
+    .planner-day {
+        border: 1px solid var(--glass-border);
+    }
+
+    .planner-day.highlight {
+        border-color: var(--color-accent);
+        background: linear-gradient(
+            to bottom right,
+            var(--glass-bg),
+            rgba(0, 149, 200, 0.08)
+        );
+    }
+
+    .planner-day.closed {
+        opacity: 0.6;
+    }
+
+    .planner-date {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+        padding: 0.5rem 1.5rem;
+        background: var(--color-accent-soft);
+        border-bottom: 1px solid var(--glass-border);
+        color: var(--color-accent);
+        font-weight: 700;
+    }
+
+    .planner-weekday {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    .planner-number {
+        font-size: 1.4rem;
+    }
+
+    .planner-title {
+        font-size: 1.2rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+    }
+
+    .planner-text {
+        color: var(--color-text);
+        line-height: 1.5;
+    }
+
+    .planner-dates {
+        margin: var(--spacing-sm) 0 0 1.25rem;
+        line-height: 1.6;
     }
 
     .offers-grid {

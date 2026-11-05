@@ -45,6 +45,15 @@ export const ui = {
       "Celebra con nosotros los 20 años de Farmacia Ortopedia Albiñana en Bétera: sorteos, promociones, eventos y regalos del 9 al 19 de noviembre.",
     "anniversary.offers.title": "Ofertas del aniversario",
     "anniversary.offers.subtitle": "Descuentos especiales del 9 al 22 de noviembre.",
+    "anniversary.planner.title": "Planning del aniversario",
+    "anniversary.planner.subtitle": "Dos semanas llenas de experiencias, consejos de salud, promociones, regalos y sorteos para celebrar nuestro 20.º aniversario.",
+    "anniversary.planner.week1": "Semana 1 · Del 9 al 15 de noviembre",
+    "anniversary.planner.week2": "Semana 2 · Del 16 al 19 de noviembre",
+    "anniversary.planner.dates.title": "Fechas importantes",
+    "anniversary.planner.dates.1": "Del 9 al 19: compras de productos de laboratorios colaboradores participantes en el sorteo de cestas y recepción de dibujos infantiles.",
+    "anniversary.planner.dates.2": "Del 9 al 22: promociones especiales del aniversario.",
+    "anniversary.planner.dates.3": "Jueves 19: gran celebración y sorteos.",
+    "anniversary.planner.signature": "Farmacia Albiñana · 20 años cuidando de ti",
 
     // Fidelidad
     "fidelity.title": "Tarjeta de Fidelización",
@@ -199,6 +208,15 @@ export const ui = {
       "Celebrate 20 years of Farmacia Ortopedia Albiñana in Bétera with us: raffles, promotions, events and gifts from 9 to 19 November.",
     "anniversary.offers.title": "Anniversary offers",
     "anniversary.offers.subtitle": "Special discounts from 9 to 22 November.",
+    "anniversary.planner.title": "Anniversary schedule",
+    "anniversary.planner.subtitle": "Two weeks full of experiences, health tips, promotions, gifts and raffles to celebrate our 20th anniversary.",
+    "anniversary.planner.week1": "Week 1 · 9 to 15 November",
+    "anniversary.planner.week2": "Week 2 · 16 to 19 November",
+    "anniversary.planner.dates.title": "Important dates",
+    "anniversary.planner.dates.1": "9 to 19: purchases of products from participating partner laboratories enter the gift basket raffle, and children's drawings are collected.",
+    "anniversary.planner.dates.2": "9 to 22: special anniversary promotions.",
+    "anniversary.planner.dates.3": "Thursday 19: the big celebration and raffle draws.",
+    "anniversary.planner.signature": "Farmacia Albiñana · 20 years taking care of you",
 
     // Fidelidad
     "fidelity.title": "Loyalty Card",
