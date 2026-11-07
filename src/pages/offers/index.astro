@@ -35,7 +35,7 @@ const groupedOffers = groupOffers(
                     </span>
                 </p>
 
-                <SearchBox />
+                <SearchBox input={false} />
                 <div class="brand-pills" id="brand-pills"></div>
                 <div class="offers-grid" id="offers-container">
                     {
@@ -171,7 +171,7 @@ const groupedOffers = groupOffers(
         border: 1px solid var(--glass-border);
         border-radius: 999px;
         cursor: pointer;
-        transition: background-color 0.2s, color 0.2s, transform 0.15s;
+        transition: background-color 0.12s, color 0.12s, transform 0.1s;
     }
     .brand-pills :global(.brand-pill:active) {
         transform: scale(0.94);
@@ -185,7 +185,7 @@ const groupedOffers = groupOffers(
         content: " ✕";
         margin-left: 0.25rem;
         display: inline-block;
-        animation: pill-x 0.2s ease-out;
+        animation: pill-x 0.15s ease-out;
     }
     @keyframes pill-x {
         from { opacity: 0; transform: scale(0.3); }

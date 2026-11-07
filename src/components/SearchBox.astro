@@ -1,17 +1,18 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/translations";
 
+const { input = true } = Astro.props;
 const t = useTranslations(getLangFromUrl(Astro.url));
 ---
 
 <div class="search-box">
-    <input
+    {input && <input
         type="search"
         data-search-input
         placeholder={t("search.placeholder")}
         aria-label={t("search.placeholder")}
         autocomplete="off"
-    />
+    />}
     <p class="search-empty" data-search-empty hidden>{t("search.empty")}</p>
 </div>
 
@@ -20,7 +21,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
     const norm = (s: string) =>
         s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
-    const LEAVE_MS = 180;
+    const LEAVE_MS = 110;
     const timers = new WeakMap<HTMLElement, number>();
 
     function applyFilter() {
@@ -46,7 +47,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
             if (match && el.hidden) {
                 el.hidden = false;
                 el.classList.add("search-entering");
-                timers.set(el, window.setTimeout(() => el.classList.remove("search-entering"), 300));
+                timers.set(el, window.setTimeout(() => el.classList.remove("search-entering"), 200));
             } else if (!match && !el.hidden) {
                 el.classList.remove("search-entering");
                 el.classList.add("search-leaving");
@@ -104,13 +105,13 @@ const t = useTranslations(getLangFromUrl(Astro.url));
     /* Cards are wrapped in display:contents, so animate the card itself. */
     @media (prefers-reduced-motion: no-preference) {
         .search-entering > * {
-            animation: search-in 0.28s ease-out;
+            animation: search-in 0.18s ease-out;
         }
         .search-leaving > * {
-            animation: search-out 0.18s ease-in forwards;
+            animation: search-out 0.11s ease-in forwards;
         }
         @keyframes search-in {
-            from { opacity: 0; transform: translateY(8px) scale(0.97); }
+            from { opacity: 0; transform: translateY(6px) scale(0.98); }
         }
         @keyframes search-out {
             to { opacity: 0; transform: scale(0.95); }
