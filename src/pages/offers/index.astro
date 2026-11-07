@@ -156,38 +156,4 @@ const groupedOffers = groupOffers(
         gap: var(--spacing-lg);
         margin-top: var(--spacing-xl);
     }
-    .brand-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--spacing-sm);
-        margin-bottom: var(--spacing-lg);
-    }
-    .brand-pills :global(.brand-pill) {
-        padding: 0.4rem 0.9rem;
-        font: inherit;
-        font-size: 0.9rem;
-        color: var(--color-text);
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
-        border-radius: 999px;
-        cursor: pointer;
-        transition: background-color 0.12s, color 0.12s, transform 0.1s;
-    }
-    .brand-pills :global(.brand-pill:active) {
-        transform: scale(0.94);
-    }
-    .brand-pills :global(.brand-pill[aria-pressed="true"]) {
-        color: #fff;
-        background: var(--color-primary);
-    }
-    /* Visible cue that clicking again clears the filter */
-    .brand-pills :global(.brand-pill[aria-pressed="true"])::after {
-        content: " ✕";
-        margin-left: 0.25rem;
-        display: inline-block;
-        animation: pill-x 0.15s ease-out;
-    }
-    @keyframes pill-x {
-        from { opacity: 0; transform: scale(0.3); }
-    }
 </style>

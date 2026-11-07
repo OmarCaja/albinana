@@ -13,6 +13,17 @@ const t = useTranslations(lang);
 const posts = (await getCollection("blogs")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+// One pill per month that has posts, newest first (posts are already sorted).
+const monthKey = (d: Date) => d.toISOString().slice(0, 7);
+const months = [...new Set(posts.map((p) => monthKey(p.data.pubDate)))].map((key) => {
+    const label = new Date(`${key}-01`).toLocaleDateString(t("blog.locale") as string, {
+        month: "long",
+        year: "numeric",
+        timeZone: "UTC",
+    });
+    return { key, label: label[0].toUpperCase() + label.slice(1) };
+});
 ---
 
 <Layout
@@ -29,6 +40,21 @@ const posts = (await getCollection("blogs")).sort(
                 </p>
 
                 <SearchBox />
+                <div class="brand-pills">
+                    {
+                        months.map((m) => (
+                            <button
+                                type="button"
+                                class="brand-pill"
+                                data-brand-pill
+                                data-brand={m.key}
+                                aria-pressed="false"
+                            >
+                                {m.label}
+                            </button>
+                        ))
+                    }
+                </div>
                 <div class="grid-standard">
                     {
                         posts.map((post) => {
@@ -41,7 +67,11 @@ const posts = (await getCollection("blogs")).sort(
                                 .join(" ")
                                 .replace(/<[^>]+>/g, " ");
                             return (
-                                <div data-search={text} style="display: contents">
+                                <div
+                                    data-search={text}
+                                    data-brand={monthKey(post.data.pubDate)}
+                                    style="display: contents"
+                                >
                                     <BlogCard post={post} />
                                 </div>
                             );
