@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import BlogCard from "../../components/BlogCard.astro";
+import SearchBox from "../../components/SearchBox.astro";
 import { getCollection } from "astro:content";
 import { getLangFromUrl, useTranslations } from "../../i18n/translations";
 
@@ -27,8 +28,25 @@ const posts = (await getCollection("blogs")).sort(
                     {t("blog.subtitle")}
                 </p>
 
+                <SearchBox />
                 <div class="grid-standard">
-                    {posts.map((post) => <BlogCard post={post} />)}
+                    {
+                        posts.map((post) => {
+                            const en = lang === "en";
+                            const text = [
+                                en ? post.data.title_en || post.data.title : post.data.title,
+                                en ? post.data.description_en || post.data.description : post.data.description,
+                                en ? post.data.content_en || post.data.content : post.data.content,
+                            ]
+                                .join(" ")
+                                .replace(/<[^>]+>/g, " ");
+                            return (
+                                <div data-search={text} style="display: contents">
+                                    <BlogCard post={post} />
+                                </div>
+                            );
+                        })
+                    }
                 </div>
             </div>
         </section>

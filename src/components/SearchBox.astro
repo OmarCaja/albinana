@@ -1,0 +1,119 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/translations";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<div class="search-box">
+    <input
+        type="search"
+        data-search-input
+        placeholder={t("search.placeholder")}
+        aria-label={t("search.placeholder")}
+        autocomplete="off"
+    />
+    <p class="search-empty" data-search-empty hidden>{t("search.empty")}</p>
+</div>
+
+<script>
+    // Strip accents + case so "dia" finds "Día".
+    const norm = (s: string) =>
+        s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+    const LEAVE_MS = 180;
+    const timers = new WeakMap<HTMLElement, number>();
+
+    function applyFilter() {
+        const input = document.querySelector<HTMLInputElement>("[data-search-input]");
+        const q = norm((input?.value || "").trim());
+        // Optional brand pills (offers page): any number can be active (OR).
+        const brands = new Set(
+            [...document.querySelectorAll<HTMLElement>('[data-brand-pill][aria-pressed="true"]')].map(
+                (p) => p.dataset.brand,
+            ),
+        );
+        const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let visible = 0;
+        document.querySelectorAll<HTMLElement>("[data-search]").forEach((el) => {
+            // Offers outside today's date range stay hidden whatever the filter says.
+            if (el.style.display === "none") return;
+            const match =
+                norm(el.dataset.search || "").includes(q) &&
+                (brands.size === 0 || brands.has(el.dataset.brand));
+            if (match) visible++;
+            clearTimeout(timers.get(el));
+            el.classList.remove("search-leaving");
+            if (match && el.hidden) {
+                el.hidden = false;
+                el.classList.add("search-entering");
+                timers.set(el, window.setTimeout(() => el.classList.remove("search-entering"), 300));
+            } else if (!match && !el.hidden) {
+                el.classList.remove("search-entering");
+                el.classList.add("search-leaving");
+                timers.set(
+                    el,
+                    window.setTimeout(() => {
+                        el.hidden = true;
+                        el.classList.remove("search-leaving");
+                    }, reduced ? 0 : LEAVE_MS),
+                );
+            }
+        });
+        const empty = document.querySelector<HTMLElement>("[data-search-empty]");
+        if (empty) empty.hidden = visible > 0;
+    }
+
+    // Delegated: survives view-transition navigations without re-binding.
+    document.addEventListener("input", (e) => {
+        if ((e.target as HTMLElement).matches?.("[data-search-input]")) applyFilter();
+    });
+    document.addEventListener("click", (e) => {
+        const pill = (e.target as HTMLElement).closest<HTMLElement>("[data-brand-pill]");
+        if (!pill) return;
+        pill.setAttribute("aria-pressed", String(pill.getAttribute("aria-pressed") !== "true"));
+        applyFilter();
+    });
+</script>
+
+<style>
+    .search-box {
+        margin: 0 0 var(--spacing-lg);
+        max-width: 420px;
+    }
+    input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font: inherit;
+        color: var(--color-text);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 999px;
+        backdrop-filter: blur(var(--glass-blur));
+    }
+    input:focus {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 2px;
+    }
+    .search-empty {
+        margin-top: var(--spacing-md);
+        color: var(--color-text-light);
+    }
+</style>
+
+<style is:global>
+    /* Cards are wrapped in display:contents, so animate the card itself. */
+    @media (prefers-reduced-motion: no-preference) {
+        .search-entering > * {
+            animation: search-in 0.28s ease-out;
+        }
+        .search-leaving > * {
+            animation: search-out 0.18s ease-in forwards;
+        }
+        @keyframes search-in {
+            from { opacity: 0; transform: translateY(8px) scale(0.97); }
+        }
+        @keyframes search-out {
+            to { opacity: 0; transform: scale(0.95); }
+        }
+    }
+</style>

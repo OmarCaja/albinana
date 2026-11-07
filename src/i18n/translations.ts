@@ -121,6 +121,9 @@ export const ui = {
       "Descubre nuestras ofertas y promociones exclusivas en parafarmacia, cosmética y salud. Ahorra en tus marcas favoritas.",
     "offers.locale": "es-ES",
 
+    "search.placeholder": "Buscar…",
+    "search.empty": "No hay resultados.",
+
     // Blog page
     "blog.title": "Blog de salud",
     "blog.subtitle": "Consejos, noticias y novedades para tu bienestar.",
@@ -283,6 +286,9 @@ export const ui = {
     "offers.meta.description":
       "Discover our exclusive offers and promotions on parapharmacy, cosmetics and health products. Save on your favourite brands.",
     "offers.locale": "en-GB",
+
+    "search.placeholder": "Search…",
+    "search.empty": "No results.",
 
     // Blog page
     "blog.title": "Health Blog",

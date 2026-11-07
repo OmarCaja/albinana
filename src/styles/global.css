@@ -369,3 +369,7 @@ footer {
         display: none !important;
     }
 }
+/* Search filter: wins over inline display set by page scripts */
+[data-search][hidden] {
+    display: none !important;
+}
