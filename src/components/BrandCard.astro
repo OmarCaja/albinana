@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import { brandImage } from "../brandImages";
+
 interface Props {
     id: string;
     imagen: string;
@@ -9,12 +12,13 @@ const { id, imagen } = Astro.props;
 
 <div class="brand-card glass-card fade-in-up">
     <div class="card-image-wrap">
-        <img
-            src={imagen}
+        <Image
+            src={brandImage(imagen)}
             class="card-image"
             alt={`Marca ${id}`}
-            width="300"
-            height="200"
+            width={300}
+            densities={[1, 2]}
+            format="webp"
             loading="lazy"
         />
     </div>

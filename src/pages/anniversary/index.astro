@@ -32,20 +32,30 @@ const weekday = (day: number) =>
     <main id="main-content">
         <section class="section-full">
             <div class="container">
-                <h1 class="page-title">{t("anniversary.title")}</h1>
-                <p class="page-subtitle">{t("anniversary.subtitle")}</p>
+                <h1 class="page-title fade-in-up">{t("anniversary.title")}</h1>
+                <p class="page-subtitle fade-in-up">{t("anniversary.subtitle")}</p>
 
-                <section class="anniversary-block">
-                    <h2 class="anniversary-block-title">
+                <nav class="anniversary-jump fade-in-up">
+                    <a href="#planning" class="jump-pill">
+                        {t("anniversary.planner.title")}
+                    </a>
+                    <a href="#offers" class="jump-pill jump-pill-offers">
+                        {t("anniversary.offers.title")}
+                        <span class="jump-count">{offers.length}</span>
+                    </a>
+                </nav>
+
+                <section class="anniversary-block" id="planning">
+                    <h2 class="anniversary-block-title fade-in-up">
                         {t("anniversary.planner.title")}
                     </h2>
-                    <p class="anniversary-block-subtitle">
+                    <p class="anniversary-block-subtitle fade-in-up">
                         {t("anniversary.planner.subtitle")}
                     </p>
                     {
                         plannerWeeks.map((week) => (
                             <>
-                                <h3 class="planner-week">
+                                <h3 class="planner-week fade-in-up">
                                     {(
                                         t(
                                             `anniversary.planner.${week.key}`,
@@ -67,7 +77,7 @@ const weekday = (day: number) =>
                                     {week.days.map((d) => (
                                         <div
                                             class:list={[
-                                                "planner-day glass-card",
+                                                "planner-day glass-card fade-in-up",
                                                 {
                                                     highlight: d.highlight,
                                                     closed: d.closed,
@@ -96,15 +106,15 @@ const weekday = (day: number) =>
                             </>
                         ))
                     }
-                    <h3 class="planner-week">
+                    <h3 class="planner-week fade-in-up">
                         {t("anniversary.planner.dates.title")}
                     </h3>
-                    <ul class="planner-dates">
+                    <ul class="planner-dates fade-in-up">
                         <li>{t("anniversary.planner.dates.1")}</li>
                         <li>{t("anniversary.planner.dates.2")}</li>
                         <li>{t("anniversary.planner.dates.3")}</li>
                     </ul>
-                    <div class="planner-thanks glass-card">
+                    <div class="planner-thanks glass-card fade-in-up">
                         <p class="planner-thanks-title">
                             {t("anniversary.thanks")}
                         </p>
@@ -114,11 +124,11 @@ const weekday = (day: number) =>
                     </div>
                 </section>
 
-                <section class="anniversary-block">
-                    <h2 class="anniversary-block-title">
+                <section class="anniversary-block" id="offers">
+                    <h2 class="anniversary-block-title fade-in-up">
                         {t("anniversary.offers.title")}
                     </h2>
-                    <p class="anniversary-block-subtitle">
+                    <p class="anniversary-block-subtitle fade-in-up">
                         {t("anniversary.offers.subtitle")}
                     </p>
                     <div class="offers-grid">
@@ -147,8 +157,56 @@ const weekday = (day: number) =>
 </Layout>
 
 <style>
+    :global(html) {
+        scroll-behavior: smooth;
+    }
+
+    .anniversary-jump {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+        margin-top: var(--spacing-md);
+    }
+
+    .jump-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1.1rem;
+        color: var(--color-text);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 999px;
+        text-decoration: none;
+        transition: transform 0.1s, border-color 0.15s;
+    }
+
+    .jump-pill:hover {
+        border-color: var(--color-accent);
+    }
+
+    .jump-pill:active {
+        transform: scale(0.96);
+    }
+
+    .jump-pill-offers {
+        color: #fff;
+        background: var(--color-primary);
+        border-color: transparent;
+    }
+
+    .jump-count {
+        padding: 0 0.5rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        background: #fff;
+        border-radius: 999px;
+    }
+
     .anniversary-block {
         margin-top: var(--spacing-xl);
+        scroll-margin-top: var(--header-height);
     }
 
     .anniversary-block-title {

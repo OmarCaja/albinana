@@ -19,6 +19,9 @@ They've usually already dropped the accompanying image somewhere under
    `style` attribute on `<img>`, same tag vocabulary: `<h2>`, `<h3>`, `<p>`,
    `<ul>`, `<li>`, `<strong>` only, no markdown, no extra classes).
 
+<!-- Blog images are kept as optimized WebP (max 900px wide). After locating a new PNG/JPG, convert it:
+     magick in.png -resize '900x>' -quality 80 out.webp, delete the original, and reference the .webp in the <img> src. -->
+
 2. **Find the image.** The user places it in `public/blogs/<some-folder>/`
    before asking — the folder name does **not** always match the blog's
    final `id` (e.g. an existing post has id `cuidar-la-piel-despues-del-verano`

@@ -1,0 +1,79 @@
+---
+import { useTranslations, type Lang } from "../../i18n/translations";
+import { Image } from "astro:assets";
+import { galleryImages } from "../../gallery";
+
+interface Props {
+    lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const prefix = lang === "es" ? "" : `/${lang}`;
+---
+
+<section class="gallery-section">
+    <div class="container">
+        <div class="gallery-header fade-in-up">
+            <h2 class="page-title">{t("gallery.title")}</h2>
+            <a class="btn btn-primary" href={`${prefix}/gallery/`}>
+                {t("gallery.cta")}
+            </a>
+        </div>
+        <div class="gallery-strip fade-in-up">
+            {
+                galleryImages.slice(0, 3).map((src, i) => (
+                    <a href={`${prefix}/gallery/`} tabindex="-1" aria-hidden="true">
+                        <Image
+                            src={src}
+                            alt={`${t("gallery.alt")} ${i + 1}`}
+                            widths={[400, 800]}
+                            sizes="(min-width:900px) 33vw, 100vw"
+                            format="webp"
+                            loading="lazy"
+                        />
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    .gallery-section {
+        padding: var(--section-padding) 0;
+        background-color: var(--color-bg);
+    }
+
+    .gallery-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+
+    .gallery-strip {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-lg);
+    }
+
+    .gallery-strip a {
+        display: block;
+        overflow: hidden;
+        border-radius: 16px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .gallery-strip img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+
+    .gallery-strip a:hover img {
+        transform: scale(1.05);
+    }
+</style>
